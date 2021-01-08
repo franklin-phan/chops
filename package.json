@@ -1,4 +1,4 @@
-{
+{ "homepage": "https://franklin-phan.github.io/chops",
   "name": "chops",
   "version": "0.1.0",
   "private": true,
@@ -13,6 +13,8 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -37,6 +39,7 @@
     ]
   },
   "devDependencies": {
-    "firebase": "^8.2.1"
+    "firebase": "^8.2.1",
+    "gh-pages": "^3.1.0"
   }
 }

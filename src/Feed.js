@@ -8,7 +8,7 @@ import Navbar from './Navbar'
 import Homepage from './Homepage'
 import MakePost from './MakePost'
 
-class App extends Component {
+class Feed extends Component {
   constructor() {
     super();
     this.state = {
@@ -23,6 +23,8 @@ class App extends Component {
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
   }
+
+
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value
@@ -153,4 +155,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Feed;
