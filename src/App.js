@@ -125,7 +125,7 @@ class App extends Component {
                       src={"https://w.soundcloud.com/player/?url="+ item.link +"&am;"}>
                     </iframe> : null}
                   {item.type === "Spotify" ? 
-                      <iframe src={(item.link).replace("track", "embed/track")} title="post" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> : null}
+                      <iframe src={(item.link).replace("track", "embed/track")} title="post" width="100%" height="100%" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> : null}
                   {item.type === "YouTube" ?
                     <iframe title="post" width="100%" height="166" src={(item.link).replace("watch?v=", "embed/")} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> : null}
                   <p>Posted by: {item.user}
