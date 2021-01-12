@@ -59,6 +59,7 @@ header i {
   box-shadow: 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);
   margin-bottom: 34px;  
   width: 25%;
+  height: 50%;
   margin-right: auto;
 }
 
@@ -90,19 +91,23 @@ input {
 }
 
 ul {
-  display: flex;
-  flex-wrap: wrap;
+  /* display: flex;
+  flex-wrap: wrap; */
+  display: grid;
   margin: 0;
   padding: 0;
 }
 
 li {
-  width: calc(50% - 50px);
+  display: inline-block;
+  flex-direction: column;
+  width: calc(70% - 50px);
+  height: 100%;
   list-style-type: none;
   margin-right: 50px;
   background-color: rgb(237, 237, 237);
   color: #000;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   box-shadow: 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);
 }
 
