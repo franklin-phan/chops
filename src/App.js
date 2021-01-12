@@ -13,6 +13,8 @@ class App extends Component {
     super();
     this.state = {
       currentItem: '',
+      linkValue:'',
+      typeValue:'',
       username: '',
       items: [],
       user: null,
@@ -22,6 +24,8 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
+
+
   }
   handleChange(e) {
     this.setState({
@@ -50,11 +54,15 @@ class App extends Component {
     const itemsRef = firebase.database().ref('items');
     const item = {
       title: this.state.currentItem,
+      link: this.state.linkValue,
+      type: this.state.typeValue,
       user: this.state.user.displayName || this.state.user.email,
     };
     itemsRef.push(item);
     this.setState({
       currentItem: '',
+      linkValue:'',
+      typeValue:'',
       username: ''
     });
   }
@@ -72,6 +80,8 @@ class App extends Component {
         newState.push({
           id: item,
           title: items[item].title,
+          link: items[item].link,
+          type: items[item].type,
           user: items[item].user
         });
       }
@@ -98,6 +108,8 @@ class App extends Component {
       <MakePost 
         nameValue={this.state.user.displayName || this.state.user.email}
         postValue={this.state.currentItem}
+        linkValue={this.state.linkValue}
+        typeValue={this.state.typeValue}
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
         />
@@ -108,17 +120,26 @@ class App extends Component {
               return (
                 <li key={item.id}>
                   <h3>{item.title}</h3>
-                  <p>brought by: {item.user}
+                  {item.type === "SoundCloud" ?
+                      <iframe title="post"width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+                      src={"https://w.soundcloud.com/player/?url="+ item.link +"&am;"}>
+                    </iframe> : null}
+                  {item.type === "Spotify" ? 
+                      <iframe src={(item.link).replace("track", "embed/track")} title="post" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> : null}
+                  {item.type === "YouTube" ?
+                    <iframe title="post" width="100%" height="166" src={(item.link).replace("watch?v=", "embed/")} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> : null}
+                  <p>Posted by: {item.user}
                     {item.user === this.state.user.displayName || item.user === this.state.user.email ?
                       <button onClick={() => this.removeItem(item.id)}>Remove Item</button> : null}
                   </p>
+                  
                 </li>
               )
             })}
           </ul>
         </div>
       </section>
-      <section className='display-item'>
+      {/* <section className='display-item'>
         <div className="wrapper">
           <ul>
             {this.state.items.map((item) => {
@@ -127,7 +148,12 @@ class App extends Component {
                     {item.user === this.state.user.displayName || item.user === this.state.user.email ?
                       <div>
                       <h3>{item.title}</h3>
-                      <p>brought by: {item.user}
+                  <iframe title="post"width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+                      src={"https://w.soundcloud.com/player/?url="+ item.link +"&am;"}>
+                  </iframe>
+
+
+                      <p>Posted by: {item.user}
                       <button onClick={() => this.removeItem(item.id)}>Remove Item</button>
                       </p>
                       </div> : null}
@@ -136,7 +162,7 @@ class App extends Component {
             })}
           </ul>
         </div>
-      </section>
+      </section> */}
   </div>
     </div>
     :
