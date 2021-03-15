@@ -11,10 +11,10 @@ function Homepage() {
             </div>
             <div className='hero-auth-container'>
                 <div className='hero-auth-page'>
-                    <p class="text-center header-text">Jam Session</p>
-                    <p class="p0 m0">Make More Than Music</p>
+                    <p className="text-center header-text">Jam Session</p>
+                    <p className="p0 m0">Make More Than Just Music</p>
 
-                    <div>
+                    <div className="auth-modal">
                         <SignUpModal />
                         <SignInModal />
                     </div>
