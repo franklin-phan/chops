@@ -34,9 +34,14 @@ const SignUp = (props) => {
                     })}
                 </div>
 
-                <button type="submit">Sign Up</button>
-                <button onClick={props.cancel}>Cancel</button>
-                <button onClick={props.submit}>Sign Up With Google</button>
+                <div class="centered-flex-column">
+                    <button type="submit">Sign Up</button>
+                    <div class="centered-flex-row">
+                        <button type="button" onClick={props.cancel}>Cancel</button>
+                        <button type="button" onClick={props.oauth}>Sign Up with Google</button>
+                    </div>
+                </div>
+
             </form>
         </div>
     );

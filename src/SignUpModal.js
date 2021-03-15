@@ -11,7 +11,9 @@ const customStyles = {
         right: 'auto',
         bottom: 'auto',
         marginRight: '-50%',
-        transform: 'translate(-50%, -50%)'
+        transform: 'translate(-50%, -50%)',
+        width: '400px',
+        maxWidth: '90%'
     }
 };
 
@@ -53,7 +55,7 @@ export default function SignUpModal() {
                 style={customStyles}
                 contentLabel="Sign Up Modal"
             >
-                <SignUp cancel={closeModal} submit={signup} />
+                <SignUp cancel={closeModal} oauth={signup} />
                 <div ref={_subtitle => (subtitle = _subtitle)}></div>
             </Modal>
         </div>

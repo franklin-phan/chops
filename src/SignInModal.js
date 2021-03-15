@@ -11,7 +11,9 @@ const customStyles = {
         right: 'auto',
         bottom: 'auto',
         marginRight: '-50%',
-        transform: 'translate(-50%, -50%)'
+        transform: 'translate(-50%, -50%)',
+        width: '400px',
+        maxWidth: '90%'
     }
 };
 
@@ -51,12 +53,10 @@ export default function SignInModal() {
                 onAfterOpen={afterOpenModal}
                 onRequestClose={closeModal}
                 style={customStyles}
-                contentLabel="Example Modal"
+                contentLabel="Login Modal"
             >
-                <SignIn />
+                <SignIn cancel={closeModal} oauth={login} />
                 <div ref={_subtitle => (subtitle = _subtitle)}></div>
-                <button onClick={closeModal}>Cancel</button>
-                <button onClick={login}>Log In with Google</button>
             </Modal>
         </div>
     );

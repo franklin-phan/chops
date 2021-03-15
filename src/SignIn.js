@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import app from 'firebase'
 
 
-const SignIn = () => {
+const SignIn = (props) => {
     const [formErrors, setFormErrors] = useState([])
 
     const handleLogin = (async event => {
@@ -39,7 +39,13 @@ const SignIn = () => {
                     })}
                 </div>
 
-                <button type="submit">Log in</button>
+                <div class="centered-flex-column">
+                    <button type="submit">Log in</button>
+                    <div class="centered-flex-row">
+                        <button type="button" onClick={props.cancel}>Cancel</button>
+                        <button type="button" onClick={props.oauth}>Log In with Google</button>
+                    </div>
+                </div>
             </form>
         </div>
     );
