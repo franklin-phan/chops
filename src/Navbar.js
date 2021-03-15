@@ -5,6 +5,7 @@ import SignInModal from './SignInModal'
 
 export default function Navbar(props){
     const user = props.user;
+    // const username = props.username;
     const logout = props.logout;
     return (<header>
     <div className="wrapper">
