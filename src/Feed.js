@@ -8,6 +8,7 @@ import Navbar from './Navbar'
 import Homepage from './Homepage'
 import MakePost from './MakePost'
 
+
 class Feed extends Component {
   constructor() {
     super();
@@ -89,12 +90,13 @@ class Feed extends Component {
   render() {
     return (
       <div className='app'>
-        <Navbar 
+        
+  {this.state.user ?
+    <div>
+      <Navbar 
         user={this.state.user}
         username={this.state.username}
         logout={this.logout}/>
-  {this.state.user ?
-    <div>
       <div className='user-profile'>
         <img src={this.state.user.photoURL}/>
       </div>
@@ -114,13 +116,13 @@ class Feed extends Component {
               return (
                 <li key={item.id}>
                   <h3>{item.title}</h3>
-                  {item.type === "SoundCloud" ?
+                  {item.link.search("soundcloud") !== -1 ?
                       <iframe title="post"width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
                       src={"https://w.soundcloud.com/player/?url="+ item.link +"&am;"}>
                     </iframe> : null}
-                  {item.type === "Spotify" ? 
+                  {item.link.search("spotify") !== -1 ? 
                       <iframe src={(item.link).replace("track", "embed/track")} title="post" width="100%" height="100%" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> : null}
-                  {item.type === "YouTube" ?
+                  {item.link.search("youtube") !== -1 ?
                     <iframe title="post" width="100%" height="166" src={(item.link).replace("watch?v=", "embed/")} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> : null}
                   <p>Posted by: {item.user}
                     {item.user === this.state.user.displayName || item.user === this.state.user.email ?
