@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import app from 'firebase'
 
-const SignUp = () => {
+const SignUp = (props) => {
     const [formErrors, setFormErrors] = useState([])
 
     const handleSignUp = (async event => {
@@ -22,14 +22,11 @@ const SignUp = () => {
         <div>
             <h1>Sign up</h1>
             <form onSubmit={handleSignUp}>
-                <label>
-                    Email
-            <input name="email" type="email" placeholder="Email" />
-                </label>
-                <label>
-                    Password
-            <input name="password" type="password" placeholder="Password" />
-                </label>
+                <label for="email">Email</label>
+                <input name="email" type="email" id="email" placeholder="Email" />
+
+                <label for="password">Password</label>
+                <input name="password" type="password" id="password" placeholder="Password" />
 
                 <div>
                     {formErrors.map((value, index) => {
@@ -38,6 +35,8 @@ const SignUp = () => {
                 </div>
 
                 <button type="submit">Sign Up</button>
+                <button onClick={props.cancel}>Cancel</button>
+                <button onClick={props.submit}>Sign Up With Google</button>
             </form>
         </div>
     );

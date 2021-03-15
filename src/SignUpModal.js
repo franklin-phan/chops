@@ -20,7 +20,7 @@ export default function SignUpModal() {
     var subtitle;
     const [modalIsOpen, setIsOpen] = React.useState(false);
 
-    function login() {
+    function signup() {
         auth.signInWithRedirect(provider)
             .then((result) => {
                 const user = result.user;
@@ -51,12 +51,10 @@ export default function SignUpModal() {
                 onAfterOpen={afterOpenModal}
                 onRequestClose={closeModal}
                 style={customStyles}
-                contentLabel="Example Modal"
+                contentLabel="Sign Up Modal"
             >
-                <SignUp />
+                <SignUp cancel={closeModal} submit={signup} />
                 <div ref={_subtitle => (subtitle = _subtitle)}></div>
-                <button onClick={closeModal}>Cancel</button>
-                <button onClick={login}>Sign Up With Google</button>
             </Modal>
         </div>
     );
