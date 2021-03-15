@@ -8,6 +8,7 @@ import Navbar from './Navbar'
 import Homepage from './Homepage'
 import MakePost from './MakePost'
 
+
 class Feed extends Component {
   constructor() {
     super();
@@ -89,12 +90,13 @@ class Feed extends Component {
   render() {
     return (
       <div className='app'>
-        <Navbar 
+        
+  {this.state.user ?
+    <div>
+      <Navbar 
         user={this.state.user}
         username={this.state.username}
         logout={this.logout}/>
-  {this.state.user ?
-    <div>
       <div className='user-profile'>
         <img src={this.state.user.photoURL}/>
       </div>
