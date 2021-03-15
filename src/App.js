@@ -8,6 +8,8 @@ import Navbar from './Navbar'
 import Homepage from './Homepage'
 import MakePost from './MakePost'
 
+// Franklin was here
+
 class App extends Component {
   constructor() {
     super();
