@@ -87,7 +87,6 @@ input {
   margin-bottom: 17px;
   border: 0;
   display: block;
-  width: 100%;  
 }
 
 ul {
@@ -145,6 +144,7 @@ button {
   font-size: 14px;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
   padding: 10px 6px;
+  outline: none;
 }
 
 .user-profile {
@@ -204,7 +204,6 @@ button {
 .hero-auth-page {
     width: 75%;
     padding: 30px;
-    background-color: white;
     border-radius: 10px;
 
     display: flex;
@@ -216,6 +215,8 @@ button {
 .hero-auth-page button {
     margin-top: 30px;
     width: 100%;
+    border-radius: 20px;
+    font-size: 16px;
 }
 
 .auth-modal {
@@ -224,12 +225,23 @@ button {
 
 /* Utility 2.0 */
 .header-text {
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 30px;
-    color: rgb(51, 51, 51);
     margin: 10px;
+    font-weight: 600;
+}
+
+.slogan-text {
+    font-size: 18px;
+}
+
+.text-light {
+    color: whitesmoke;
 }
 
 .text-center {
     text-align: center;
+}
+
+.error-text {
+    color: rgb(209, 72, 72);
 }

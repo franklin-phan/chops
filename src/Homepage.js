@@ -7,12 +7,11 @@ function Homepage() {
     return (
         <div className='homepage-wrapper'>
             <div className='hero-image-container'>
-                <p>test</p>
             </div>
             <div className='hero-auth-container'>
                 <div className='hero-auth-page'>
-                    <p className="text-center header-text">Jam Session</p>
-                    <p className="p0 m0">Make More Than Just Music</p>
+                    <p className="text-center header-text text-light">Jam Session</p>
+                    <p className="text-light slogan-text">Make More Than Just Music</p>
 
                     <div className="auth-modal">
                         <SignUpModal />
