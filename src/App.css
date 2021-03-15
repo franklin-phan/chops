@@ -264,3 +264,79 @@ button {
 .error-text {
     color: rgb(209, 72, 72);
 }
+
+
+
+/* Homepage Vaporwave Sun Logo */
+.scene {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #3e006b;
+}
+
+.container {
+  position: relative;
+  height: 30vw;
+  width: 30vw;
+  overflow: hidden;
+}
+
+.sun {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 30vw;
+  height: 30vw;
+  background: radial-gradient(transparent 65%, #ff0488 100%), linear-gradient(#ffcb55 0, #ff0488 100%);
+  border-radius: 50%;
+  -webkit-animation: hue-rotate 60s ease-in-out infinite 5s;
+          animation: hue-rotate 60s ease-in-out infinite 5s;
+}
+
+.band {
+  position: absolute;
+  bottom: -6vw;
+  width: 100%;
+  height: 10%;
+  background: #3e006b;
+  -webkit-animation: wave 10s linear infinite;
+          animation: wave 10s linear infinite;
+}
+
+@-webkit-keyframes wave {
+  0% {
+    transform: translateY(0) scaleY(1);
+  }
+  100% {
+    transform: translateY(-24vw) scaleY(0);
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: translateY(0) scaleY(1);
+  }
+  100% {
+    transform: translateY(-24vw) scaleY(0);
+  }
+}
+@-webkit-keyframes hue-rotate {
+  0% {
+    filter: hue-rotate(360deg);
+  }
+  100% {
+    filter: hue-rotate(0deg);
+  }
+}
+@keyframes hue-rotate {
+  0% {
+    filter: hue-rotate(360deg);
+  }
+  100% {
+    filter: hue-rotate(0deg);
+  }
+}
