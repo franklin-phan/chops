@@ -5,7 +5,7 @@ import './App.css';
 // import { auth, provider } from './google-signin'
 
 import Feed from './Feed'
-import Navbar from './Navbar'
+// import Navbar from './Navbar'
 // import Homepage from './Homepage'
 // import MakePost from './MakePost'
 
@@ -22,11 +22,8 @@ class App extends Component {
     this.setState({data: childData})
   }
   render() {
-    const {data} = this.state;
     return (
       <div>
-      {/* <Navbar/>
-      Data:{data} */}
       <Feed parentCallback = {this.handleCallback}/>
       </div>
     );
