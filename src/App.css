@@ -87,6 +87,7 @@ input {
   margin-bottom: 17px;
   border: 0;
   display: block;
+  width: 90%;
 }
 
 ul {
@@ -135,7 +136,6 @@ form button {
 
 button {
   border-radius: 2px;
-  min-width: 88px;
   background-color: #FA6900;
   cursor: pointer;
   border: 0;
@@ -221,13 +221,15 @@ button {
 .auth-modal {
     width: 60%;
 }
+
 /* Utility 2.0 */
-.header-text {
-    font-size: 30px;
-    margin: 10px;
-    font-weight: 600;
+
+/* size */
+.w-49 {
+    width: 49%;
 }
 
+/* position */
 .centered-flex-column {
     display: flex;
     flex-direction: column;
@@ -237,7 +239,14 @@ button {
 .centered-flex-row {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
+}
+
+/* text */
+.header-text {
+    font-size: 30px;
+    margin: 10px;
+    font-weight: 600;
 }
 
 .slogan-text {

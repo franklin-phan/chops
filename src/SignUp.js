@@ -37,8 +37,8 @@ const SignUp = (props) => {
                 <div class="centered-flex-column">
                     <button type="submit">Sign Up</button>
                     <div class="centered-flex-row">
-                        <button type="button" onClick={props.cancel}>Cancel</button>
-                        <button type="button" onClick={props.oauth}>Sign Up with Google</button>
+                        <button type="button" className="w-49" onClick={props.cancel}>Cancel</button>
+                        <button type="button" className="w-49" onClick={props.oauth}>Sign Up with Google</button>
                     </div>
                 </div>
 
