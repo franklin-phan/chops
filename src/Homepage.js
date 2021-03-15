@@ -1,10 +1,27 @@
 import React from 'react';
 
-function Homepage(){
-    return(
-        <div className='wrapper'>
-        <p>You must be logged in to see posts and submit to it.</p>
+import SignUpModal from './SignUpModal'
+import SignInModal from './SignInModal'
+
+function Homepage() {
+    return (
+        <div className='homepage-wrapper'>
+            <div className='hero-image-container'>
+                <p>test</p>
+            </div>
+            <div className='hero-auth-container'>
+                <div className='hero-auth-page'>
+                    <p class="text-center header-text">Jam Session</p>
+                    <p class="p0 m0">Make More Than Music</p>
+
+                    <div>
+                        <SignUpModal />
+                        <SignInModal />
+                    </div>
+                </div>
+            </div>
         </div>
+
     )
 }
 
