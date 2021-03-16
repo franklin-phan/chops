@@ -1,34 +1,50 @@
+import React, { useState } from 'react';
 import app from 'firebase'
-const SignUp = () => {
+
+const SignUp = (props) => {
+    const [formErrors, setFormErrors] = useState([])
+
     const handleSignUp = (async event => {
-      event.preventDefault();
-      const { email, password } = event.target.elements;
-      try {
-        await app
-          .auth()
-          .createUserWithEmailAndPassword(email.value, password.value);
-      } catch (error) {
-        alert(error);
-      }
+        event.preventDefault();
+        const { email, password } = event.target.elements;
+        setFormErrors([])
+
+        try {
+            await app
+                .auth()
+                .createUserWithEmailAndPassword(email.value, password.value);
+        } catch (error) {
+            setFormErrors(formErrors => [...formErrors, error.message])
+        }
     });
-  
+
     return (
-      <div>
-        <h1>Sign up</h1>
-        <form onSubmit={handleSignUp}>
-          <label>
-            Email
-            <input name="email" type="email" placeholder="Email" />
-          </label>
-          <label>
-            Password
-            <input name="password" type="password" placeholder="Password" />
-          </label>
-          <button type="submit">Sign Up</button>
-        </form>
-      </div>
+        <div>
+            <h1>Sign up</h1>
+            <form onSubmit={handleSignUp}>
+                <label for="email">Email</label>
+                <input name="email" type="email" id="email" placeholder="Email" />
+
+                <label for="password">Password</label>
+                <input name="password" type="password" id="password" placeholder="Password" />
+
+                <div>
+                    {formErrors.map((value, index) => {
+                        return <p key={index} className="error-text">{value}</p>
+                    })}
+                </div>
+
+                <div class="centered-flex-column">
+                    <button type="submit">Sign Up</button>
+                    <div class="centered-flex-row">
+                        <button type="button" className="w-49" onClick={props.cancel}>Cancel</button>
+                        <button type="button" className="w-49" onClick={props.oauth}>Sign Up with Google</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
     );
-  };
-  
-  export default SignUp
-  
+};
+
+export default SignUp
