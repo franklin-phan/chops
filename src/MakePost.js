@@ -4,7 +4,7 @@ export default function MakePost (props) {
     const nameValue = props.nameValue;
     const postValue = props.postValue
     const handleChange = props.handleChange
-    const handleSubmit =props.handleSubmit
+    const handleSubmit = props.handleSubmit
     const linkValue = props.linkValue
     return(
         <section className='add-item'>
