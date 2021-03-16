@@ -39,9 +39,9 @@ const SignIn = (props) => {
                     })}
                 </div>
 
-                <div class="centered-flex-column">
+                <div className="centered-flex-column">
                     <button type="submit">Log in</button>
-                    <div class="centered-flex-row">
+                    <div className="centered-flex-row">
                         <button type="button" className="w-49" onClick={props.cancel}>Cancel</button>
                         <button type="button" className="w-49" onClick={props.oauth}>Log In with Google</button>
                     </div>

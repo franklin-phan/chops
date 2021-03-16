@@ -90,6 +90,12 @@ input {
   width: 90%;
 }
 
+.inputError {
+    background-color: rgb(250, 157, 157);
+    border: 1px solid rgb(255, 111, 111);
+    border-radius: 5px;
+}
+
 ul {
   /* display: flex;
   flex-wrap: wrap; */
@@ -205,6 +211,8 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    font-family: 'Syne', sans-serif;
 }
 
 .hero-auth-page button {

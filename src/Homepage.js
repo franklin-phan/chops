@@ -5,22 +5,22 @@ import SignInModal from './SignInModal'
 
 function Homepage() {
     return (
-        <section class="homepage-section">
+        <section className="homepage-section">
             <div className='homepage-wrapper'>
                 <div className='hero-image-container'>
-                    <div class="scene">
-                        <div class="vaporwave-container">
-                            <div class="sun"></div>
-                            <div class="band" style={{ animationDelay: "-0s" }}></div>
-                            <div class="band" style={{ animationDelay: "-1s" }}></div>
-                            <div class="band" style={{ animationDelay: "-2s" }}></div>
-                            <div class="band" style={{ animationDelay: "-3s" }}></div>
-                            <div class="band" style={{ animationDelay: "-4s" }}></div>
-                            <div class="band" style={{ animationDelay: "-5s" }}></div>
-                            <div class="band" style={{ animationDelay: "-6s" }}></div>
-                            <div class="band" style={{ animationDelay: "-7s" }}></div>
-                            <div class="band" style={{ animationDelay: "-8s" }}></div>
-                            <div class="band" style={{ animationDelay: "-9s" }}></div>
+                    <div className="scene">
+                        <div className="vaporwave-container">
+                            <div className="sun"></div>
+                            <div className="band" style={{ animationDelay: "-0s" }}></div>
+                            <div className="band" style={{ animationDelay: "-1s" }}></div>
+                            <div className="band" style={{ animationDelay: "-2s" }}></div>
+                            <div className="band" style={{ animationDelay: "-3s" }}></div>
+                            <div className="band" style={{ animationDelay: "-4s" }}></div>
+                            <div className="band" style={{ animationDelay: "-5s" }}></div>
+                            <div className="band" style={{ animationDelay: "-6s" }}></div>
+                            <div className="band" style={{ animationDelay: "-7s" }}></div>
+                            <div className="band" style={{ animationDelay: "-8s" }}></div>
+                            <div className="band" style={{ animationDelay: "-9s" }}></div>
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@ function Homepage() {
                         </div>
                     </div>
                 </div>
-                <div class="footer text-light">
+                <div className="footer text-light">
                     <div>&#169; Jam Session 2021</div>
                 </div>
             </div>
