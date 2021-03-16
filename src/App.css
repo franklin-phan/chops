@@ -234,6 +234,13 @@ button {
     width: 40%;
 }
 
+.footer {
+    background-color: #242424;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+}
+
 /* Utility 2.0 */
 
 /* size */
