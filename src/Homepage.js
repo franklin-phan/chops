@@ -26,7 +26,7 @@ function Homepage() {
                 </div>
                 <div className='hero-auth-container'>
                     <div className='hero-auth-page'>
-                        <p className="text-center header-text text-light">Jam Session</p>
+                        <p className="text-light text-center header-text">Jam Session</p>
                         <p className="text-light slogan-text">Make More Than Just Music</p>
 
                         <div className="auth-modal">
@@ -35,9 +35,9 @@ function Homepage() {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="footer">
-                <div class="text-light">Copyright something or other</div>
+                <div class="footer">
+                    <div>Copyright something or other</div>
+                </div>
             </div>
         </section>
 
