@@ -9,14 +9,24 @@ const SignUp = (props) => {
 
     const handleSignUp = (async event => {
         event.preventDefault();
-        const { firstname, lastname, email, password } = event.target.elements;
+        const { username, email, password } = event.target.elements;
         setFormErrors([])
 
         if (passwordsMatch) {
             try {
                 await app
                     .auth()
-                    .createUserWithEmailAndPassword(email.value, password.value);
+                    .createUserWithEmailAndPassword(email.value, password.value)
+                    .then((userCredential) => {
+
+                        var user = userCredential.user;
+
+                        user.updateProfile({
+                            displayName: (username.value)
+                        }).catch(function (error) {
+                            setFormErrors(formErrors => [...formErrors, error.message])
+                        });
+                    })
 
             } catch (error) {
                 setFormErrors(formErrors => [...formErrors, error.message])
@@ -29,18 +39,14 @@ const SignUp = (props) => {
 
     useEffect(() => {
         setPasswordsMatch(password === confirmPassword)
-    });
+    }, [password, confirmPassword]);
 
     return (
         <div>
             <h1>Sign up</h1>
             <form onSubmit={handleSignUp}>
-                <label>First Name:
-                <input name="firstname" type="text" id="firstname" placeholder="John" required />
-                </label>
-
-                <label>Last Name:
-                <input name="lastname" type="text" id="lastname" placeholder="Doe" required />
+                <label>Name:
+                <input name="username" type="text" id="username" placeholder="John Doe" required />
                 </label>
 
                 <label>Email:
