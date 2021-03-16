@@ -8,7 +8,7 @@ function Homepage() {
         <div className='homepage-wrapper'>
             <div className='hero-image-container'>
                 <div class="scene">
-                    <div class="container">
+                    <div class="vaporwave-container">
                         <div class="sun"></div>
                         <div class="band" style={{ animationDelay: "-0s" }}></div>
                         <div class="band" style={{ animationDelay: "-1s" }}></div>
