@@ -13,6 +13,7 @@ header p {
   width: 400px;
   margin: 0 auto;
 }
+
 header .wrapper {
   display: flex;
   justify-content: space-between;
@@ -86,7 +87,7 @@ input {
   font-size: 16px;
   margin: 7px 0 17px 0;
   display: block;
-  width: 90%;
+  width: 95%;
   border-radius: 5px;
   border: 1px solid lightgray;
 }
@@ -137,8 +138,23 @@ li p {
 }
 
 form button {
-  width: 100%;
+  width: 50%;
   margin-top: 10px;
+}
+
+.close-modal {
+    margin-top: 5px;
+    padding: 5px;
+    background-color: rgb(250, 81, 81);
+    height: 30px;
+    width: 30px;
+}
+
+.google-sso-button {
+    padding: 20px;
+    background-color: blue;
+    width: 50%;
+    height: 100px;
 }
 
 button {
@@ -146,7 +162,6 @@ button {
   background-color: #03aab3;
   cursor: pointer;
   border: 0;
-  min-width: 120px;
   color: #eee;
   font-size: 14px;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
@@ -212,7 +227,6 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     font-family: 'Syne', sans-serif;
 }
 
@@ -355,4 +369,46 @@ button {
   100% {
     filter: hue-rotate(0deg);
   }
+}
+
+/* Google OAuth Button 4.0 */
+.google-btn {
+    margin-top: 10px;
+    width: 80%;
+    min-width: 184px;
+    max-width: 184px;
+    height: 42px;
+    background-color: #fcfcfc;
+    border-radius: 2px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .2);
+    cursor: pointer;
+    align-self: center;
+    user-select: none;
+    display: flex;
+}
+.google-btn .google-icon-wrapper {
+    position: absolute;
+    margin-top: 1px;
+    margin-left: 1px;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    user-select: none
+}
+.google-btn .google-icon-svg {
+    position: absolute;
+    margin-top: 11px;
+    margin-left: 11px;
+    width: 18px;
+    height: 18px;
+    user-select: none
+}
+.google-btn .btn-text {
+    float: right;
+    margin: 11px 14px 40px 40px;
+    color: #757575;
+    font-size: 14px;
+    letter-spacing: .2px;
+    font-family: Roboto;
+    user-select: none
 }
