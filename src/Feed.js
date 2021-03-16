@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import firebase from './firebase.js';
-
+import Post from './Post'
 import { auth } from './google-signin'
 
 import Navbar from './Navbar'
 import Homepage from './Homepage'
 import MakePost from './MakePost'
-
+import Moment from 'moment'
 
 class Feed extends Component {
   constructor() {
@@ -16,6 +16,7 @@ class Feed extends Component {
       currentItem: '',
       linkValue:'',
       typeValue:'',
+      time: '',
       username: '',
       items: [],
       user: null,
@@ -45,6 +46,7 @@ class Feed extends Component {
       title: this.state.currentItem,
       link: this.state.linkValue,
       type: this.state.typeValue,
+      time: Moment(Date.now()).format('ll'),
       user: this.state.user.displayName || this.state.user.email,
     };
     itemsRef.push(item);
@@ -52,7 +54,8 @@ class Feed extends Component {
       currentItem: '',
       linkValue:'',
       typeValue:'',
-      username: ''
+      username: '',
+      time: ''
     });
   }
   componentDidMount() {
@@ -71,8 +74,11 @@ class Feed extends Component {
           title: items[item].title,
           link: items[item].link,
           type: items[item].type,
-          user: items[item].user
+          user: items[item].user,
+          comments: items[item].comments,
+          time: items[item].time
         });
+        console.log(item)
       }
       this.setState({
         items: newState
@@ -106,6 +112,7 @@ class Feed extends Component {
         postValue={this.state.currentItem}
         linkValue={this.state.linkValue}
         typeValue={this.state.typeValue}
+        time={Moment(Date.now()).format('ll')}
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
         />
@@ -114,22 +121,7 @@ class Feed extends Component {
           <ul>
             {this.state.items.map((item) => {
               return (
-                <li key={item.id}>
-                  <h3>{item.title}</h3>
-                  {item.link.search("soundcloud") !== -1 ?
-                      <iframe title="post"width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
-                      src={"https://w.soundcloud.com/player/?url="+ item.link +"&am;"}>
-                    </iframe> : null}
-                  {item.link.search("spotify") !== -1 ? 
-                      <iframe src={(item.link).replace("track", "embed/track")} title="post" width="100%" height="100%" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> : null}
-                  {item.link.search("youtube") !== -1 ?
-                    <iframe title="post" width="100%" height="166" src={(item.link).replace("watch?v=", "embed/")} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> : null}
-                  <p>Posted by: {item.user}
-                    {item.user === this.state.user.displayName || item.user === this.state.user.email ?
-                      <button onClick={() => this.removeItem(item.id)}>Remove Item</button> : null}
-                  </p>
-                  
-                </li>
+                <Post item={item} user={this.state.user.displayName} email={this.state.user.email}/>
               )
             })}
           </ul>
