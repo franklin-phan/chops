@@ -145,9 +145,11 @@ form button {
 .close-modal {
     margin-top: 5px;
     padding: 5px;
-    background-color: rgb(250, 81, 81);
+    background-color: rgb(248, 88, 88);
     height: 30px;
     width: 30px;
+    border-radius: 20px;
+    box-shadow: none;
 }
 
 .google-sso-button {

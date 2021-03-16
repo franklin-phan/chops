@@ -29,11 +29,11 @@ const SignIn = (props) => {
             <form onSubmit={handleLogin}>
                 <label>
                     Email
-            <input name="email" type="email" placeholder="Email" />
+            <input name="email" type="email" required />
                 </label>
                 <label>
                     Password
-            <input name="password" type="password" placeholder="Password" />
+            <input name="password" type="password" required />
                 </label>
 
                 <div>
