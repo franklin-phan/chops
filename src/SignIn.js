@@ -22,7 +22,7 @@ const SignIn = (props) => {
 
     return (
         <div>
-            <h1>Log in</h1>
+            <h1 class="auth-header">Log in</h1>
             <form onSubmit={handleLogin}>
                 <label>
                     Email

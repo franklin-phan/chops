@@ -43,7 +43,7 @@ const SignUp = (props) => {
 
     return (
         <div>
-            <h1>Sign up</h1>
+            <h1 class="auth-header">Sign up</h1>
             <form onSubmit={handleSignUp}>
                 <label>Name:
                 <input name="username" type="text" id="username" placeholder="John Doe" required />
@@ -54,14 +54,14 @@ const SignUp = (props) => {
                 </label>
 
                 <label>Password:
-                <input name="password" type="password" id="password" placeholder="Password" value={password} required
+                <input name="password" type="password" id="password" placeholder="New Password" value={password} required
                         onChange={(e) => {
                             setPassword(e.target.value)
                         }} />
                 </label>
 
                 <label>Confirm Password:
-                <input type="password" id="confirmpassword" placeholder="Confirm Password" value={confirmPassword} className={`${passwordsMatch ? "" : "inputError"}`} required
+                <input type="password" id="confirmpassword" placeholder="Repeat Password" value={confirmPassword} className={`${passwordsMatch ? "" : "inputError"}`} required
                         onChange={(e) => {
                             setConfirmPassword(e.target.value)
                         }} />
@@ -77,7 +77,9 @@ const SignUp = (props) => {
                     <button type="submit">Sign Up</button>
                     <div className="centered-flex-row">
                         <button type="button" className="w-49" onClick={props.cancel}>Cancel</button>
-                        <button type="button" className="w-49" onClick={props.oauth}>Sign Up with Google</button>
+                        <button type="button" className="w-49" onClick={props.oauth}>
+                            {/* <img src={process.env.PUBLIC_URL + '/google-icon.svg'} class="inline-icon" /> */}
+                            Sign Up with Google</button>
                     </div>
                 </div>
 

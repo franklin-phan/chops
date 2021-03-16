@@ -82,16 +82,17 @@ header i {
 input {
   font-size: 22px;
   color: #000;
-  padding: 18px 22px;
+  padding: 10px 10px;
   font-size: 16px;
-  margin-bottom: 17px;
-  border: 0;
+  margin: 7px 0 17px 0;
   display: block;
   width: 90%;
+  border-radius: 5px;
+  border: 1px solid lightgray;
 }
 
 .inputError {
-    background-color: rgb(250, 157, 157);
+    background-color: rgb(255, 224, 224);
     border: 1px solid rgb(255, 111, 111);
     border-radius: 5px;
 }
@@ -258,6 +259,10 @@ button {
     font-size: 30px;
     margin: 10px;
     font-weight: 600;
+}
+
+.auth-header {
+    margin-top: 0;
 }
 
 .slogan-text {
