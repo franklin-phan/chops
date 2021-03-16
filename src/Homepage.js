@@ -35,8 +35,8 @@ function Homepage() {
                         </div>
                     </div>
                 </div>
-                <div class="footer">
-                    <div>Copyright something or other</div>
+                <div class="footer text-light">
+                    <div>&#169; Jam Session 2021</div>
                 </div>
             </div>
         </section>
