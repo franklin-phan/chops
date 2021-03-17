@@ -22,15 +22,18 @@ const SignIn = (props) => {
 
     return (
         <div>
-            <h1>Log in</h1>
+            <div class="centered-flex-row">
+                <h1 class="auth-header">Login</h1>
+                <button type="button" className="close-modal" onClick={props.cancel}>X</button>
+            </div>
             <form onSubmit={handleLogin}>
                 <label>
                     Email
-            <input name="email" type="email" placeholder="Email" />
+            <input name="email" type="email" required />
                 </label>
                 <label>
                     Password
-            <input name="password" type="password" placeholder="Password" />
+            <input name="password" type="password" required />
                 </label>
 
                 <div>
@@ -39,11 +42,13 @@ const SignIn = (props) => {
                     })}
                 </div>
 
-                <div class="centered-flex-column">
-                    <button type="submit">Log in</button>
-                    <div class="centered-flex-row">
-                        <button type="button" className="w-49" onClick={props.cancel}>Cancel</button>
-                        <button type="button" className="w-49" onClick={props.oauth}>Log In with Google</button>
+                <div className="centered-flex-row">
+                    <button type="submit">Login</button>
+                    <div class="google-btn" onClick={props.oauth}>
+                        <div class="google-icon-wrapper">
+                            <img class="google-icon-svg" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+                        </div>
+                        <p class="btn-text"><b>Sign in with Google</b></p>
                     </div>
                 </div>
             </form>

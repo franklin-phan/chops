@@ -5,6 +5,9 @@ import { auth, provider } from './google-signin'
 
 import SignIn from './SignIn'
 const customStyles = {
+    overlay: {
+        background: "#0009"
+    },
     content: {
         top: '50%',
         left: '50%',
@@ -13,7 +16,8 @@ const customStyles = {
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
         width: '400px',
-        maxWidth: '90%'
+        maxWidth: '90%',
+        borderRadius: '10px'
     }
 };
 

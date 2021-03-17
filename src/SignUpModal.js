@@ -1,10 +1,12 @@
 import React from 'react';
 import Modal from 'react-modal';
-
 import { auth, provider } from './google-signin'
-
 import SignUp from './SignUp'
+
 const customStyles = {
+    overlay: {
+        background: "#0009"
+    },
     content: {
         top: '50%',
         left: '50%',
@@ -13,7 +15,8 @@ const customStyles = {
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
         width: '400px',
-        maxWidth: '90%'
+        maxWidth: '90%',
+        borderRadius: '10px'
     }
 };
 
