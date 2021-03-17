@@ -368,10 +368,6 @@ button {
     margin-top: 20px;
 }
 
-@media only screen and (max-width: 1000px){
-
-}
-
 .add-item {
   grid-area: 1 / 2 / 1 / 5;
 
@@ -387,6 +383,22 @@ button {
   grid-area: 1 / 5 / 6 / 11;
   overflow-y: scroll;
   margin-left: 30px;
+}
+
+@media only screen and (max-width: 1300px){
+    .display-item {
+        grid-area: 1 / 5 / 6 / 12;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .add-item {
+        grid-area: 1 / 2 / 4 / 12;
+    }
+    .display-item {
+        grid-area: 4 / 2 / 9 / 12;
+        margin: 0;
+    }
 }
 
 .display-item button {
