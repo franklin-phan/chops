@@ -12,7 +12,9 @@ export default function Navbar(props) {
             <h1>Jam Session</h1>
             {user ?
                 <div className="navbar-content">
-                    <button onClick={logout}>Logout</button>
+                    <div>
+                        <button onClick={logout}>Logout</button>
+                    </div>
                     <div className='user-profile'>
                         <img src={user.photoURL} />
                     </div>
