@@ -5,7 +5,7 @@ body {
 
 header {
   color: #fff;
-  background-color: #103D5D;
+  background-color: #482880;
   padding: 33px 0 25px 15px;
 }
 
@@ -13,6 +13,7 @@ header p {
   width: 400px;
   margin: 0 auto;
 }
+
 header .wrapper {
   display: flex;
   justify-content: space-between;
@@ -52,7 +53,7 @@ header i {
 
 .add-item {
   border-radius: 2px;
-  border-top: 3px solid #103D5D;
+  border-top: 3px solid #482880;
   margin-right: 50px;
   background-color: rgb(237, 237, 237);
   padding: 60px 18px;
@@ -82,12 +83,19 @@ header i {
 input {
   font-size: 22px;
   color: #000;
-  padding: 18px 22px;
+  padding: 10px 10px;
   font-size: 16px;
-  margin-bottom: 17px;
-  border: 0;
+  margin: 7px 0 17px 0;
   display: block;
-  width: 100%;  
+  width: 95%;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+}
+
+.inputError {
+    background-color: rgb(255, 224, 224);
+    border: 1px solid rgb(255, 111, 111);
+    border-radius: 5px;
 }
 
 ul {
@@ -118,7 +126,7 @@ h2 {
 }
 
 li h3 {
-  background-color: #103D5D;
+  background-color: #482880;
   margin: 0;
   color: #fff;
   font-weight: 300;
@@ -130,21 +138,37 @@ li p {
 }
 
 form button {
-  width: 100%;
+  width: 50%;
   margin-top: 10px;
+}
+
+.close-modal {
+    margin-top: 5px;
+    padding: 5px;
+    background-color: rgb(248, 88, 88);
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+    box-shadow: none;
+}
+
+.google-sso-button {
+    padding: 20px;
+    background-color: blue;
+    width: 50%;
+    height: 100px;
 }
 
 button {
   border-radius: 2px;
-  min-width: 88px;
-  background-color: #FA6900;
+  background-color: #03aab3;
   cursor: pointer;
   border: 0;
-  min-width: 120px;
-  color: #fff;
+  color: #eee;
   font-size: 14px;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
-  padding: 10px 6px;
+  padding: 6px 6px;
+  outline: none;
 }
 
 .user-profile {
@@ -158,4 +182,235 @@ button {
 .user-profile img {
   border-radius: 50%;
   max-width: 100%;
+}
+
+/* Homepage - 1.0 */
+.homepage-wrapper {
+    height: 100vh;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(14, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.hero-image-container {
+    grid-area: 1 / 1 / 14 / 8;
+}
+
+.hero-auth-container {
+    background-color: #01014b;
+
+    grid-area: 1 / 8 / 14 / 11;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 1000px){
+    .hero-auth-container {
+        grid-area: 9 / 1 / 14 / 11;
+    }
+
+    .hero-image-container {
+        grid-area: 1 / 1 / 9 / 11;
+    }
+}
+
+.hero-auth-page {
+    width: 75%;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Syne', sans-serif;
+}
+
+.hero-auth-page button {
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.auth-modal {
+    width: 40%;
+}
+
+.footer {
+    background-color: #222;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    grid-area: 14 / 1 / 15 / 11;
+}
+
+/* Utility 2.0 */
+
+/* size */
+.w-49 {
+    width: 49%;
+}
+
+/* position */
+.centered-flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.centered-flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* text */
+.header-text {
+    font-size: 30px;
+    margin: 10px;
+    font-weight: 600;
+}
+
+.auth-header {
+    margin-top: 0;
+}
+
+.slogan-text {
+    font-size: 18px;
+}
+
+.text-light {
+    color: whitesmoke;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.error-text {
+    color: rgb(209, 72, 72);
+}
+
+
+
+/* Homepage Vaporwave Sun Logo 3.0 */
+.scene {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #120458;
+}
+
+.vaporwave-container {
+  position: relative;
+  height: 30vw;
+  width: 30vw;
+  overflow: hidden;
+}
+
+.sun {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 30vw;
+  height: 30vw;
+  background: radial-gradient(transparent 65%, #ff0488 100%), linear-gradient(#ffcb55 0, #ff0488 100%);
+  border-radius: 50%;
+  /* -webkit-animation: hue-rotate 60s ease-in-out infinite 5s;
+          animation: hue-rotate 60s ease-in-out infinite 5s; */
+}
+
+.band {
+  position: absolute;
+  bottom: -6vw;
+  width: 100%;
+  height: 10%;
+  background: #120458;
+  -webkit-animation: wave 10s linear infinite;
+          animation: wave 10s linear infinite;
+}
+
+@-webkit-keyframes wave {
+  0% {
+    transform: translateY(0) scaleY(1);
+  }
+  100% {
+    transform: translateY(-24vw) scaleY(0);
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: translateY(0) scaleY(1);
+  }
+  100% {
+    transform: translateY(-24vw) scaleY(0);
+  }
+}
+@-webkit-keyframes hue-rotate {
+  0% {
+    filter: hue-rotate(360deg);
+  }
+  100% {
+    filter: hue-rotate(0deg);
+  }
+}
+@keyframes hue-rotate {
+  0% {
+    filter: hue-rotate(360deg);
+  }
+  100% {
+    filter: hue-rotate(0deg);
+  }
+}
+
+/* Google OAuth Button 4.0 */
+.google-btn {
+    margin-top: 10px;
+    width: 80%;
+    min-width: 184px;
+    max-width: 184px;
+    height: 42px;
+    background-color: #fcfcfc;
+    border-radius: 2px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .2);
+    cursor: pointer;
+    align-self: center;
+    user-select: none;
+    display: flex;
+}
+.google-btn .google-icon-wrapper {
+    position: absolute;
+    margin-top: 1px;
+    margin-left: 1px;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    user-select: none
+}
+.google-btn .google-icon-svg {
+    position: absolute;
+    margin-top: 11px;
+    margin-left: 11px;
+    width: 18px;
+    height: 18px;
+    user-select: none
+}
+.google-btn .btn-text {
+    float: right;
+    margin: 11px 14px 40px 40px;
+    color: #757575;
+    font-size: 14px;
+    letter-spacing: .2px;
+    font-family: Roboto;
+    user-select: none
 }

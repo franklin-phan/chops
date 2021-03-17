@@ -11,6 +11,8 @@ import Feed from './Feed'
 
 // import { HashRouter as Router, Route } from 'react-router-dom'
 
+// Franklin was here
+
 class App extends Component {
   constructor(props){
     super(props);
