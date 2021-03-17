@@ -39,7 +39,7 @@ header i {
   margin-left: 12px;
 }
 
-.container {
+.feed-container {
   display: flex;
   max-width: 1100px;
   margin: 0 auto;
@@ -171,12 +171,16 @@ button {
   outline: none;
 }
 
+.navbar-content {
+    display: flex;
+    width: 200px;
+    justify-content:flex-end;
+}
+
 .user-profile {
-  position: fixed;
-  bottom: 20px;
-  right: 40px;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
+  margin: 0px 20px;
 }
 
 .user-profile img {
