@@ -188,7 +188,7 @@ button {
 
 .footer {
     background-color: rgba(98, 98, 98, 0.322);
-    background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 100%);
+    background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%);
     width: 100%;
     padding: 20px 0;
     text-align: center;
@@ -270,8 +270,8 @@ button {
   height: 30vw;
   background: radial-gradient(transparent 65%, #ff0488 100%), linear-gradient(#ffcb55 0, #ff0488 100%);
   border-radius: 50%;
-  /* -webkit-animation: hue-rotate 60s ease-in-out infinite 5s;
-          animation: hue-rotate 60s ease-in-out infinite 5s; */
+  -webkit-animation: hue-rotate 15s ease-in-out infinite 5s;
+          animation: hue-rotate 15s ease-in-out infinite 5s;
 }
 
 .band {
