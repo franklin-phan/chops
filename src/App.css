@@ -191,19 +191,19 @@ button {
 
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(14, 1fr);
+    grid-template-rows: repeat(17, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 }
 
 .hero-image-container {
-    grid-area: 1 / 1 / 14 / 8;
+    grid-area: 1 / 1 / 18 / 8;
 }
 
 .hero-auth-container {
     background-color: #01014b;
 
-    grid-area: 1 / 8 / 14 / 11;
+    grid-area: 1 / 8 / 18 / 11;
 
     display: flex;
     flex-direction: column;
@@ -213,7 +213,7 @@ button {
 
 @media only screen and (max-width: 1000px){
     .hero-auth-container {
-        grid-area: 9 / 1 / 14 / 11;
+        grid-area: 9 / 1 / 18 / 11;
     }
 
     .hero-image-container {
@@ -243,11 +243,12 @@ button {
 }
 
 .footer {
-    background-color: #222;
+    background-color: rgba(98, 98, 98, 0.322);
+    background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 100%);
     width: 100%;
     padding: 20px 0;
     text-align: center;
-    grid-area: 14 / 1 / 15 / 11;
+    grid-area: 17 / 1 / 18 / 11;
 }
 
 /* Utility 2.0 */
