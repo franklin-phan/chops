@@ -268,7 +268,8 @@ button {
   transform: translate(-50%, 0);
   width: 30vw;
   height: 30vw;
-  background: radial-gradient(transparent 65%, #ff0488 100%), linear-gradient(#ffcb55 0, #ff0488 100%);
+  /* background: radial-gradient(transparent 65%, #ff0488 100%), linear-gradient(#ffcb55 0, #ff0488 100%); */
+  background-image: url('./logo.svg');
   border-radius: 50%;
   -webkit-animation: hue-rotate 15s ease-in-out infinite 5s;
           animation: hue-rotate 15s ease-in-out infinite 5s;
@@ -289,7 +290,7 @@ button {
     transform: translateY(0) scaleY(1);
   }
   100% {
-    transform: translateY(-24vw) scaleY(0);
+    transform: translateY(-20vw) scaleY(0);
   }
 }
 
@@ -298,7 +299,7 @@ button {
     transform: translateY(0) scaleY(1);
   }
   100% {
-    transform: translateY(-24vw) scaleY(0);
+    transform: translateY(-20vw) scaleY(0);
   }
 }
 @-webkit-keyframes hue-rotate {
