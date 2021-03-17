@@ -360,26 +360,17 @@ button {
 
 /* Feed 5.0 */
 .feed-container {
-    /* display: flex;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding-top: 30px;  */
-
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(8, 1fr);
+    grid-template-rows: none;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-
-    width: 100%;
     margin-top: 20px;
 }
 
-.wrapper > ul > li {
-    width: 100%;
-    margin: 0px;
-}
+@media only screen and (max-width: 1000px){
 
+}
 
 .add-item {
   grid-area: 1 / 2 / 1 / 5;
@@ -393,8 +384,7 @@ button {
 }
 
 .display-item {
-  grid-area: 1 / 5 / 9 / 13; 
-  width: 65%;
+  grid-area: 1 / 5 / 6 / 11;
   overflow-y: scroll;
   margin-left: 30px;
 }
@@ -415,6 +405,7 @@ ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
+  
 }
 
 li {
