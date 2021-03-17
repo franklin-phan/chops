@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import './App.css';
-import firebase from './firebase.js';
-import Post from './Post'
-import { auth } from './google-signin'
+import '.././App.css';
+import firebase from '../firebase.js';
+import Post from '../Components/Post/Post'
+import { auth } from '../google-signin'
 
-import Navbar from './Navbar'
+import Navbar from '../Components/Navbar/Navbar'
 import Homepage from './Homepage'
-import MakePost from './MakePost'
+import MakePost from '../MakePost'
 import Moment from 'moment'
 
 class Feed extends Component {
@@ -85,8 +85,9 @@ class Feed extends Component {
           time: items[item].time,
           snaps: items[item].snaps,
           snapActive: items[item].snapActive
-
         });
+        console.log(this.state.user)
+
         console.log(item)
       }
       this.setState({
@@ -105,74 +106,51 @@ class Feed extends Component {
   render() {
     return (
       <div className='app'>
-        
-  {this.state.user ?
-    <div>
-      <Navbar 
-        user={this.state.user}
-        username={this.state.username}
-        logout={this.logout}/>
-      <div className='user-profile'>
-        <img src={this.state.user.photoURL}/>
-      </div>
-      <div className='container'>
-      <MakePost 
-        nameValue={this.state.user.displayName || this.state.user.email}
-        postValue={this.state.currentItem}
-        linkValue={this.state.linkValue}
-        typeValue={this.state.typeValue}
-        time={Moment(Date.now()).format('ll')}
-        handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
-        />
-      <section className='display-item'>
-        <div className="wrapper">
-          <ul>
-            {this.state.items.map((item) => {
-              return (
-                <Post item={item} user={this.state.user.displayName} email={this.state.user.email}/>
-              )
-            })}
-          </ul>
-        </div>
-      </section>
-      {/* <section className='display-item'>
-        <h1>My Posts</h1>
-        <div className="wrapper">
-          <ul>
-            {this.state.items.map((item) => {
-              return (
-                <li key={item.id}>
-                    {item.user === this.state.user.displayName || item.user === this.state.user.email ?
-                      <div>
-                      <h3>{item.title}</h3>
-                  <iframe title="post"width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
-                      src={"https://w.soundcloud.com/player/?url="+ item.link +"&am;"}>
-                  </iframe>
+        {/* If logged into google account display everything */}
+        {this.state.user ?
+          <div>
+            <Navbar 
+              user={this.state.user}
+              username={this.state.username}
+              logout={this.logout}
+            />
+            <div className='user-profile'>
+              <img src={this.state.user.photoURL}/>
+            </div>
+            <div className='container'>
+            <MakePost 
+              nameValue={this.state.user.displayName || this.state.user.email}
+              postValue={this.state.currentItem}
+              linkValue={this.state.linkValue}
+              typeValue={this.state.typeValue}
+              time={Moment(Date.now()).format('ll')}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+            />
+            <section className='display-item'>
+              <div className="wrapper">
+                <ul>
+                  {this.state.items.map((item) => {
+                    return (
+                      <Post item={item} user={this.state.user.displayName} email={this.state.user.email}/>
+                    )
+                  })}
+                </ul>
+              </div>
+            </section>
 
-
-                      <p>Posted by: {item.user}
-                      <button onClick={() => this.removeItem(item.id)}>Remove Item</button>
-                      </p>
-                      </div> : null}
-                </li>
-              )
-            })}
-          </ul>
-        </div>
-      </section> */}
-  </div>
-    </div>
-    :
-    <div> 
-      <Homepage />
-
-    </div>
+            </div>
+          </div>
+          :
+          // Else homepage
+          <div> 
+            <Homepage />
+          </div>
 
    
-  }
+        }
 
-</div>
+      </div>
     );
   }
 }

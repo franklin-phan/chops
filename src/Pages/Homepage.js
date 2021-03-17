@@ -1,7 +1,7 @@
 import React from 'react';
 
-import SignUpModal from './SignUpModal'
-import SignInModal from './SignInModal'
+import SignUpModal from '../Components/Authentication/SignUpModal'
+import SignInModal from '../Components/Authentication/SignInModal'
 
 function Homepage() {
     return (

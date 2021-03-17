@@ -1,8 +1,8 @@
 import React from "react";
-import CommentInput from './Components/Comment/sendComment'
-import Comment from './Components/Comment/comment'
-import pfp from './Components/Comment/pfp.png'
-import Snap from './Components/Snaps/snap'
+import CommentInput from '../Comment/sendComment'
+import Comment from '../Comment/comment'
+import pfp from '../Comment/pfp.png'
+import Snap from '../Snaps/snap'
 
 function Post(item, user, email) {
     console.log(item)
@@ -46,8 +46,3 @@ function Post(item, user, email) {
 }
 
 export default Post;
-
-
-
-///
-///

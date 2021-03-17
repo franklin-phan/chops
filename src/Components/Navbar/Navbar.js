@@ -1,7 +1,7 @@
 import React from 'react'
 
-import SignUpModal from './SignUpModal'
-import SignInModal from './SignInModal'
+import SignUpModal from '../Authentication/SignUpModal'
+import SignInModal from '../Authentication/SignInModal'
 
 export default function Navbar(props) {
     const user = props.user;

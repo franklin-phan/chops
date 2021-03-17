@@ -23,7 +23,7 @@ function CommentInput({ comments, id, user, pfp }) {
         comments: commentMap,
       })
       .then(function () {
-        console.log("Document successfully written!");
+        console.log("Comment Document successfully written!");
       })
       .catch(function (error) {
         console.error("Error writing document: ", error);

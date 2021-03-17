@@ -1,9 +1,8 @@
 import React from 'react';
 import Modal from 'react-modal';
+import { auth, provider } from '../../google-signin'
+import SignUp from './SignUp'
 
-import { auth, provider } from './google-signin'
-
-import SignIn from './SignIn'
 const customStyles = {
     overlay: {
         background: "#0009"
@@ -21,12 +20,12 @@ const customStyles = {
     }
 };
 
-export default function SignInModal() {
+export default function SignUpModal() {
 
     var subtitle;
     const [modalIsOpen, setIsOpen] = React.useState(false);
 
-    function login() {
+    function signup() {
         auth.signInWithRedirect(provider)
             .then((result) => {
                 const user = result.user;
@@ -51,15 +50,15 @@ export default function SignInModal() {
 
     return (
         <div>
-            <button onClick={openModal}>Log In</button>
+            <button onClick={openModal}>Sign Up</button>
             <Modal
                 isOpen={modalIsOpen}
                 onAfterOpen={afterOpenModal}
                 onRequestClose={closeModal}
                 style={customStyles}
-                contentLabel="Login Modal"
+                contentLabel="Sign Up Modal"
             >
-                <SignIn cancel={closeModal} oauth={login} />
+                <SignUp cancel={closeModal} oauth={signup} />
                 <div ref={_subtitle => (subtitle = _subtitle)}></div>
             </Modal>
         </div>
