@@ -39,47 +39,6 @@ header i {
   margin-left: 12px;
 }
 
-.feed-container {
-  display: flex;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding-top: 30px;
-}
-
-.wrapper {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.add-item {
-  border-radius: 2px;
-  border-top: 3px solid #482880;
-  margin-right: 50px;
-  background-color: rgb(237, 237, 237);
-  padding: 60px 18px;
-  box-shadow: 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);
-  margin-bottom: 34px;  
-  width: 25%;
-  height: 50%;
-  margin-right: auto;
-}
-
-.display-item {
-  width: 65%;
-  margin-left: 50px;
-}
-
-.display-item button {
-  margin-top: 20px;
-  margin-left: auto;
-  display: block;
-}
-
-.add-item form {
-  width: 100%;
-  overflow: hidden;
-}
-
 input {
   font-size: 22px;
   color: #000;
@@ -96,27 +55,6 @@ input {
     background-color: rgb(255, 224, 224);
     border: 1px solid rgb(255, 111, 111);
     border-radius: 5px;
-}
-
-ul {
-  /* display: flex;
-  flex-wrap: wrap; */
-  display: grid;
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  flex-direction: column;
-  width: calc(70% - 50px);
-  height: 100%;
-  list-style-type: none;
-  margin-right: 50px;
-  background-color: rgb(237, 237, 237);
-  color: #000;
-  margin-bottom: 10px;
-  box-shadow: 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);
 }
 
 h2 {
@@ -145,7 +83,7 @@ form button {
 .close-modal {
     margin-top: 5px;
     padding: 5px;
-    background-color: rgb(248, 88, 88);
+    background-color: rgb(148, 147, 147);
     height: 30px;
     width: 30px;
     border-radius: 20px;
@@ -418,4 +356,70 @@ button {
     letter-spacing: .2px;
     font-family: Roboto;
     user-select: none
+}
+
+/* Feed 5.0 */
+.feed-container {
+    /* display: flex;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-top: 30px;  */
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+    width: 100%;
+    margin-top: 20px;
+}
+
+.wrapper > ul > li {
+    width: 100%;
+    margin: 0px;
+}
+
+
+.add-item {
+  grid-area: 1 / 2 / 1 / 5;
+
+  border-radius: 2px;
+  border-top: 3px solid #482880;
+  background-color: rgb(237, 237, 237);
+  padding: 60px 18px;
+  box-shadow: 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);
+  margin-bottom: 34px; 
+}
+
+.display-item {
+  grid-area: 1 / 5 / 9 / 13; 
+  width: 65%;
+  overflow-y: scroll;
+  margin-left: 30px;
+}
+
+.display-item button {
+  margin-top: 20px;
+  margin-left: auto;
+  display: block;
+}
+
+.add-item form {
+  width: 100%;
+  overflow: hidden;
+}
+
+ul {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+li {
+  background-color: rgb(237, 237, 237);
+  color: #000;
+  margin-bottom: 10px;
+  box-shadow: 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);
 }
