@@ -269,7 +269,13 @@ button {
   width: 30vw;
   height: 30vw;
   /* background: radial-gradient(transparent 65%, #ff0488 100%), linear-gradient(#ffcb55 0, #ff0488 100%); */
-  background-image: url('./logo.svg');
+  background-image: url('./logo-large.svg');
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
   border-radius: 50%;
   -webkit-animation: hue-rotate 15s ease-in-out infinite 5s;
           animation: hue-rotate 15s ease-in-out infinite 5s;
@@ -278,7 +284,8 @@ button {
 .band {
   position: absolute;
   bottom: -6vw;
-  width: 100%;
+  width: 65%;
+  margin-left: 17.7%;
   height: 10%;
   background: #120458;
   -webkit-animation: wave 10s linear infinite;

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="236.146" y1="166.16" x2="236.146" y2="387.562" id="gradient-1-2" gradientTransform="matrix(1.620941, 0, 0, 1.620941, -129.616706, -169.824161)" xlink:href="#gradient-1"/>
+    <linearGradient id="gradient-1" bx:pinned="true">
+      <title>grad</title>
+      <stop offset="0.506" style="stop-color: rgb(255, 203, 85);"/>
+      <stop offset="1" style="stop-color: rgb(255, 4, 138);"/>
+    </linearGradient>
+  </defs>
+  <path d="M 213.535 226.434 m -195.038 0 a 195.038 195.038 0 1 0 390.076 0 a 195.038 195.038 0 1 0 -390.076 0 Z M 213.535 226.434 m -167.732 0 a 167.732 167.732 0 0 1 335.464 0 a 167.732 167.732 0 0 1 -335.464 0 Z" style="fill: rgb(43, 50, 54);" transform="matrix(-0.719146, 0.694859, -0.694859, -0.719146, 564.162048, 255.548706)" bx:shape="ring 213.535 226.434 167.732 167.732 195.038 195.038 1@cad1333d"/>
+  <circle style="paint-order: fill; fill: url(#gradient-1-2);" cx="253.162" cy="278.951" r="179.441"/>
+  <rect x="17.459" y="204.047" width="72.032" height="163.694" rx="14" ry="14" style="fill: rgb(43, 50, 54);"/>
+  <rect x="411.263" y="203.229" width="72.032" height="163.694" rx="14" ry="14" style="fill: rgb(43, 50, 54);"/>
+</svg>
