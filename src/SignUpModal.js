@@ -49,7 +49,7 @@ export default function SignUpModal() {
     }
 
     return (
-        <div>
+        <div class="centered-flex-row">
             <button onClick={openModal}>Sign Up</button>
             <Modal
                 isOpen={modalIsOpen}

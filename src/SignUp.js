@@ -43,8 +43,8 @@ const SignUp = (props) => {
 
     return (
         <div>
-            <div class="centered-flex-row">
-                <h1 class="auth-header">Sign Up</h1>
+            <div class="spaced-flex-row">
+                <h1 class="auth-header auth-header-small">Create a Jam Session Account</h1>
                 <button type="button" className="close-modal" onClick={props.cancel}>X</button>
             </div>
             <form onSubmit={handleSignUp}>
@@ -76,7 +76,7 @@ const SignUp = (props) => {
                     })}
                 </div>
 
-                <div className="centered-flex-row">
+                <div className="spaced-flex-row">
                     <button type="submit">Sign Up</button>
                     <div class="google-btn" onClick={props.oauth}>
                         <div class="google-icon-wrapper">

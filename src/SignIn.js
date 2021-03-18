@@ -22,7 +22,7 @@ const SignIn = (props) => {
 
     return (
         <div>
-            <div class="centered-flex-row">
+            <div class="spaced-flex-row">
                 <h1 class="auth-header">Login</h1>
                 <button type="button" className="close-modal" onClick={props.cancel}>X</button>
             </div>
@@ -42,7 +42,7 @@ const SignIn = (props) => {
                     })}
                 </div>
 
-                <div className="centered-flex-row">
+                <div className="spaced-flex-row">
                     <button type="submit">Login</button>
                     <div class="google-btn" onClick={props.oauth}>
                         <div class="google-icon-wrapper">

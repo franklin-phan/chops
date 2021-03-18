@@ -1,5 +1,4 @@
 import React from 'react';
-
 import SignUpModal from './SignUpModal'
 import SignInModal from './SignInModal'
 
@@ -11,7 +10,7 @@ function Homepage() {
                     <div className="scene">
                         <div className="vaporwave-container">
                             <div className="sun"></div>
-                            <div className="band" style={{ animationDelay: "-0s" }}></div>
+                            <div className="band" style={{ animationDelay: "0s" }}></div>
                             <div className="band" style={{ animationDelay: "-1s" }}></div>
                             <div className="band" style={{ animationDelay: "-2s" }}></div>
                             <div className="band" style={{ animationDelay: "-3s" }}></div>
@@ -21,12 +20,16 @@ function Homepage() {
                             <div className="band" style={{ animationDelay: "-7s" }}></div>
                             <div className="band" style={{ animationDelay: "-8s" }}></div>
                             <div className="band" style={{ animationDelay: "-9s" }}></div>
+                            <div className="band" style={{ animationDelay: "-10s" }}></div>
+                            <div className="band" style={{ animationDelay: "-11s" }}></div>
+                            <div className="band" style={{ animationDelay: "-12s" }}></div>
+                            <div className="band" style={{ animationDelay: "-13s" }}></div>
                         </div>
                     </div>
                 </div>
                 <div className='hero-auth-container'>
                     <div className='hero-auth-page'>
-                        <p className="text-light text-center header-text">Jam Session</p>
+                        <p className="text-light text-center header-text hero-brand">Jam Session</p>
                         <p className="text-light slogan-text">Make More Than Just Music</p>
 
                         <div className="auth-modal">
