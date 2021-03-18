@@ -11,7 +11,7 @@ function Homepage() {
                     <div className="scene">
                         <div className="vaporwave-container">
                             <div className="sun"></div>
-                            <div className="band" style={{ animationDelay: "-0s" }}></div>
+                            <div className="band" style={{ animationDelay: "0s" }}></div>
                             <div className="band" style={{ animationDelay: "-1s" }}></div>
                             <div className="band" style={{ animationDelay: "-2s" }}></div>
                             <div className="band" style={{ animationDelay: "-3s" }}></div>
@@ -21,6 +21,10 @@ function Homepage() {
                             <div className="band" style={{ animationDelay: "-7s" }}></div>
                             <div className="band" style={{ animationDelay: "-8s" }}></div>
                             <div className="band" style={{ animationDelay: "-9s" }}></div>
+                            <div className="band" style={{ animationDelay: "-10s" }}></div>
+                            <div className="band" style={{ animationDelay: "-11s" }}></div>
+                            <div className="band" style={{ animationDelay: "-12s" }}></div>
+                            <div className="band" style={{ animationDelay: "-13s" }}></div>
                         </div>
                     </div>
                 </div>

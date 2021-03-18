@@ -294,8 +294,8 @@ button {
   margin-left: 17.7%; */
   height: 10%;
   background: #120458;
-  -webkit-animation: wave 10s linear infinite;
-          animation: wave 10s linear infinite;
+  -webkit-animation: wave 12s linear infinite;
+          animation: wave 12s linear infinite;
 }
 
 @-webkit-keyframes wave {

@@ -18,6 +18,9 @@ export default function Navbar(props) {
                     <div className='user-profile'>
                         <img src={user.photoURL} />
                     </div>
+                    <div>
+                        OOO
+                    </div>
                 </div>
                 :
                 <div>
