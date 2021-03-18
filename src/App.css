@@ -82,7 +82,6 @@ form button {
 }
 
 .close-modal {
-    margin-top: 5px;
     padding: 5px;
     background-color: rgb(148, 147, 147);
     height: 30px;
@@ -141,17 +140,20 @@ button {
 }
 
 .hero-image-container {
-    grid-area: 1 / 1 / 18 / 8;
+    
+    grid-area: 1 / 1 / 10 / 11;
+    background-color: #120458;
+    /* grid-area: 1 / 1 / 18 / 8; */
 }
 
 .hero-auth-container {
-    background-color: #01014b;
+    background-color: #120458;
 
-    grid-area: 1 / 8 / 18 / 11;
+    grid-area: 10 / 1 / 18 / 11;
+    /* grid-area: 1 / 8 / 18 / 11; */
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
@@ -178,7 +180,7 @@ button {
 
 .hero-auth-page button {
     margin-top: 20px;
-    width: 100%;
+    width: 40%;
     border-radius: 20px;
 }
 
@@ -212,14 +214,26 @@ button {
 .centered-flex-row {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+}
+
+.spaced-flex-row {
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
 
 /* text */
+
 .header-text {
     font-size: 30px;
     margin: 10px;
     font-weight: 600;
+}
+
+.hero-brand {
+    font-size: 60px;
+    margin-top: 0;
 }
 
 .auth-header {
@@ -260,18 +274,18 @@ button {
 
 .vaporwave-container {
   position: relative;
-  height: 30vw;
+  height: 22vw;
   width: 30vw;
   overflow: hidden;
 }
 
 .sun {
   position: absolute;
-  top: 0;
+  top: 0%;
   left: 50%;
   transform: translate(-50%, 0);
-  width: 30vw;
-  height: 30vw;
+  width: 20vw;
+  height: 20vw;
   /* background: radial-gradient(transparent 65%, #ff0488 100%), linear-gradient(#ffcb55 0, #ff0488 100%); */
   background-image: url('./record-color.svg');
 
@@ -287,12 +301,12 @@ button {
 
 .band {
   position: absolute;
-  bottom: -6vw;
+  bottom: -0vw;
   width: 100%;
   
   /* width: 65%;
   margin-left: 17.7%; */
-  height: 10%;
+  height: 5%;
   background: #120458;
   -webkit-animation: wave 13s linear infinite;
           animation: wave 13s linear infinite;
@@ -300,19 +314,19 @@ button {
 
 @-webkit-keyframes wave {
   0% {
-    transform: translateY(3vw) scaleY(1);
+    transform: translateY(0) scaleY(1);
   }
   100% {
-    transform: translateY(-18vw) scaleY(0);
+    transform: translateY(-10vw) scaleY(0);
   }
 }
 
 @keyframes wave {
   0% {
-    transform: translateY(3vw) scaleY(1);
+    transform: translateY(0) scaleY(1);
   }
   100% {
-    transform: translateY(-18vw) scaleY(0);
+    transform: translateY(-10vw) scaleY(0);
   }
 }
 @-webkit-keyframes hue-rotate {

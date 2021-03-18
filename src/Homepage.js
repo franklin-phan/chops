@@ -29,7 +29,7 @@ function Homepage() {
                 </div>
                 <div className='hero-auth-container'>
                     <div className='hero-auth-page'>
-                        <p className="text-light text-center header-text">Jam Session</p>
+                        <p className="text-light text-center header-text hero-brand">Jam Session</p>
                         <p className="text-light slogan-text">Make More Than Just Music</p>
 
                         <div className="auth-modal">

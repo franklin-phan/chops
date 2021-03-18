@@ -50,7 +50,7 @@ export default function SignInModal() {
     }
 
     return (
-        <div>
+        <div class="centered-flex-row">
             <button onClick={openModal}>Log In</button>
             <Modal
                 isOpen={modalIsOpen}
