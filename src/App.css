@@ -112,8 +112,31 @@ button {
 .navbar-content {
     display: flex;
     width: 200px;
+    height: 50px;
     justify-content: flex-end;
     align-items: center;
+    padding-right: 20px;
+}
+
+.navbar-menu {
+    padding: 10px;
+}
+
+.navbar-dropdown {
+    position: absolute;
+    top: 70px;
+    width: 200px;
+    border: 1px solid #57309b;
+    background-color: #482880;
+    user-select: none;
+}
+
+.navbar-dropdown-item {
+    padding: 10px 20px;
+}
+
+.navbar-dropdown-item:hover {
+    background-color: #381f64;
 }
 
 .user-profile {

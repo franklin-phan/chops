@@ -11,7 +11,7 @@ function Post(item, user, email) {
 
     return (
         <li key={item.id}>
-            <h3>{item.title}</h3>
+            {/* <h3>{item.title}</h3>
             {item.item.link.search("soundcloud") !== -1 ?
                 <iframe title="post"width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
                 src={"https://w.soundcloud.com/player/?url="+ item.item.link +"&am;"}>
@@ -25,23 +25,23 @@ function Post(item, user, email) {
                 <button onClick={() => this.removeItem(item.id)}>Remove Item</button> : null}
             </p>
             <img src={pfp} width="30px" height="30px"/>
-            <time>{item.item.time}</time>
+            <time>{item.item.time}</time> */}
 
 
-            <CommentInput comments={item.comments} user={item.user} id={item.item.id}/>
+            <CommentInput comments={item.comments} user={item.user} id={item.item.id} />
             {item.item.comments != undefined ?
 
-            item.item.comments.map((comment) => {
-                return (
-                    <div>
-                        <Comment comment={comment.comment} username={comment.username} time={comment.time}/>
-                        {comment.username === item.user || comment.username === item.email ?
-                        <button onClick={() => this.removeItem(item.item.comments[0])}>Remove Item</button> : null}
-                    </div>
+                item.item.comments.map((comment) => {
+                    return (
+                        <div>
+                            <Comment comment={comment.comment} username={comment.username} time={comment.time} />
+                            {comment.username === item.user || comment.username === item.email ?
+                                <button onClick={() => this.removeItem(item.item.comments[0])}>Remove Item</button> : null}
+                        </div>
 
-                )
-            }) : null}
-            
+                    )
+                }) : null}
+
         </li>
     );
 }
