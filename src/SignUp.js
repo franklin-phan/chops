@@ -44,7 +44,7 @@ const SignUp = (props) => {
     return (
         <div>
             <div class="centered-flex-row">
-                <h1 class="auth-header">Sign Up</h1>
+                <h1 class="auth-header auth-header-small">Create a Jam Session Account</h1>
                 <button type="button" className="close-modal" onClick={props.cancel}>X</button>
             </div>
             <form onSubmit={handleSignUp}>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="50.803 50.792 372.078 371.552" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <linearGradient id="gradient-1" bx:pinned="true">
+      <stop offset="0.046" style="stop-color: rgb(255, 203, 85);"/>
+      <stop offset="1" style="stop-color: rgb(255, 4, 136);"/>
+    </linearGradient>
+    <linearGradient id="gradient-1-0" gradientUnits="userSpaceOnUse" x1="300.453" y1="196.68" x2="300.453" y2="359.734" xlink:href="#gradient-1"/>
+  </defs>
+  <path d="M 282.297 223.668 m -179.685 0 a 179.685 179.685 0 1 0 359.37 0 a 179.685 179.685 0 1 0 -359.37 0 Z M 282.297 223.668 m -61.093 0 a 61.093 61.093 0 0 1 122.186 0 a 61.093 61.093 0 0 1 -122.186 0 Z" style="" transform="matrix(-0.729587, 0.683888, -0.683888, -0.729587, 594.386788, 206.495345)" bx:shape="ring 282.297 223.668 61.093 61.093 179.685 179.685 1@e1aecca7"/>
+  <path d="M 300.453 278.227 m -81.507 0 a 81.507 81.507 0 1 0 163.014 0 a 81.507 81.507 0 1 0 -163.014 0 Z M 300.453 278.227 m -59.5 0 a 59.5 59.5 0 0 1 119 0 a 59.5 59.5 0 0 1 -119 0 Z" style="fill: url(#gradient-1-0);" transform="matrix(-0.812187, 0.583397, -0.583397, -0.812187, 642.120915, 286.536355)" bx:shape="ring 300.453 278.227 59.5 59.5 81.507 81.507 1@2750ef4a"/>
+  <path d="M 323.414 339.781 m -60.112 0 a 60.112 60.112 0 1 0 120.224 0 a 60.112 60.112 0 1 0 -120.224 0 Z M 323.414 339.781 m -6.011 0 a 6.011 6.011 0 0 1 12.022 0 a 6.011 6.011 0 0 1 -12.022 0 Z" style="fill: rgb(255, 255, 255);" transform="matrix(-0.727829, 0.685759, -0.685759, -0.727829, 703.817361, 262.223869)" bx:shape="ring 323.414 339.781 6.011 6.011 60.112 60.112 1@f7a26a15"/>
+</svg>

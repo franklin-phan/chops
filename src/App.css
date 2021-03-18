@@ -226,6 +226,10 @@ button {
     margin-top: 0;
 }
 
+.auth-header-small {
+    font-size: 24px;
+}
+
 .slogan-text {
     font-size: 18px;
 }
@@ -269,7 +273,7 @@ button {
   width: 30vw;
   height: 30vw;
   /* background: radial-gradient(transparent 65%, #ff0488 100%), linear-gradient(#ffcb55 0, #ff0488 100%); */
-  background-image: url('./logo-large.svg');
+  background-image: url('./record-labeled-small.svg');
 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -284,8 +288,10 @@ button {
 .band {
   position: absolute;
   bottom: -6vw;
-  width: 65%;
-  margin-left: 17.7%;
+  width: 100%;
+  
+  /* width: 65%;
+  margin-left: 17.7%; */
   height: 10%;
   background: #120458;
   -webkit-animation: wave 10s linear infinite;
@@ -297,7 +303,7 @@ button {
     transform: translateY(0) scaleY(1);
   }
   100% {
-    transform: translateY(-20vw) scaleY(0);
+    transform: translateY(-18vw) scaleY(0);
   }
 }
 
@@ -306,7 +312,7 @@ button {
     transform: translateY(0) scaleY(1);
   }
   100% {
-    transform: translateY(-20vw) scaleY(0);
+    transform: translateY(-18vw) scaleY(0);
   }
 }
 @-webkit-keyframes hue-rotate {
