@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg'
 import SignUpModal from './SignUpModal'
 import SignInModal from './SignInModal'
 

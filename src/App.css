@@ -273,7 +273,7 @@ button {
   width: 30vw;
   height: 30vw;
   /* background: radial-gradient(transparent 65%, #ff0488 100%), linear-gradient(#ffcb55 0, #ff0488 100%); */
-  background-image: url('./record-labeled-small.svg');
+  background-image: url('./record-color.svg');
 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -294,13 +294,13 @@ button {
   margin-left: 17.7%; */
   height: 10%;
   background: #120458;
-  -webkit-animation: wave 12s linear infinite;
-          animation: wave 12s linear infinite;
+  -webkit-animation: wave 13s linear infinite;
+          animation: wave 13s linear infinite;
 }
 
 @-webkit-keyframes wave {
   0% {
-    transform: translateY(0) scaleY(1);
+    transform: translateY(3vw) scaleY(1);
   }
   100% {
     transform: translateY(-18vw) scaleY(0);
@@ -309,7 +309,7 @@ button {
 
 @keyframes wave {
   0% {
-    transform: translateY(0) scaleY(1);
+    transform: translateY(3vw) scaleY(1);
   }
   100% {
     transform: translateY(-18vw) scaleY(0);
