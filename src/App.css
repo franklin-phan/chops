@@ -126,9 +126,11 @@ button {
     position: absolute;
     top: 70px;
     width: 200px;
-    border: 1px solid #57309b;
-    background-color: #482880;
+    background-color: #19bbc4;
     user-select: none;
+    box-shadow: 0px 1px 2px rgb(102, 102, 102);
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
 }
 
 .navbar-dropdown-item {
@@ -136,7 +138,8 @@ button {
 }
 
 .navbar-dropdown-item:hover {
-    background-color: #381f64;
+    transition: background-color 0.4s ease;
+    background-color: #159ca3;
 }
 
 .user-profile {
