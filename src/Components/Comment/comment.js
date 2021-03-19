@@ -3,6 +3,8 @@ import pfp from './pfp.png'
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../userRedux'
 import {db} from '../../firebase'
+import Time from '../../Time'
+
 function Comment({ data, itemID }) {
   const user = useSelector(selectUser);
 
@@ -11,15 +13,18 @@ function Comment({ data, itemID }) {
   console.log(comment)
   function convertTimestamp(timestamp) {
     if (!timestamp) {
-      return null
-    }
-    let date = timestamp.toDate();
-    let mm = date.getMonth();
-    let dd = date.getDate();
-    let yyyy = date.getFullYear();
-  
-    date = mm + '/' + dd + '/' + yyyy;
-    return date;
+      return 'test'
+  }
+  console.log(timestamp)
+  // let date = timestamp.toDate();
+  // let mm = date.getMonth();
+  // let dd = date.getDate();
+  // let yyyy = date.getFullYear();
+  let date = Time(timestamp.toDate())
+  console.log(date)
+
+  // date = mm + '/' + dd + '/' + yyyy;
+  return date;
   }
   function removeItem() {
     db.collection("posts").doc(itemID).collection("comments").doc(id).delete().then(() => {

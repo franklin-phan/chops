@@ -8,6 +8,7 @@ import { db } from '../../firebase';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../userRedux'
 
+import Time from '../../Time'
 function Post(data) {
     const user = useSelector(selectUser);
     console.log(user)
@@ -15,10 +16,7 @@ function Post(data) {
     const itemID = data.data.id
     const {postedBy, snaps, songLink, timestamp, title} = data.data.data
     const {email, displayName} = postedBy
-    console.log("Item then title")
-    console.log(itemID)
-    console.log(title)  
-
+    console.log(timestamp)
     useEffect(async () => {
         const postCommentsRef = db.collection("posts").doc(itemID).collection("comments")
         const res = await postCommentsRef.orderBy('timestamp', 'desc').onSnapshot(async snapshot => (
@@ -30,21 +28,22 @@ function Post(data) {
           )))
         ))
     }, [])
+
     function convertTimestamp(timestamp) {
         if (!timestamp) {
-            return null
+            return 'test'
         }
-        let date = timestamp.toDate();
-        let mm = date.getMonth();
-        let dd = date.getDate();
-        let yyyy = date.getFullYear();
-      
-        date = mm + '/' + dd + '/' + yyyy;
+        console.log(timestamp)
+        // let date = timestamp.toDate();
+        // let mm = date.getMonth();
+        // let dd = date.getDate();
+        // let yyyy = date.getFullYear();
+        let date = Time(timestamp.toDate())
+        console.log(date)
+
+        // date = mm + '/' + dd + '/' + yyyy;
         return date;
       }
-    // console.log("beck")
-    // console.log(itemID)
-    // console.log(comments)
     function removeItem() {
         db.collection("posts").doc(itemID).delete().then(() => {
             console.log("Document successfully deleted!");
@@ -81,7 +80,7 @@ function Post(data) {
             {comments.map((comment) => {
                 console.log(comment)
                   return (
-                    <Comment data={comment} itemID={itemID}/>
+                    <Comment data={comment}/>
                   )
                 })}
             {/* {item.item.comments != undefined ?
