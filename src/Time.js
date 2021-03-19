@@ -11,7 +11,7 @@ function Time(date){
         const d_seconds = Math.abs(now.getSeconds()-date.getSeconds())
         const d_minutes = Math.abs(now.getMinutes()-date.getMinutes())
         const d_hours = Math.abs(Math.floor(d_minutes/60))
-        console.log(d_day,d_hours,d_minutes,d_seconds)
+        // console.log(d_day,d_hours,d_minutes,d_seconds)
 
         var delta = 0
         if (d_day >= 7) {

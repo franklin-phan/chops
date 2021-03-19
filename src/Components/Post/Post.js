@@ -39,7 +39,7 @@ function Post(data) {
         // let dd = date.getDate();
         // let yyyy = date.getFullYear();
         let date = Time(timestamp.toDate())
-        console.log(date)
+        // console.log(date)
 
         // date = mm + '/' + dd + '/' + yyyy;
         return date;
@@ -80,7 +80,7 @@ function Post(data) {
             {comments.map((comment) => {
                 console.log(comment)
                   return (
-                    <Comment data={comment}/>
+                    <Comment data={comment} itemID={itemID}/>
                   )
                 })}
             {/* {item.item.comments != undefined ?

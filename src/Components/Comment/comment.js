@@ -28,7 +28,9 @@ function Comment({ data, itemID }) {
   }
   function removeItem() {
     db.collection("posts").doc(itemID).collection("comments").doc(id).delete().then(() => {
-        // console.log(id)
+        console.log(id)
+        console.log(itemID)
+
         // console.log("Document successfully deleted!");
     }).catch((error) => {
         console.error("Error removing document: ", error);
