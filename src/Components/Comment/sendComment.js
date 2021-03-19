@@ -1,51 +1,39 @@
 import React, { useState } from "react";
 // import "./CommentInput.css";
 import { db } from "../../firebase";
-import firebase from '../../firebase.js';
-import Moment from 'moment';
+import firebase from 'firebase';
 
-function CommentInput({ comments, id, user, pfp }) {
-  const [comment, setComment] = useState("");
-  const [commentMap, setcommentMap] = useState(comments ? comments : []);
+function CommentInput({ itemID, userID, user }) {
+  const [body, setBody] = useState("");
+  // const [commentMap, setcommentMap] = useState(comments ? comments : []);
 
-  const addComment = () => {
-    // Add a new document in collection "cities"
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const commentsRef = db.collection('posts').doc(itemID).collection("comments");
 
-    commentMap.push({
-      comment: comment,
-      username: user,
-      time: Moment(Date.now()).format('ll'),
-      // pfp: pfp
-    });
-
-    firebase.database().ref(`/items/${id}`)
-      .update({
-        comments: commentMap,
-      })
-      .then(function () {
-        console.log("Comment Document successfully written!");
-      })
-      .catch(function (error) {
-        console.error("Error writing document: ", error);
-      });
-
-    setComment("");
-  };
+    const res = await commentsRef.add({
+        body: body,
+        postedBy: user,
+        snaps: 0,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    }, { merge: true });
+    setBody('');    
+  }
 
   return (
     <div>
       <textarea
         rows="1"
-        value={comment}
-        onChange={(e) => setComment(e.target.value)}
+        value={body}
+        onChange={(e) => setBody(e.target.value)}
         placeholder="Add a comment.."
       ></textarea>
 
       <button
-        onClick={addComment}
+        onClick={handleSubmit}
         style={{
-          color: comment ? "gray" : "lightgrey",
-          fontWeight: comment ? "600" : "500",
+          color: body ? "gray" : "lightgrey",
+          fontWeight: body ? "600" : "500",
         }}
       >
         Post

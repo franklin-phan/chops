@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import app from 'firebase'
+import CreateUser from '../../User'
+import { auth } from '../../google-signin'
 
 const SignUp = (props) => {
     const [formErrors, setFormErrors] = useState([])
@@ -26,6 +28,12 @@ const SignUp = (props) => {
                         }).catch(function (error) {
                             setFormErrors(formErrors => [...formErrors, error.message])
                         });
+                    }).then(() => {
+                        auth.onAuthStateChanged((user) => {
+                            if (user) {
+                                CreateUser(user.displayName, user.email, user.id)
+                            } 
+                          });
                     })
 
             } catch (error) {

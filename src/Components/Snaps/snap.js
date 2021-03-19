@@ -1,28 +1,48 @@
-import React, {useState} from "react";
-import firebase from '../../firebase.js';
+import React, {useState, useEffect} from "react";
+// import firebase from '../../firebase.js';
+import firebase from 'firebase';
+
 import snapTrue from './snapTrue.png'
 import snapFalse from './snapFalse.png'
+import { db } from '../../firebase';
 
-function Snap({ snaps, snapActive, id }) {
-    console.log(snapActive)
+function Snap({ snaps, itemID, userID }) {
     const [curSnaps, setSnap] = useState(snaps)
-    const [curSnapActive, setSnapActive] = useState(snapActive)
+    const [curSnapActive, setSnapActive] = useState()
+    useEffect(async () => {
+        const usersSnaps = db.collection('snaps').doc(userID);
+        const doc = await usersSnaps.get();
+        if (!doc.exists) {
+            console.log('No such document!');
+        } else {
+            // console.log('Document data:', doc.data());
+            setSnapActive(doc.data()[itemID])
+        }
+        db.collection("snaps").doc(userID)
+      }, [])
 
+    async function setSnapState(bool) {
+        const snapStateRef = db.collection('snaps').doc(userID);
+        const res = await snapStateRef.set({ [itemID]: bool }, { merge: true });
+        // console.log(res)
+    }
+    async function updateSnapCount(inc) {
+        const snapStateRef = db.collection('posts').doc(itemID);
+        const res = await snapStateRef.update({ snaps: firebase.firestore.FieldValue.increment(inc) }, { merge: true });
+        // console.log(res)
+    }
+    
     function handleSnap() {
         if (curSnapActive === true) {
             // delete snap
-            // firebase.database().ref(`/items/${id}/snaps`).set(curSnaps - 1);
-
-            firebase.database().ref(`/items/${id}`).update({ snaps: curSnaps - 1});
-            firebase.database().ref(`/items/${id}`).update({ snapActive: false});
+            setSnapState(false)
+            updateSnapCount(-1)
             setSnapActive(false)
             setSnap(curSnaps - 1)
         } else {
             // add snap
-            // firebase.database().ref(`/items/${id}/snaps`).set(curSnaps + 1);
-
-            firebase.database().ref(`/items/${id}`).update({ snaps: curSnaps + 1});
-            firebase.database().ref(`/items/${id}`).update({ snapActive: true});
+            updateSnapCount(1)
+            setSnapState(true)
             setSnapActive(true)
             setSnap(curSnaps + 1)
         }

@@ -1,115 +1,58 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import '.././App.css';
-import firebase from '../firebase.js';
 import Post from '../Components/Post/Post'
 import { auth } from '../google-signin'
+import { db } from '../firebase';
+import firebase from 'firebase';
+import { useSelector } from 'react-redux';
+import {selectUser} from '../userRedux'
 
 import Navbar from '../Components/Navbar/Navbar'
 import Homepage from './Homepage'
 import MakePost from '../Components/Post/MakePost'
 
-class Feed extends Component {
-  constructor() {
-    super();
-    this.state = {
-      currentItem: '',
-      linkValue:'',
-      typeValue:'',
-      time: '',
-      username: '',
-      items: [],
-      user: null,
-      show: false,
-      snaps: 0,
-      snapActive: false
-    }
-    this.logout = this.logout.bind(this);
-  }
-  logout() {
-    auth.signOut()
-      .then(() => {
-        this.setState({
-          user: null
-        });
-      });
-  }
-  componentDidMount() {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        this.setState({ user });
-      } 
-    });
-    const itemsRef = firebase.database().ref('items');
-    itemsRef.on('value', (snapshot) => {
-      let items = snapshot.val();
-      console.log(items)
-      let newState = [];
-      for (let item in items) {
-        newState.push({
-          id: item,
-          title: items[item].title,
-          songLink: items[item].songLink,
-          postedBy: items[item].postedBy,
-          comments: items[item].comments,
-          time: items[item].time,
-          snaps: items[item].snaps,
-          snapActive: items[item].snapActive
-        });
-      }
-      console.log(newState)
-      this.setState({
-        items: newState
-      });
-    });
-  }
-  removeItem(itemId) {
-    const itemRef = firebase.database().ref(`/items/${itemId}`);
-    itemRef.remove();
-  }
-  
-  onTrigger = () => {
-    this.props.parentCallback("Data from child");
-}
-  render() {
-    return (
-      <div className='app'>
-        {/* If logged into google account display everything */}
-        {this.state.user ?
-          <div>
-            <Navbar 
-              user={this.state.user}
-              username={this.state.username}
-              logout={this.logout}
-            />
-            <div className='user-profile'>
-              <img src={this.state.user.photoURL}/>
-            </div>
-            <div className='container'>
-              {/* Form goes here */}
-            <MakePost user={this.state.user}/>
-            <section className='display-item'>
-              <div className="wrapper">
-                <ul>
-                  {this.state.items.map((item) => {
-                    return (
-                      <Post item={item} user={this.state.user.displayName} email={this.state.user.email}/>
-                    )
-                  })}
-                </ul>
-              </div>
-            </section>
+function Feed() {
+  const user = useSelector(selectUser);
+  const [posts, setPosts] = useState([]);
 
-            </div>
-          </div>
-          :
-          // Else homepage
-          <div> 
-            <Homepage />
-          </div>
+  useEffect(() => {
+    console.log(user)
+    db.collection("posts").orderBy('timestamp', 'desc').onSnapshot(snapshot => (
+      setPosts(snapshot.docs.map(doc => (
+        {
+          id: doc.id,
+          data: doc.data(),
         }
+      )))
+    ))
+    console.log(posts)
+  }, [])
+  
+  return (
+    <div className='app'>
+      <Navbar 
+        user={user}
+      />
+
+        <div className='user-profile'>
+          <img src={user.photoUrl}/>
+        </div>
+        <div className='container'>
+          <MakePost user={user}/>
+          <section className='display-item'>
+            <div className="wrapper">
+              <ul>
+                {posts.map((data) => {
+                  return (
+                    <Post data={data}/>
+                  )
+                })}
+              </ul>
+            </div>
+          </section>
+        </div>
       </div>
-    );
-  }
-}
+  );
+};
 
 export default Feed;

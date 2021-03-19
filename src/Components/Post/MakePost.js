@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import PostForm from './PostForm';
-import firebase from '../../firebase.js';
-import Moment from 'moment';
+// import firebase from '../../firebase.js';
+import { db } from '../../firebase';
+import firebase from 'firebase';
 
 function MakePost(user) {
    const [title, setTitle] = useState();
@@ -9,17 +10,15 @@ function MakePost(user) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(user.user.displayName)
-
-        const itemsRef = firebase.database().ref('items');
-        const item = {
+        db.collection("posts").add({
             title: title,
             songLink: songLink,
-            time: Moment(Date.now()).format('ll'),
-            postedBy: user.user.displayName,
-        };
-        itemsRef.push(item);
-        // Reset values of state?
+            postedBy: user.user,
+            snaps: 0,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        });
+        setTitle('');    
+        setSongLink('');       
     }
 
     function changeTitle(e) {
