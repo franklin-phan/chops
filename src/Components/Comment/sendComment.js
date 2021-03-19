@@ -6,7 +6,7 @@ import firebase from 'firebase';
 function CommentInput({ itemID, userID, user }) {
   const [body, setBody] = useState("");
   // const [commentMap, setcommentMap] = useState(comments ? comments : []);
-
+  console.log(user)
   async function handleSubmit(e) {
     e.preventDefault();
     const commentsRef = db.collection('posts').doc(itemID).collection("comments");

@@ -10,7 +10,7 @@ import { selectUser } from '../../userRedux'
 
 function Post(data) {
     const user = useSelector(selectUser);
-
+    console.log(user)
     const [comments, setComments] = useState([])
     const itemID = data.data.id
     const {postedBy, snaps, songLink, timestamp, title} = data.data.data
@@ -69,7 +69,7 @@ function Post(data) {
             {/* Snaps */}
             <Snap snaps={snaps} itemID={itemID} userID={user.uid}/>
             {/* Comment Form */}
-            <CommentInput itemID={itemID} userID={user.uid} user={postedBy}/>
+            <CommentInput itemID={itemID} userID={user.uid} user={user.displayName}/>
 
             {/* Comments if not undefined */}
             {comments.map((comment) => {
