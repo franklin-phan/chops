@@ -50,11 +50,15 @@ function Snap({ snaps, itemID, userID }) {
     return (
         <div>
             {/* Snaps */}
-            <p>Snaps: {curSnaps}</p>
-            <button onClick={handleSnap}>Snap</button>
             {curSnapActive === true ?
-                <img src={snapTrue}/>
-            : <img src={snapFalse}/>}
+            <div onClick={handleSnap}>
+                <img src={snapTrue} alt='Snap True'/>
+                <p>{curSnaps}</p>
+            </div>
+            : <div onClick={handleSnap}>
+                <img src={snapFalse} alt='Snap False'/>
+                <p>{curSnaps}</p>
+              </div>}
         </div>
     );
 }
