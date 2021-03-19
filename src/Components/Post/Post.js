@@ -15,7 +15,7 @@ function Post(data) {
     const itemID = data.data.id
     const {postedBy, snaps, songLink, timestamp, title} = data.data.data
     const {email, displayName} = postedBy
-    
+    console.log(timestamp)
     useEffect(async () => {
         const postCommentsRef = db.collection("posts").doc(itemID).collection("comments")
         const res = await postCommentsRef.orderBy('timestamp', 'desc').onSnapshot(async snapshot => (
@@ -28,6 +28,9 @@ function Post(data) {
         ))
     }, [])
     function convertTimestamp(timestamp) {
+        if (!timestamp) {
+            return 'test'
+        }
         let date = timestamp.toDate();
         let mm = date.getMonth();
         let dd = date.getDate();

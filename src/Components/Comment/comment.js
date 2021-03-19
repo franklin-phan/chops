@@ -7,6 +7,9 @@ function Comment({ data }) {
   const {body, postedBy, timestamp} = comment
   // console.log(comment)
   function convertTimestamp(timestamp) {
+    if (!timestamp) {
+      return 'test'
+    }
     let date = timestamp.toDate();
     let mm = date.getMonth();
     let dd = date.getDate();

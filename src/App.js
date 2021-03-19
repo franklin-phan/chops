@@ -45,30 +45,3 @@ function App() {
 }
 
 export default App;
-// class App extends Component {
-//   constructor(props){
-//     super(props);
-//     this.state = {
-//       user: null,
-//       data: null
-//     }
-//   }
-//   componentDidMount() {
-//     auth.onAuthStateChanged((user) => {
-//       if (user) {
-//         this.setState({ user }); 
-//         const userRef = firebase.database().ref('users');
-//         userRef.on('value', (snapshot) => {
-//           let checkUser = snapshot.val();
-//           if (checkUser) {
-//           } else {
-//             CreateUser(user.displayName, user.email, user.uid)
-//           }
-//         })
-//       } 
-//     });
-//   }
-
-//   handleCallback = (childData) =>{
-//     this.setState({data: childData})
-//   }
