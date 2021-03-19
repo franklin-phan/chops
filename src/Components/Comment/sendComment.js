@@ -17,6 +17,7 @@ function CommentInput({ itemID, userID, user }) {
         snaps: 0,
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
     }, { merge: true });
+    console.log(user)
     setBody('');    
   }
 
