@@ -15,7 +15,10 @@ function Post(data) {
     const itemID = data.data.id
     const {postedBy, snaps, songLink, timestamp, title} = data.data.data
     const {email, displayName} = postedBy
-    console.log(timestamp)
+    console.log("Item then title")
+    console.log(itemID)
+    console.log(title)  
+
     useEffect(async () => {
         const postCommentsRef = db.collection("posts").doc(itemID).collection("comments")
         const res = await postCommentsRef.orderBy('timestamp', 'desc').onSnapshot(async snapshot => (
@@ -29,7 +32,7 @@ function Post(data) {
     }, [])
     function convertTimestamp(timestamp) {
         if (!timestamp) {
-            return 'test'
+            return null
         }
         let date = timestamp.toDate();
         let mm = date.getMonth();
@@ -39,6 +42,9 @@ function Post(data) {
         date = mm + '/' + dd + '/' + yyyy;
         return date;
       }
+    // console.log("beck")
+    // console.log(itemID)
+    // console.log(comments)
     function removeItem() {
         db.collection("posts").doc(itemID).delete().then(() => {
             console.log("Document successfully deleted!");
@@ -75,7 +81,7 @@ function Post(data) {
             {comments.map((comment) => {
                 console.log(comment)
                   return (
-                    <Comment data={comment}/>
+                    <Comment data={comment} itemID={itemID}/>
                   )
                 })}
             {/* {item.item.comments != undefined ?
