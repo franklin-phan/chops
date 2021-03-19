@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import app from 'firebase'
+import { auth } from '../../google-signin'
 
 const SignUp = (props) => {
     const [formErrors, setFormErrors] = useState([])

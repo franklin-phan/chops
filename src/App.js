@@ -1,35 +1,47 @@
-import React, { Component } from 'react';
+
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
-// import firebase from './firebase.js';
+import { login, logout, selectUser } from './userRedux';
+import Feed from './Pages/Feed'
+import Homepage from './Pages/Homepage'
+import { auth } from './google-signin'
 
-// import { auth, provider } from './google-signin'
+function App() {
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+  const [shouldUpdate, setShouldUpdate] = useState(false)
 
-import Feed from './Feed'
-// import Navbar from './Navbar'
-// import Homepage from './Homepage'
-// import MakePost from './MakePost'
+  useEffect(() => {
+    auth.onAuthStateChanged(userAuth => {
+      if (userAuth) {
+        // user is logged in
+        dispatch(login({
+          email: userAuth.email,
+          uid: userAuth.uid,
+          displayName: userAuth.displayName,
+          photoUrl: userAuth.photoURL,
+        }))
+      } else {
+        // user is logged out
+        setShouldUpdate(!shouldUpdate) // ! Sets to opposite
+      }
+    })
+  }, [dispatch]);
 
-// import { HashRouter as Router, Route } from 'react-router-dom'
+  return (
+      <div className="app">
 
-// Franklin was here
-
-class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      data:null
-    }
-  }
-  handleCallback = (childData) =>{
-    this.setState({data: childData})
-  }
-  render() {
-    return (
-      <div>
-      <Feed parentCallback = {this.handleCallback}/>
+        {!user ? (
+          <Homepage />
+        ) : (
+          <div className="app_body">
+            <Feed/>
+          </div>
+        )}
+        
       </div>
-    );
-  }
+  );
 }
 
 export default App;
