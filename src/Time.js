@@ -4,7 +4,7 @@ function Time(date){
         const now = new Date()
         
         const ms = now - date
- 
+        // trying to fix time merge
         // const d_year = Math.abs(now.getFullYear() - date.getFullYear())
         // const d_month =Math.abs((date.getMonth() - now.getMonth() + (d_year*12)) ) 
         const d_day = Math.abs(Math.floor(ms/1000/60/60/24))
