@@ -5,7 +5,7 @@ import pfp from './pfp.png'
 function Comment({ data }) {
   const {id, comment} = data
   const {body, postedBy, timestamp} = comment
-  // console.log(comment)
+  console.log(comment)
   function convertTimestamp(timestamp) {
     if (!timestamp) {
       return 'test'
@@ -22,7 +22,7 @@ function Comment({ data }) {
     <div className="comment">
       <img src={pfp} width="30px" height="30px"/>
       <p>
-        <strong>{postedBy.displayName}</strong> {body}
+        <strong>{postedBy}</strong> {body}
       </p>
       <time>{convertTimestamp(timestamp)}</time>
     </div>
