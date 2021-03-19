@@ -1,12 +1,12 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import PostForm from './PostForm';
 // import firebase from '../../firebase.js';
 import { db } from '../../firebase';
 import firebase from 'firebase';
 
 function MakePost(user) {
-   const [title, setTitle] = useState();
-   const [songLink, setSongLink] = useState();
+    const [title, setTitle] = useState();
+    const [songLink, setSongLink] = useState();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -17,8 +17,8 @@ function MakePost(user) {
             snaps: 0,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         });
-        setTitle('');    
-        setSongLink('');       
+        setTitle('');
+        setSongLink('');
     }
 
     function changeTitle(e) {
@@ -29,15 +29,15 @@ function MakePost(user) {
     }
 
     return (
-       <div>
-            <PostForm 
+        <div className='add-item'>
+            <PostForm
                 changeTitle={changeTitle}
                 changeSongLink={changeSongLink}
                 handleSubmit={handleSubmit}
                 title={title}
                 songLink={songLink}
             />
-       </div>
+        </div>
     );
 }
 
