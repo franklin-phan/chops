@@ -12,7 +12,7 @@ import { selectUser } from '../../userRedux'
 import Time from '../../Time'
 function Post(data) {
   const user = useSelector(selectUser);
-  console.log(user)
+  // console.log(user)
   const [comments, setComments] = useState([])
   const itemID = data.data.id
   const { postedBy, snaps, songLink, timestamp, title } = data.data.data
@@ -55,12 +55,16 @@ function Post(data) {
     });
   }
 
+  function toggleComments() {
+    setShowComments(!showComments)
+  }
+
   return (
     <li key={itemID} className="post-container">
 
       <div className="post-header">
         <div className="user-profile">
-          <img src={photoUrl} class="" />
+          <img src={photoUrl} />
         </div>
         <div className="centered-flex-column">
           <p className="post-author">{displayName}</p>
@@ -73,37 +77,31 @@ function Post(data) {
 
       {/* Media Display */}
       {songLink.search("soundcloud") !== -1 ?
-        <iframe title="post" width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+        <iframe title="post" width="100%" height="166" scrolling="no" frameBorder="no" allow="autoplay"
           src={"https://w.soundcloud.com/player/?url=" + songLink + "&am;"}>
         </iframe> : null}
       {songLink.search("spotify") !== -1 ?
-        <iframe src={(songLink).replace("track", "embed/track")} title="post" width="100%" height="100%" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> : null}
+        <iframe src={(songLink).replace("track", "embed/track")} title="post" width="100%" height="100%" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe> : null}
       {songLink.search("youtube") !== -1 ?
-        <iframe title="post" width="100%" height="166" src={(songLink).replace("watch?v=", "embed/")} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> : null}
+        <iframe title="post" width="100%" height="166" src={(songLink).replace("watch?v=", "embed/")} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> : null}
       <div>
         {displayName === user.displayName || email === user.email ?
           <button onClick={() => removeItem(itemID)}>Remove Item</button> : null}
       </div>
 
-
-
-      {/* Profile Picture */}
-      {/* <img src={pfp} width="30px" height="30px" /> */}
-
       <div className="post-actions-container">
         {/* Snaps */}
         <Snap snaps={snaps} itemID={itemID} userID={user.uid} />
-        <CommentControls />
+        <CommentControls commentToggle={toggleComments} commentCount={comments.length} isActive={showComments} />
       </div>
 
 
 
       {/* Comments if not undefined */}
-      {comments.map((comment) => {
-        // console.log(comment)
-        return (
-          <Comment data={comment} itemID={itemID} />
-        )
+      {comments.map((comment, index) => {
+        return showComments ? (
+          <Comment data={comment} itemID={itemID} key={index + itemID} />
+        ) : null
       })}
 
       <div>{showComments ?

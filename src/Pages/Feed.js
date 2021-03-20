@@ -12,43 +12,42 @@ import Homepage from './Homepage'
 import MakePost from '../Components/Post/MakePost'
 
 function Feed() {
-    const user = useSelector(selectUser);
-    const [posts, setPosts] = useState([]);
+  const user = useSelector(selectUser);
+  const [posts, setPosts] = useState([]);
 
-    useEffect(() => {
-        console.log(user)
-        db.collection("posts").orderBy('timestamp', 'desc').onSnapshot(snapshot => (
-            setPosts(snapshot.docs.map(doc => (
-                {
-                    id: doc.id,
-                    data: doc.data(),
-                }
-            )))
-        ))
-        console.log(posts)
-    }, [])
+  useEffect(() => {
+    db.collection("posts").orderBy('timestamp', 'desc').onSnapshot(snapshot => (
+      setPosts(snapshot.docs.map(doc => (
+        {
+          id: doc.id,
+          data: doc.data(),
+        }
+      )))
+    ))
+    console.log(posts)
+  }, [])
 
-    return (
-        <div className='app'>
-            <Navbar
-                user={user}
-            />
-            <div className='feed-container'>
-                <MakePost user={user} />
-                <section className='display-item'>
-                    <div className="wrapper">
-                        <ul>
-                            {posts.map((data) => {
-                                return (
-                                    <Post data={data} />
-                                )
-                            })}
-                        </ul>
-                    </div>
-                </section>
-            </div>
-        </div>
-    );
+  return (
+    <div className='app'>
+      <Navbar
+        user={user}
+      />
+      <div className='feed-container'>
+        <MakePost user={user} />
+        <section className='display-item'>
+          <div className="wrapper">
+            <ul>
+              {posts.map((data, index) => {
+                return (
+                  <Post data={data} key={index} />
+                )
+              })}
+            </ul>
+          </div>
+        </section>
+      </div>
+    </div>
+  );
 };
 
 export default Feed;
