@@ -52,6 +52,10 @@ input {
   border: 1px solid lightgray;
 }
 
+textarea {
+  border: 1px solid lightgray;
+}
+
 .inputError {
     background-color: rgb(255, 224, 224);
     border: 1px solid rgb(255, 111, 111);
@@ -594,4 +598,10 @@ li {
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
   resize: none;
+}
+
+.post-comment-button {
+  border: 1px solid #03aab3;
+  border-radius: 0;
+  margin: 0;
 }

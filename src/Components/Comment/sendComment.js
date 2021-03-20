@@ -34,11 +34,10 @@ function CommentInput({ itemID, userID, user }) {
       <button
         onClick={handleSubmit}
         style={{
-          color: body ? "gray" : "lightgrey",
-          fontWeight: body ? "600" : "500",
           margin: "0",
           width: "10%"
         }}
+        className="post-comment-button"
       >
         Post
       </button>
