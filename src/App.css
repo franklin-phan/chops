@@ -585,15 +585,23 @@ li {
   justify-content: left;
 }
 
+.delete-post-button {
+  background-color: tomato;
+  margin-right: 10px;
+  word-wrap:unset;
+}
+
 /* Comment 7.0 */
 
 .comment {
-  margin: 15px;
+  margin: 5px 15px 15px 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: left;
-  margin-left: 20px;
+  background-color: rgb(245, 245, 245);
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .comment-content {
@@ -604,6 +612,7 @@ li {
 .comment-text {
   padding: 0;
   margin: 10px 0 10px 10px;
+  max-width: 70%;
 }
 
 .commentInputContainer {
@@ -614,8 +623,7 @@ li {
 }
 
 .delete-comment-button {
-  background-color: tomato;
-  margin-right: 10px;
+  margin-left: auto;
 }
 
 .commentInput {

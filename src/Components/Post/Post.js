@@ -70,6 +70,8 @@ function Post(data) {
           <p className="post-author">{displayName}</p>
           <time>{convertTimestamp(timestamp)}</time>
         </div>
+        {displayName === user.displayName || email === user.email ?
+          <button className="delete-post-button" onClick={() => removeItem(itemID)}>Delete Post</button> : null}
       </div>
 
       <hr style={{ margin: "0 20px" }}></hr>
@@ -85,8 +87,7 @@ function Post(data) {
       {songLink.search("youtube") !== -1 ?
         <iframe title="post" width="100%" height="166" src={(songLink).replace("watch?v=", "embed/")} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> : null}
       <div>
-        {displayName === user.displayName || email === user.email ?
-          <button onClick={() => removeItem(itemID)}>Remove Item</button> : null}
+
       </div>
 
       <div className="post-actions-container">
