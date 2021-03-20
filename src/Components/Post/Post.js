@@ -65,9 +65,10 @@ function Post(data) {
         </div>
       </div>
 
-      <hr></hr>
+      <hr style={{ margin: "0 20px" }}></hr>
+      <p>{title}</p>
 
-      <h3>{title}</h3>
+      {/* Media Display */}
       {songLink.search("soundcloud") !== -1 ?
         <iframe title="post" width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
           src={"https://w.soundcloud.com/player/?url=" + songLink + "&am;"}>
@@ -76,14 +77,16 @@ function Post(data) {
         <iframe src={(songLink).replace("track", "embed/track")} title="post" width="100%" height="100%" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> : null}
       {songLink.search("youtube") !== -1 ?
         <iframe title="post" width="100%" height="166" src={(songLink).replace("watch?v=", "embed/")} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> : null}
-      <p>Posted by: {displayName}
+      <div>
         {displayName === user.displayName || email === user.email ?
           <button onClick={() => removeItem(itemID)}>Remove Item</button> : null}
-      </p>
+      </div>
+
+
+
       {/* Profile Picture */}
-      <img src={pfp} width="30px" height="30px" />
-      {/* Time Posted */}
-      <time>{convertTimestamp(timestamp)}</time>
+      {/* <img src={pfp} width="30px" height="30px" /> */}
+
       {/* Snaps */}
       <Snap snaps={snaps} itemID={itemID} userID={user.uid} />
       {/* Comment Form */}
