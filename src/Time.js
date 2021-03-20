@@ -10,9 +10,9 @@ function Time(date){
         const d_day = Math.abs(Math.floor(ms/1000/60/60/24))
         const d_seconds = Math.abs(now.getSeconds()-date.getSeconds())
         const d_minutes = Math.abs(now.getMinutes()-date.getMinutes())
-        const d_hours = Math.abs(Math.floor(d_minutes/60))
-        // console.log(d_day,d_hours,d_minutes,d_seconds)
-
+        const d_hours = Math.abs(now.getHours()-date.getHours())
+        console.log(d_day,d_hours,d_minutes,d_seconds)
+        console.log(date)
         var delta = 0
         if (d_day >= 7) {
             return Moment(date).format('ll')
