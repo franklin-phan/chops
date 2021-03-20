@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CommentInput from '../Comment/sendComment'
+import CommentControls from '../Comment/CommentControls'
 import Comment from '../Comment/comment'
 import pfp from '../Comment/pfp.png'
 import Snap from '../Snaps/snap'
@@ -16,7 +17,9 @@ function Post(data) {
   const itemID = data.data.id
   const { postedBy, snaps, songLink, timestamp, title } = data.data.data
   const { email, displayName, photoUrl } = postedBy
-  console.log(timestamp)
+  const [showComments, setShowComments] = useState(false)
+
+  // console.log(timestamp)
   useEffect(async () => {
     const postCommentsRef = db.collection("posts").doc(itemID).collection("comments")
     const res = await postCommentsRef.orderBy('timestamp', 'desc').onSnapshot(async snapshot => (
@@ -33,7 +36,7 @@ function Post(data) {
     if (!timestamp) {
       return 'test'
     }
-    console.log(timestamp)
+    // console.log(timestamp)
     // let date = timestamp.toDate();
     // let mm = date.getMonth();
     // let dd = date.getDate();
@@ -87,18 +90,35 @@ function Post(data) {
       {/* Profile Picture */}
       {/* <img src={pfp} width="30px" height="30px" /> */}
 
-      {/* Snaps */}
-      <Snap snaps={snaps} itemID={itemID} userID={user.uid} />
-      {/* Comment Form */}
-      <CommentInput itemID={itemID} userID={user.uid} user={user.displayName} />
+      <div className="post-actions-container">
+        {/* Snaps */}
+        <Snap snaps={snaps} itemID={itemID} userID={user.uid} />
+        <CommentControls />
+      </div>
+
+
 
       {/* Comments if not undefined */}
       {comments.map((comment) => {
-        console.log(comment)
+        // console.log(comment)
         return (
           <Comment data={comment} itemID={itemID} />
         )
       })}
+
+      <div>{showComments ?
+        /* Comment Form */
+        <CommentInput itemID={itemID} userID={user.uid} user={user.displayName} hidden={false} />
+        : null}
+      </div>
+
+
+
+
+
+
+
+
       {/* {item.item.comments != undefined ?
                 item.item.comments.map((comment) => {
                     return (

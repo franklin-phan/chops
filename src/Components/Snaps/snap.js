@@ -51,7 +51,7 @@ function Snap({ snaps, itemID, userID }) {
     <div>
       {/* Snaps */}
 
-      <div onClick={handleSnap} className="snaps-container">
+      <div onClick={handleSnap} className="post-info-container">
         <div>
           {curSnapActive === true ?
             <img src={snapTrue} alt='Snap True' class="snap-image" />
