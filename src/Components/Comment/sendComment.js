@@ -12,22 +12,23 @@ function CommentInput({ itemID, userID, user }) {
     const commentsRef = db.collection('posts').doc(itemID).collection("comments");
 
     const res = await commentsRef.add({
-        body: body,
-        postedBy: user,
-        snaps: 0,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      body: body,
+      postedBy: user,
+      snaps: 0,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
     }, { merge: true });
     console.log(user)
-    setBody('');    
+    setBody('');
   }
 
   return (
-    <div>
+    <div className="commentInputContainer">
       <textarea
         rows="1"
         value={body}
         onChange={(e) => setBody(e.target.value)}
         placeholder="Add a comment.."
+        className="commentInput"
       ></textarea>
 
       <button
@@ -35,11 +36,13 @@ function CommentInput({ itemID, userID, user }) {
         style={{
           color: body ? "gray" : "lightgrey",
           fontWeight: body ? "600" : "500",
+          margin: "0",
+          width: "10%"
         }}
       >
         Post
       </button>
-    </div>
+    </div >
   );
 }
 
