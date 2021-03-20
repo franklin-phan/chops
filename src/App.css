@@ -64,14 +64,6 @@ h2 {
   font-weight: 400;
 }
 
-li h3 {
-  background-color: #482880;
-  margin: 0;
-  color: #fff;
-  font-weight: 300;
-  padding: 15px;
-}
-
 li p {
   padding: 15px;
 }
@@ -145,7 +137,7 @@ button {
 .user-profile {
   width: 50px;
   height: 50px;
-  margin: 0px 20px;
+  margin: 0px 10px;
 }
 
 .user-profile img {
@@ -238,6 +230,7 @@ button {
     flex-direction: column;
     justify-content: center;
 }
+
 
 .centered-flex-row {
     display: flex;
@@ -500,6 +493,24 @@ button {
   grid-area: 1 / 5 / 6 / 11;
   overflow-y: scroll;
   margin-left: 30px;
+}
+
+.post-container {
+  padding: 15px 10px;
+  border-radius: 20px;
+}
+
+.post-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.post-author {
+  font-size: 18px;
+  padding: 0;
+  margin: 5px 0;
 }
 
 @media only screen and (max-width: 1300px){
