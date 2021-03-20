@@ -38,14 +38,17 @@ function Comment({ data, itemID }) {
   }
   return (
     <div className="comment">
-      <img src={pfp} width="30px" height="30px" />
-      <p>
-        <strong>{postedBy}</strong> {body}
-      </p>
-      <time>{convertTimestamp(timestamp)}</time>
-      {postedBy === user.displayName || postedBy === user.displayName ?
-        <button onClick={() => removeItem(id)}>Remove Item</button> : null}
-    </div>
+      <div className="comment-content">
+        <img src={pfp} width="30px" height="30px" />
+        <p className="comment-text">
+          <strong>{postedBy}:</strong> {body}
+        </p>
+
+        {postedBy === user.displayName || postedBy === user.displayName ?
+          <button className="delete-comment-button" onClick={() => removeItem(id)}>Delete Comment</button> : null}
+      </div>
+      <time className="comment-timestamp">{convertTimestamp(timestamp)}</time>
+    </div >
   );
 }
 

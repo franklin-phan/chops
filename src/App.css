@@ -516,7 +516,7 @@ button {
 }
 
 .display-item button {
-  margin-top: 20px;
+  margin-top: 0px;
   margin-left: auto;
   display: block;
 }
@@ -575,6 +575,7 @@ li {
 .post-info-container > p {
   font-size: 20px;
   margin: 0 10px;
+  user-select: none;
 }
 
 .post-actions-container {
@@ -585,11 +586,36 @@ li {
 }
 
 /* Comment 7.0 */
+
+.comment {
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  margin-left: 20px;
+}
+
+.comment-content {
+  display: flex;
+  align-items: center;
+}
+
+.comment-text {
+  padding: 0;
+  margin: 10px 0 10px 10px;
+}
+
 .commentInputContainer {
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.delete-comment-button {
+  background-color: tomato;
+  margin-right: 10px;
 }
 
 .commentInput {
@@ -604,4 +630,10 @@ li {
   border: 1px solid #03aab3;
   border-radius: 0;
   margin: 0;
+}
+
+.comment-timestamp {
+  color: rgb(73, 73, 73);
+  font-size: 12px;
+  margin: 0px;
 }
