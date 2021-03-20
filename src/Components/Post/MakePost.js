@@ -15,6 +15,7 @@ function MakePost(user) {
             songLink: songLink,
             postedBy: user.user,
             snaps: 0,
+            uid: user.user.uid,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         });
         setTitle('');

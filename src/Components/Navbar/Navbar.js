@@ -10,7 +10,6 @@ export default function Navbar(props) {
     const { user } = props;
     const dispatch = useDispatch();
     const [menuHidden, setMenuHidden] = useState("hidden")
-
     return (
         <header>
             <div className="wrapper">
@@ -25,7 +24,9 @@ export default function Navbar(props) {
                         </div>
                         <div className="navbar-dropdown" style={{ visibility: menuHidden }}>
                             <div className="navbar-dropdown-item">Profile</div>
-                            <div className="navbar-dropdown-item" onClick={() => dispatch(logout())}>Logout</div>
+                            <div className="navbar-dropdown-item" onClick={() => {
+                                dispatch(logout())
+                                } }>Logout</div>
                         </div>
                     </div>
                     :
