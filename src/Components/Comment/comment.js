@@ -35,8 +35,8 @@ function Comment({ data, itemID, isLoggedIn }) {
     });
   }
   function displayDeleteButton() {
-    return isLoggedIn ? <div>{postedBy === user.displayName || postedBy === user.displayName ?
-        <div className="delete-comment-button" onClick={() => removeItem(id)}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="tomato"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.597 17.954l-4.591-4.55-4.555 4.596-1.405-1.405 4.547-4.592-4.593-4.552 1.405-1.405 4.588 4.543 4.545-4.589 1.416 1.403-4.546 4.587 4.592 4.548-1.403 1.416z" /></svg></div> : null}
+    return isLoggedIn ? <div className="delete-comment-button" >{postedBy === user.displayName || postedBy === user.displayName ?
+      <div onClick={() => removeItem(id)}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="tomato"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.597 17.954l-4.591-4.55-4.555 4.596-1.405-1.405 4.547-4.592-4.593-4.552 1.405-1.405 4.588 4.543 4.545-4.589 1.416 1.403-4.546 4.587 4.592 4.548-1.403 1.416z" /></svg></div> : null}
     </div> : null
   }
 
