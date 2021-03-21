@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 // import firebase from '../../firebase.js';
 import firebase from 'firebase';
 
@@ -7,9 +7,10 @@ import snapFalse from './snapFalse.png'
 import { db } from '../../firebase';
 import { userLoggedIn } from "../Authentication/IsLoggedIn";
 
-function Snap({ snaps, itemID, user, isLoggedIn }) {
+export default function Snap({ snaps, itemID, user, isLoggedIn }) {
     const [curSnaps, setSnap] = useState(snaps)
     const [curSnapActive, setSnapActive] = useState()
+
     useEffect(async () => {
         try {
             const usersSnaps = db.collection('snaps').doc(user.uid);
@@ -24,7 +25,7 @@ function Snap({ snaps, itemID, user, isLoggedIn }) {
         } catch (error) {
             console.log("User not logged in yet: Snap")
         }  
-        
+        db.collection("snaps").doc(user.uid)
       }, [])
 
     async function setSnapState(bool) {
@@ -37,7 +38,7 @@ function Snap({ snaps, itemID, user, isLoggedIn }) {
         const res = await snapStateRef.update({ snaps: firebase.firestore.FieldValue.increment(inc) }, { merge: true });
         // console.log(res)
     }
-    
+
     function handleSnap() {
         if (curSnapActive === true) {
             // delete snap
@@ -55,18 +56,20 @@ function Snap({ snaps, itemID, user, isLoggedIn }) {
     }
     function displaySnap() {
         console.log(isLoggedIn)
-        return isLoggedIn ? <div>
-        {/* Snaps */}
-        {curSnapActive === true ?
-            <div onClick={handleSnap}>
-                <img src={snapTrue} alt='Snap True'/>
-                <p>{curSnaps}</p>
-            </div>
-            : <div onClick={handleSnap}>
-                <img src={snapFalse} alt='Snap False'/>
-                <p>{curSnaps}</p>
-            </div>}
-    </div> : <div><img src={snapFalse} alt='Snap False'/><p>{curSnaps}</p></div>
+        return isLoggedIn ? 
+            <div>
+                {/* Snaps */}
+                {curSnapActive === true ?
+                    <div onClick={handleSnap} className="post-info-container">
+                        <img src={snapTrue} alt='Snap True' className="snap-image"/>
+                        <p>{curSnaps}</p>
+                    </div>
+                    : <div onClick={handleSnap} className="post-info-container">
+                        <img src={snapFalse} alt='Snap False'/>
+                        <p>{curSnaps}</p>
+                    </div>}
+            </div> 
+        : <div><img src={snapFalse} alt='Snap False'/><p>{curSnaps}</p></div>
     }
   
     return (
@@ -74,6 +77,6 @@ function Snap({ snaps, itemID, user, isLoggedIn }) {
             {displaySnap()}
         </div>
     );
-}
+    
 
-export default Snap;
+}

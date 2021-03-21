@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import "./CommentInput.css";
 import { db } from "../../firebase";
 import firebase from 'firebase';
 
@@ -25,20 +24,22 @@ function CommentInput({ itemID, user, isLoggedIn }) {
   return (
     <div>
       {isLoggedIn ? 
-      <div>
-        <textarea
+    <div className="commentInputContainer">
+      <textarea
         rows="1"
         value={body}
         onChange={(e) => setBody(e.target.value)}
         placeholder="Add a comment.."
+        className="commentInput"
       ></textarea>
 
       <button
         onClick={handleSubmit}
         style={{
-          color: body ? "gray" : "lightgrey",
-          fontWeight: body ? "600" : "500",
+          margin: "0",
+          width: "10%"
         }}
+        className="post-comment-button"
       >
         Post
       </button>

@@ -53,7 +53,7 @@ function App() {
         </Route>
         <Route exact path="/feed" > 
           {redirectLogout ? console.log("attempting to redirect") : <Feed/>}
-          {!user ? <Redirect to="/" /> : <Feed/>}
+          {!user ? <Redirect to="/" /> : null}
         </Route>
       </div>
       </Switch>
