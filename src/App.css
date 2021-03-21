@@ -571,6 +571,10 @@ li {
   margin: 5px 0;
 }
 
+.post-media {
+  height: 200px;
+}
+
 .post-info-container {
   display: flex;
   justify-content: left;
