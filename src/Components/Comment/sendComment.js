@@ -3,27 +3,30 @@ import React, { useState } from "react";
 import { db } from "../../firebase";
 import firebase from 'firebase';
 
-function CommentInput({ itemID, userID, user }) {
+function CommentInput({ itemID, user, isLoggedIn }) {
   const [body, setBody] = useState("");
-  // const [commentMap, setcommentMap] = useState(comments ? comments : []);
-  console.log(user)
   async function handleSubmit(e) {
     e.preventDefault();
-    const commentsRef = db.collection('posts').doc(itemID).collection("comments");
-
-    const res = await commentsRef.add({
-        body: body,
-        postedBy: user,
-        snaps: 0,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-    }, { merge: true });
-    console.log(user)
-    setBody('');    
+    try {
+      const commentsRef = db.collection('posts').doc(itemID).collection("comments");
+      const {displayName} = user
+      const res = await commentsRef.add({
+          body: body,
+          postedBy: displayName,
+          snaps: 0,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      }, { merge: true });
+      setBody(''); 
+    } catch (error) {
+      
+    }
   }
 
   return (
     <div>
-      <textarea
+      {isLoggedIn ? 
+      <div>
+        <textarea
         rows="1"
         value={body}
         onChange={(e) => setBody(e.target.value)}
@@ -39,6 +42,7 @@ function CommentInput({ itemID, userID, user }) {
       >
         Post
       </button>
+      </div> : null}
     </div>
   );
 }

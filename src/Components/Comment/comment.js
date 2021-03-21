@@ -5,7 +5,7 @@ import { selectUser } from '../../userRedux'
 import {db} from '../../firebase'
 import Time from '../../Time'
 
-function Comment({ data, itemID }) {
+function Comment({ data, itemID, isLoggedIn }) {
   const user = useSelector(selectUser);
 
   const {id, comment} = data
@@ -36,6 +36,11 @@ function Comment({ data, itemID }) {
         console.error("Error removing document: ", error);
     });
   }
+  function displayDeleteButton() {
+    return isLoggedIn ? <div>{postedBy === user.displayName || postedBy === user.displayName ?
+      <button onClick={() => removeItem(id)}>Remove Item</button> : null}</div> : null
+  }
+
   return (
     <div className="comment">
       <img src={pfp} width="30px" height="30px"/>
@@ -43,8 +48,7 @@ function Comment({ data, itemID }) {
         <strong>{postedBy}</strong> {body}
       </p>
       <time>{convertTimestamp(timestamp)}</time>
-      {postedBy === user.displayName || postedBy === user.displayName ?
-      <button onClick={() => removeItem(id)}>Remove Item</button> : null}
+      {displayDeleteButton()} 
     </div>
   );
 }

@@ -6,6 +6,7 @@ import { login, logout, selectUser } from './userRedux';
 import Feed from './Pages/Feed'
 import Homepage from './Pages/Homepage'
 import ProfilePage from './Pages/Profile'
+import EditProfilePage from './Pages/EditProfilePage'
 
 import { auth } from './google-signin'
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
@@ -46,6 +47,7 @@ function App() {
       <Switch>
       <div className="app">
         <Route path="/profile/:uid" exact render={ () => <ProfilePage/>} />
+        <Route path="/profile/:uid/edit" exact render={ () => <EditProfilePage/>} />
         <Route exact path="/" exact render={ () => <Homepage/>}>
           {redirectLogin ? <Redirect to="/feed" /> : <Homepage/>}
         </Route>
@@ -53,7 +55,6 @@ function App() {
           {redirectLogout ? console.log("attempting to redirect") : <Feed/>}
           {!user ? <Redirect to="/" /> : <Feed/>}
         </Route>
-
       </div>
       </Switch>
     </Router>

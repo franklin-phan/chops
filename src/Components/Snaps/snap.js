@@ -5,24 +5,30 @@ import firebase from 'firebase';
 import snapTrue from './snapTrue.png'
 import snapFalse from './snapFalse.png'
 import { db } from '../../firebase';
+import { userLoggedIn } from "../Authentication/IsLoggedIn";
 
-function Snap({ snaps, itemID, userID }) {
+function Snap({ snaps, itemID, user, isLoggedIn }) {
     const [curSnaps, setSnap] = useState(snaps)
     const [curSnapActive, setSnapActive] = useState()
     useEffect(async () => {
-        const usersSnaps = db.collection('snaps').doc(userID);
-        const doc = await usersSnaps.get();
-        if (!doc.exists) {
-            console.log('No such document!');
-        } else {
-            // console.log('Document data:', doc.data());
-            setSnapActive(doc.data()[itemID])
-        }
-        db.collection("snaps").doc(userID)
+        try {
+            const usersSnaps = db.collection('snaps').doc(user.uid);
+            const doc = await usersSnaps.get();
+            if (!doc.exists) {
+                console.log('No such document!');
+            } else {
+                // console.log('Document data:', doc.data());
+                setSnapActive(doc.data()[itemID])
+            }
+            db.collection("snaps").doc(user.uid)
+        } catch (error) {
+            console.log("User not logged in yet: Snap")
+        }  
+        
       }, [])
 
     async function setSnapState(bool) {
-        const snapStateRef = db.collection('snaps').doc(userID);
+        const snapStateRef = db.collection('snaps').doc(user.uid);
         const res = await snapStateRef.set({ [itemID]: bool }, { merge: true });
         // console.log(res)
     }
@@ -47,10 +53,11 @@ function Snap({ snaps, itemID, userID }) {
             setSnap(curSnaps + 1)
         }
     }
-    return (
-        <div>
-            {/* Snaps */}
-            {curSnapActive === true ?
+    function displaySnap() {
+        console.log(isLoggedIn)
+        return isLoggedIn ? <div>
+        {/* Snaps */}
+        {curSnapActive === true ?
             <div onClick={handleSnap}>
                 <img src={snapTrue} alt='Snap True'/>
                 <p>{curSnaps}</p>
@@ -58,7 +65,13 @@ function Snap({ snaps, itemID, userID }) {
             : <div onClick={handleSnap}>
                 <img src={snapFalse} alt='Snap False'/>
                 <p>{curSnaps}</p>
-              </div>}
+            </div>}
+    </div> : <div><img src={snapFalse} alt='Snap False'/><p>{curSnaps}</p></div>
+    }
+  
+    return (
+        <div>
+            {displaySnap()}
         </div>
     );
 }

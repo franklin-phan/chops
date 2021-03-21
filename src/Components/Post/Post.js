@@ -7,6 +7,7 @@ import firebase from '../../firebase'
 import { db } from '../../firebase';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../userRedux'
+import { userLoggedIn, userIsOwner } from '../Authentication/IsLoggedIn'
 
 import Time from '../../Time'
 function Post(data) {
@@ -15,7 +16,7 @@ function Post(data) {
     const [comments, setComments] = useState([])
     const itemID = data.data.id
     const {postedBy, snaps, songLink, timestamp, title} = data.data.data
-    const {email, displayName} = postedBy
+    const {email, displayName, uid} = postedBy
     console.log(timestamp)
     useEffect(async () => {
         const postCommentsRef = db.collection("posts").doc(itemID).collection("comments")
@@ -54,6 +55,7 @@ function Post(data) {
 
     return (
         <li key={itemID}>
+            {console.log(userLoggedIn(user))}
             <h3>{title}</h3>
             {songLink.search("soundcloud") !== -1 ?
                 <iframe title="post"width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
@@ -64,7 +66,7 @@ function Post(data) {
             {songLink.search("youtube") !== -1 ?
                 <iframe title="post" width="100%" height="166" src={(songLink).replace("watch?v=", "embed/")} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> : null}
             <p>Posted by: {displayName}
-                {displayName === user.displayName || email === user.email ?
+                {userIsOwner(user, uid) ?
                 <button onClick={() => removeItem(itemID)}>Remove Item</button> : null}
             </p>
             {/* Profile Picture */}
@@ -72,15 +74,15 @@ function Post(data) {
             {/* Time Posted */}
             <time>{convertTimestamp(timestamp)}</time>
             {/* Snaps */}
-            <Snap snaps={snaps} itemID={itemID} userID={user.uid}/>
+            <Snap snaps={snaps} itemID={itemID} user={user} isLoggedIn={userLoggedIn(user)}/>
             {/* Comment Form */}
-            <CommentInput itemID={itemID} userID={user.uid} user={user.displayName}/>
+            <CommentInput itemID={itemID} user={user} isLoggedIn={userLoggedIn(user)}/>
 
             {/* Comments if not undefined */}
             {comments.map((comment) => {
                 console.log(comment)
                   return (
-                    <Comment data={comment} itemID={itemID}/>
+                    <Comment data={comment} itemID={itemID} isLoggedIn={userLoggedIn(user)}/>
                   )
                 })}
             {/* {item.item.comments != undefined ?

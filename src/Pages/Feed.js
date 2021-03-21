@@ -10,19 +10,19 @@ import { Redirect } from 'react-router-dom'
 import Navbar from '../Components/Navbar/Navbar'
 import Homepage from './Homepage'
 import MakePost from '../Components/Post/MakePost'
+import { userLoggedIn, userIsOwner } from '../Components/Authentication/IsLoggedIn'
 
 function Feed() {
 
     const user = useSelector(selectUser);
-    console.log("User")
-
-    console.log(user)
+    
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-      if (!user) {
-        return <Redirect to="/" />;
-      }
+        console.log("User")
+        console.log(user)
+        console.log(userLoggedIn(user))
+        userIsOwner(user)
       db.collection("posts").orderBy('timestamp', 'desc').onSnapshot(snapshot => (
           setPosts(snapshot.docs.map(doc => (
               {
@@ -32,6 +32,8 @@ function Feed() {
           )))
       ))
         console.log(posts)
+        console.log(user)
+
     }, [])
 
     return (

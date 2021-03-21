@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { auth } from './firebase'
+import CreateUserData from './Components/Authentication/InitUserData'
 
 export const userSlice = createSlice({
   name: 'user',
@@ -10,6 +11,8 @@ export const userSlice = createSlice({
     login: (state, action) => {
     //   state.user = action.payload;
         const newState = {...state, user : action.payload}
+        console.log(action.payload)
+        CreateUserData(action.payload)
         return newState
     },
     logout: (state) => {
