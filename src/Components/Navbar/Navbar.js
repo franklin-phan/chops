@@ -26,7 +26,7 @@ export default function Navbar(props) {
                             <div className="navbar-dropdown-item"><a href={`/profile/${user.uid}`}>Profile</a></div>
                             <div className="navbar-dropdown-item" onClick={() => {
                                 dispatch(logout())
-                                } }>Logout</div>
+                                } }><a href={"/"}>Logout</a></div>
                         </div>
                     </div>
                     :
