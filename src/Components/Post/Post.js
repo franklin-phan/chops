@@ -67,7 +67,7 @@ function Post(data) {
           <img src={photoUrl} />
         </div>
         <div className="centered-flex-column">
-          <p className="post-author">{displayName}</p>
+          <p className="post-author"><a href={`/profile/${uid}`}>{displayName}</a></p>
           <time>{convertTimestamp(timestamp)}</time>
         </div>
           {userIsOwner(user, uid) ?
