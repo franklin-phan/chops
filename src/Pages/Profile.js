@@ -10,6 +10,7 @@ function ProfilePage() {
     return (
         <div className='app'>
             <Navbar
+                profilePage={true}
                 user={user}
             />
             <Profile/>
