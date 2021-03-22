@@ -37,7 +37,7 @@ export default function Navbar(props) {
                         <SignInModal />
                     </div>
                 }
-            </div>
-        </header>
-    )
+      </div>
+    </header >
+  )
 }

@@ -1,4 +1,4 @@
-import React , { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, useParams } from "react-router-dom";
 import { db } from '../../firebase';
 import Post from '../Post/Post'
@@ -8,18 +8,20 @@ import { selectUser } from '../../userRedux'
 import EditProfile from './editProfile'
 
 function Profile() {
-    const user = useSelector(selectUser)
+  const user = useSelector(selectUser)
 
-    const [uidInvalid, setUidInvalid] = useState(false)
-    const [editProfile, setEditProfile] = useState(false)
-    const [profileData, setProfileData] = useState()
-    const [posts, setPosts] = useState([])
+  const [uidInvalid, setUidInvalid] = useState(false)
+  const [editProfile, setEditProfile] = useState(false)
+  const [profileData, setProfileData] = useState()
+  const [posts, setPosts] = useState([])
 
     const [bio, setBio] = useState()
     const [pronouns, setPronouns] = useState()
     const [displayName, setDisplayName] = useState()
-    const [followers, setFollowers] = useState()
-    const [followers2, setFollowers2] = useState(["Beck", "Franklin"])
+    const [followers, setFollowers] = useState([])
+    const [renderAgain, setRenderAgain] = useState(false)
+
+    // const [updatedfollowers, setUpdatedFollowers] = useState(["Beck", "Franklin"])
 
     let { uid } = useParams()
     useEffect(async () => {
@@ -43,94 +45,93 @@ function Profile() {
                 )))
                 // console.log(doc.data())
         });
-        const followersDisplayNames = []
-
         const followersObject = doc.data().followers
         // console.log(typeof(followersObject))
         const followersKeys = Object.keys(followersObject)
-        const followersData = followersKeys.map(async (key) => {
-            if (followersObject[key]) {
-                // console.log(key)
-                const followersName = await db.collection("users").doc(key).get()
-                console.log(followersName.data().displayName)
-                followersDisplayNames.push(followersName.data().displayName)
-            }
-        })
-        console.log(followersDisplayNames)
-        setFollowers(followersDisplayNames)
+        const promises = followersKeys.map((key) => {
+          return db.collection("users").doc(key).get()
+      })
+      // console.log(promises)
+      Promise.all(promises).then((values) => {
+          const followersNames = values.map((value) => value.data().displayName)
+          setFollowers(followersNames)
+      })
         // const followingData = doc.data().following.map((data) => {
         //     console.log(data)
         // })
 
         
     }, [])
-    function handleSubmit(e) {
-        e.preventDefault();
-        db.collection("users").doc(uid).update({
-            bio: bio,
-            pronouns: pronouns,
-            displayName: displayName
-        });
-        setBio('');
-        setPronouns('');
-        setDisplayName('');
-        setEditProfile(false);
-    }
-    function changeBio(e) {
-        setBio(e.target.value)
-    }
-    function changePronouns(e) {
-        setPronouns(e.target.value)
-    }
-    function changeDisplayName(e) {
-        setDisplayName(e.target.value)
-    }
-    return (
-       <div> 
-           {uidInvalid ? <h1>Profile page does not exist!</h1> : 
+    
+  function handleSubmit(e) {
+    e.preventDefault();
+    db.collection("users").doc(uid).update({
+      bio: bio,
+      pronouns: pronouns,
+      displayName: displayName
+    });
+    setBio('');
+    setPronouns('');
+    setDisplayName('');
+    setEditProfile(false);
+  }
+  function changeBio(e) {
+    setBio(e.target.value)
+  }
+  function changePronouns(e) {
+    setPronouns(e.target.value)
+  }
+  function changeDisplayName(e) {
+    setDisplayName(e.target.value)
+  }
+  return (
+    <div className="profile">
+      {uidInvalid ? <h1>Profile page does not exist!</h1> :
+        <div>
+          {editProfile ? <EditProfile
+            bio={bio}
+            pronouns={pronouns}
+            displayName={displayName}
+            changeBio={changeBio}
+            changePronouns={changePronouns}
+            changeDisplayName={changeDisplayName}
+            handleSubmit={handleSubmit}
+          /> :
             <div>
-                {editProfile ? <EditProfile
-                                bio={bio}
-                                pronouns={pronouns}
-                                displayName={displayName}
-                                changeBio={changeBio}
-                                changePronouns={changePronouns}
-                                changeDisplayName={changeDisplayName}
-                                handleSubmit={handleSubmit}
-                                /> : 
-                    <div> 
-                        {userIsOwner(user, uid) ? <button onClick={() => setEditProfile(true)}>Edit Profile</button> : null }
-                        {console.log(profileData)}
-                        {profileData ? 
-                            <div>
-                                <p>Profile Page!</p>   
-                                <strong>{profileData.displayName}</strong>
-                                <p>Pronouns: {profileData.pronouns}</p> 
-                                <img src={profileData.pfpUrl}/>
-                                <p>Bio: {profileData.bio}</p>
-                                {console.log(followers)}
-                                {/* {followers ? <div>Followers exist: {followers.map((data) => {
-                                    return <h1>hello</h1>
-                                })}</div> */}
-                                 {/* : <p>No Followers</p>} */}
-                                 {followers2 ? <div>Followers exist2: {followers2.map((data) => {
-                                    return <h1>hello2</h1>
-                                })}</div>
-                                 : <p>No Followers2</p>}
- 
-                            </div>
-                        : null }
-                        {posts.map((data) => {
-                                return (
-                                    <Post data={data} />
-                                )
-                            })}
+              {profileData ?
+                <div className="profile-container">
+                  <div className="profile-banner">
+                    <img className="profile-image" src={profileData.pfpUrl} />
+                    <div className="edit-profile-button">
+                      {userIsOwner(user, uid) ? <div onClick={() => setEditProfile(true)}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="#333"><path d="M8.424 12.282l4.402 4.399-5.826 1.319 1.424-5.718zm15.576-6.748l-9.689 9.804-4.536-4.536 9.689-9.802 4.536 4.534zm-6 8.916v6.55h-16v-12h6.743l1.978-2h-10.721v16h20v-10.573l-2 2.023z" /></svg>
+                      </div> : null}
                     </div>
-                }
+                  </div>
+                  <div className="profile-info">
+                    <p className="profile-name">{profileData.displayName}</p>
+                    <p className="profile-pronouns">{profileData.pronouns}</p>
+                    <p className="profile-bio">{profileData.bio}</p>
+                    {followers ? console.log(followers): console.log("No followers")}
+                    {console.log(followers.length)}
+                    {followers ? <div>{followers.map((name) => {
+                      return <p>{name}</p>
+                    })}</div>: <p>Followers DONT exist</p>}
+
+                  </div>
+                </div>
+                : null}
+              {posts.map((data) => {
+                return (
+                  <Post data={data} />
+                )
+              })}
             </div>
-           }
-       </div>
-    );
+          }
+        </div>
+      }
+    </div>
+  );
 }
 
 export default Profile;

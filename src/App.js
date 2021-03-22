@@ -46,7 +46,7 @@ function App() {
     <Router>
       <Switch>
       <div className="app">
-        <Route path="/profile/:uid" exact render={ () => <ProfilePage/>} />
+        <Route path="/profile/:uid" exact render={ (props) => <ProfilePage {...props}/>} />
         <Route path="/profile/:uid/edit" exact render={ () => <EditProfilePage/>} />
         <Route exact path="/" exact render={ () => <Homepage/>}>
           {redirectLogin ? <Redirect to="/feed" /> : <Homepage/>}
