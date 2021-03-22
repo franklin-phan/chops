@@ -589,7 +589,8 @@ li {
 
 .post-info-container > p {
   font-size: 15px;
-  margin: 0 1px;
+  margin-left: 8px;
+  padding: 0px;
   user-select: none;
 }
 
@@ -741,7 +742,29 @@ li {
   grid-area: 1 / 2 / 6 / 4;
 }
 
-.profile-feed-title {
+.--feed-title {
   font-size: 30px;
   text-align: center;
 }
+.player-wrapper {
+  display:none;
+}
+
+.customPlayer{
+  background-color: white;
+  border-radius: 8px;
+  padding: 60px 18px;
+  box-shadow: 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);
+  margin-bottom: 34px; 
+  width:25%;
+}
+
+/* .add-item {
+  grid-area: 1 / 2 / 1 / 5;
+  background-color: white;
+  border-radius: 8px;
+  border-top: 2px solid #482880;
+  padding: 60px 18px;
+  box-shadow: 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);
+  margin-bottom: 34px; 
+} */
