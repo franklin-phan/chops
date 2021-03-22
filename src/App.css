@@ -122,7 +122,7 @@ button {
     z-index: 20;
     top: 70px;
     width: 200px;
-    background-color: #19bbc4;
+    background-color: #ffffff;
     user-select: none;
     box-shadow: 0px 1px 2px rgb(102, 102, 102);
     border-bottom-left-radius: 3px;
@@ -131,13 +131,13 @@ button {
 
 .navbar-dropdown-item {
     padding: 10px 20px;
-    color: #ffffff;
+    color: #2c2c2c;
     text-decoration: none;
 }
 
 .navbar-dropdown-item:hover {
     transition: background-color 0.4s ease;
-    background-color: #159ca3;
+    background-color: #d6d6d6;
 }
 
 .user-profile {
