@@ -18,7 +18,8 @@ function Profile() {
     const [bio, setBio] = useState()
     const [pronouns, setPronouns] = useState()
     const [displayName, setDisplayName] = useState()
-
+    const [followers, setFollowers] = useState()
+    const [followers2, setFollowers2] = useState(["Beck", "Franklin"])
 
     let { uid } = useParams()
     useEffect(async () => {
@@ -27,9 +28,10 @@ function Profile() {
         if (!doc.exists) {
             setUidInvalid(true)
             console.log('No such document!');
+            return
         } else {
             setProfileData(doc.data())
-            console.log('Document data:', doc.data());
+            // console.log('Document data:', doc.data());
         }
         db.collection("posts").where("uid", "==", uid).get()
         .then(snap => {
@@ -39,9 +41,27 @@ function Profile() {
                         data: doc.data(),
                     }
                 )))
-                console.log(doc.data())
+                // console.log(doc.data())
         });
-        console.log(posts)
+        const followersDisplayNames = []
+
+        const followersObject = doc.data().followers
+        // console.log(typeof(followersObject))
+        const followersKeys = Object.keys(followersObject)
+        const followersData = followersKeys.map(async (key) => {
+            if (followersObject[key]) {
+                // console.log(key)
+                const followersName = await db.collection("users").doc(key).get()
+                console.log(followersName.data().displayName)
+                followersDisplayNames.push(followersName.data().displayName)
+            }
+        })
+        console.log(followersDisplayNames)
+        setFollowers(followersDisplayNames)
+        // const followingData = doc.data().following.map((data) => {
+        //     console.log(data)
+        // })
+
         
     }, [])
     function handleSubmit(e) {
@@ -88,6 +108,16 @@ function Profile() {
                                 <p>Pronouns: {profileData.pronouns}</p> 
                                 <img src={profileData.pfpUrl}/>
                                 <p>Bio: {profileData.bio}</p>
+                                {console.log(followers)}
+                                {/* {followers ? <div>Followers exist: {followers.map((data) => {
+                                    return <h1>hello</h1>
+                                })}</div> */}
+                                 {/* : <p>No Followers</p>} */}
+                                 {followers2 ? <div>Followers exist2: {followers2.map((data) => {
+                                    return <h1>hello2</h1>
+                                })}</div>
+                                 : <p>No Followers2</p>}
+ 
                             </div>
                         : null }
                         {posts.map((data) => {

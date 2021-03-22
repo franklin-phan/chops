@@ -55,7 +55,7 @@ export default function Snap({ snaps, itemID, user, isLoggedIn }) {
         }
     }
     function displaySnap() {
-        console.log(isLoggedIn)
+        // console.log(isLoggedIn)
         return isLoggedIn ? 
             <div>
                 {/* Snaps */}

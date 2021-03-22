@@ -11,7 +11,7 @@ export const userSlice = createSlice({
     login: (state, action) => {
     //   state.user = action.payload;
         const newState = {...state, user : action.payload}
-        console.log(action.payload)
+        // console.log(action.payload)
         CreateUserData(action.payload)
         return newState
     },

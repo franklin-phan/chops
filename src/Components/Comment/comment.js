@@ -10,18 +10,18 @@ function Comment({ data, itemID, isLoggedIn }) {
 
   const { id, comment } = data
   const { body, postedBy, timestamp } = comment
-  console.log(comment)
+  // console.log(comment)
   function convertTimestamp(timestamp) {
     if (!timestamp) {
       return 'test'
     }
-    console.log(timestamp)
+    // console.log(timestamp)
     // let date = timestamp.toDate();
     // let mm = date.getMonth();
     // let dd = date.getDate();
     // let yyyy = date.getFullYear();
     let date = Time(timestamp.toDate())
-    console.log(date)
+    // console.log(date)
 
     // date = mm + '/' + dd + '/' + yyyy;
     return date;

@@ -13,13 +13,13 @@ import { userLoggedIn, userIsOwner } from '../Authentication/IsLoggedIn'
 import Time from '../../Time'
 function Post(data) {
     const user = useSelector(selectUser);
-    console.log(user)
+    // console.log(user)
     const [comments, setComments] = useState([])
     const [showComments, setShowComments] = useState(false)
     const itemID = data.data.id
     const {postedBy, snaps, songLink, timestamp, title} = data.data.data
     const {email, displayName, uid, photoUrl} = postedBy
-    console.log(timestamp)
+    // console.log(timestamp)
     useEffect(async () => {
         const postCommentsRef = db.collection("posts").doc(itemID).collection("comments")
         const res = await postCommentsRef.orderBy('timestamp', 'desc').onSnapshot(async snapshot => (
@@ -83,9 +83,9 @@ function Post(data) {
           src={"https://w.soundcloud.com/player/?url=" + songLink + "&am;"}>
         </iframe> : null}
       {songLink.search("spotify") !== -1 ?
-        <iframe src={(songLink).replace("track", "embed/track")} title="post" width="100%" height="100%" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe> : null}
+        <iframe src={(songLink).replace("track", "embed/track")} title="post" width="100%" height="90" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe> : null}
       {songLink.search("youtube") !== -1 ?
-        <iframe title="post" width="100%" height="166" src={(songLink).replace("watch?v=", "embed/")} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> : null}
+        <iframe title="post" width="100%" height="350" src={(songLink).replace("watch?v=", "embed/")} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> : null}
       <div>
 
       </div>
