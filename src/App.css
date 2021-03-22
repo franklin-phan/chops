@@ -94,13 +94,13 @@ form button {
 }
 
 button {
-  border-radius: 2px;
+  border-radius: 15px;
   background-color: #03aab3;
   cursor: pointer;
   border: 0;
   color: #eee;
   font-size: 14px;
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  /* box-shadow: 0 2px 5px 0 rgba(0,0,0,.26); */
   padding: 6px 6px;
   outline: none;
 }
@@ -493,8 +493,8 @@ a {
 .add-item {
   grid-area: 1 / 2 / 1 / 5;
   background-color: white;
-  border-radius: 2px;
-  border-top: 3px solid #482880;
+  border-radius: 8px;
+  border-top: 2px solid #482880;
   padding: 60px 18px;
   box-shadow: 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);
   margin-bottom: 34px; 
@@ -553,7 +553,7 @@ li {
 /* Post 6.0 */
 .post-container {
   padding-top: 15px;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: #fcfcfc;
 }
 
@@ -583,8 +583,8 @@ li {
 }
 
 .post-info-container > p {
-  font-size: 20px;
-  margin: 0 10px;
+  font-size: 15px;
+  margin: 0 1px;
   user-select: none;
 }
 
@@ -596,7 +596,9 @@ li {
 }
 
 .delete-post-button {
-  background-color: tomato;
+  background-color: white;
+  font-size: 14px;
+  color: rgba(0,0,0,.9);
   margin-right: 10px;
   word-wrap:unset;
 }

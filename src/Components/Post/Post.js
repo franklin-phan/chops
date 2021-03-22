@@ -75,7 +75,7 @@ function Post(data) {
           <button className="delete-post-button" onClick={() => removeItem(itemID)}>Delete Post</button> : null}
       </div>
 
-      <hr style={{ margin: "0 20px" }}></hr>
+      {/* <hr style={{ margin: "0 20px" }}></hr> */}
       <p>{title}</p>
 
       {/* Media Display */}

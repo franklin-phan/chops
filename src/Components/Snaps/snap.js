@@ -61,12 +61,12 @@ export default function Snap({ snaps, itemID, user, isLoggedIn }) {
                 {/* Snaps */}
                 {curSnapActive === true ?
                     <div onClick={handleSnap} className="post-info-container">
-                        <img src={snapTrue} alt='Snap True' className="snap-image"/>
+                        <img src={snapTrue} width="30" height="30" alt='Snap True' className="snap-image"/>
                         <p>{curSnaps}</p>
                     </div>
                     : <div onClick={handleSnap} className="post-info-container">
-                        <img src={snapFalse} alt='Snap False'/>
-                        <p>{curSnaps}</p>
+                        <img src={snapFalse} width="30" height="30" alt='Snap False'/>
+                        {curSnaps > 0 ? <p>{curSnaps}</p>:<p></p>}
                     </div>}
             </div> 
         : <div><img src={snapFalse} alt='Snap False'/><p>{curSnaps}</p></div>
