@@ -742,6 +742,11 @@ li {
   grid-area: 1 / 2 / 6 / 4;
 }
 
+.profile-feed-title {
+  font-size: 30px;
+  text-align: center;
+}
+
 .--feed-title {
   font-size: 30px;
   text-align: center;
