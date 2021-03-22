@@ -16,12 +16,10 @@ function Profile() {
   const [posts, setPosts] = useState([])
 
     const [bio, setBio] = useState()
+    const [headline, setHeadline] = useState()
     const [pronouns, setPronouns] = useState()
     const [displayName, setDisplayName] = useState()
     const [followers, setFollowers] = useState([])
-    const [renderAgain, setRenderAgain] = useState(false)
-
-    // const [updatedfollowers, setUpdatedFollowers] = useState(["Beck", "Franklin"])
 
     let { uid } = useParams()
     useEffect(async () => {
@@ -33,7 +31,6 @@ function Profile() {
             return
         } else {
             setProfileData(doc.data())
-            // console.log('Document data:', doc.data());
         }
         db.collection("posts").where("uid", "==", uid).get()
         .then(snap => {
@@ -43,34 +40,28 @@ function Profile() {
                         data: doc.data(),
                     }
                 )))
-                // console.log(doc.data())
         });
         const followersObject = doc.data().followers
-        // console.log(typeof(followersObject))
         const followersKeys = Object.keys(followersObject)
         const promises = followersKeys.map((key) => {
           return db.collection("users").doc(key).get()
       })
-      // console.log(promises)
       Promise.all(promises).then((values) => {
           const followersNames = values.map((value) => value.data().displayName)
           setFollowers(followersNames)
-      })
-        // const followingData = doc.data().following.map((data) => {
-        //     console.log(data)
-        // })
-
-        
+      })   
     }, [])
     
   function handleSubmit(e) {
     e.preventDefault();
     db.collection("users").doc(uid).update({
       bio: bio,
+      headline: headline,
       pronouns: pronouns,
       displayName: displayName
     });
     setBio('');
+    setHeadline('');
     setPronouns('');
     setDisplayName('');
     setEditProfile(false);
@@ -84,18 +75,27 @@ function Profile() {
   function changeDisplayName(e) {
     setDisplayName(e.target.value)
   }
+  function changeHeadline(e) {
+    setHeadline(e.target.value)
+  }
+  function cancleEdit() {
+    setEditProfile(false)
+  }
   return (
     <div className="profile">
       {uidInvalid ? <h1>Profile page does not exist!</h1> :
         <div>
           {editProfile ? <EditProfile
+            headline={headline}
             bio={bio}
             pronouns={pronouns}
             displayName={displayName}
+            changeHeadline={changeHeadline}
             changeBio={changeBio}
             changePronouns={changePronouns}
             changeDisplayName={changeDisplayName}
             handleSubmit={handleSubmit}
+            cancleEdit={cancleEdit}
           /> :
             <div>
               {profileData ?
@@ -110,14 +110,12 @@ function Profile() {
                   </div>
                   <div className="profile-info">
                     <p className="profile-name">{profileData.displayName}</p>
+                    <p className="profile-pronouns">{profileData.headline}</p>
                     <p className="profile-pronouns">{profileData.pronouns}</p>
                     <p className="profile-bio">{profileData.bio}</p>
-                    {followers ? console.log(followers): console.log("No followers")}
-                    {console.log(followers.length)}
-                    {followers ? <div>{followers.map((name) => {
+                    {/* {followers ? <div>Followers: {followers.map((name) => {
                       return <p>{name}</p>
-                    })}</div>: <p>Followers DONT exist</p>}
-
+                    })}</div>: <p>No Followers exist</p>} */}
                   </div>
                 </div>
                 : null}

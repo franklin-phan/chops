@@ -12,6 +12,7 @@ export default async function CreateUserData(user) {
             bio: '',
             pronouns: '',
             pfpUrl: user.photoUrl,
+            headline: '',
             accountCreated: firebase.firestore.FieldValue.serverTimestamp()
         });
     } else {
@@ -30,6 +31,7 @@ export async function CreateUserDataUsingForm(user) {
             bio: '',
             pronouns: '',
             pfpUrl: '',
+            headline: '',
             accountCreated: firebase.firestore.FieldValue.serverTimestamp()
         });
     } else {
