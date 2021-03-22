@@ -717,6 +717,11 @@ li {
   color: #555;
 }
 
+.profile-headline {
+  margin-left: 15px;
+  font-size: 20px;
+}
+
 .profile-bio {
   width: 70%;
   line-height: 1.5;
