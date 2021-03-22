@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import CommentInput from '../Comment/sendComment'
 import CommentControls from '../Comment/CommentControls'
 import Comment from '../Comment/comment'
-import pfp from '../Comment/pfp.png'
+// import pfp from '../Comment/pfp.png'
 import Snap from '../Snaps/snap'
-import firebase from '../../firebase'
+// import firebase from '../../firebase'
 import { db } from '../../firebase';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../userRedux'
 import { userLoggedIn, userIsOwner } from '../Authentication/IsLoggedIn'
+import ReactPlayer from 'react-player'
 
 import Time from '../../Time'
 function Post(data) {
@@ -71,7 +72,7 @@ function Post(data) {
           <time>{convertTimestamp(timestamp)}</time>
         </div>
           {userIsOwner(user, uid) ?
-                <button className="delete-post-button" onClick={() => removeItem(itemID)}>Remove Item</button> : null}
+                <button className="delete-post-button" onClick={() => removeItem(itemID)}>Delete Post</button> : null}
       </div>
 
       <hr style={{ margin: "0 20px" }}></hr>
@@ -79,15 +80,12 @@ function Post(data) {
 
       {/* Media Display */}
       {songLink.search("soundcloud") !== -1 ?
-        <iframe title="post" width="100%" height="166" scrolling="no" frameBorder="no" allow="autoplay"
-          src={"https://w.soundcloud.com/player/?url=" + songLink + "&am;"}>
-        </iframe> : null}
+        <ReactPlayer width="100%" url={songLink}/>: null}
       {songLink.search("spotify") !== -1 ?
-        <iframe src={(songLink).replace("track", "embed/track")} title="post" width="100%" height="100%" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe> : null}
+        <div><iframe src={(songLink).replace("track", "embed/track")} title="post" width="100%" height="100%" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe></div> : null}
       {songLink.search("youtube") !== -1 ?
-        <iframe title="post" width="100%" height="166" src={(songLink).replace("watch?v=", "embed/")} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> : null}
+        <ReactPlayer width="100%" url={songLink}/>: null}
       <div>
-
       </div>
 
       <div className="post-actions-container">

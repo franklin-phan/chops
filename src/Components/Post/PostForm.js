@@ -9,9 +9,9 @@ export default function PostForm(props) {
     return (
         <section>
             <form onSubmit={handleSubmit}>
-                <input type="text" name="currentItem" placeholder="Title of Song" onChange={changeTitle} value={title} />
-                <input type="text" name="linkValue" placeholder="Link" onChange={changeSongLink} value={songLink} />
-                <button>Add Item</button>
+                <input type="text" name="currentItem" placeholder="Share your music" onChange={changeTitle} value={title} />
+                <input type="text" name="linkValue" placeholder="SoundCloud, Spotify, or YouTube" onChange={changeSongLink} value={songLink} />
+                <button>Post</button>
             </form>
         </section>
     )
