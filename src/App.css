@@ -703,6 +703,7 @@ li {
   background-color: white;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
+  margin-bottom: 24px;
 }
 
 .profile-name {
@@ -733,10 +734,14 @@ li {
     grid-template-rows: none;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    padding-top: 20px;
     background-color: rgb(237, 237, 237);
 }
 
 .profile-display-item {
   grid-area: 1 / 2 / 6 / 4;
+}
+
+.profile-feed-title {
+  font-size: 30px;
+  text-align: center;
 }
