@@ -10,7 +10,7 @@ export default function DropDownMenu({ actions, menuColor, menuTopMargin }) {
       </div>
       <div className="navbar-dropdown" style={{ visibility: menuHidden, top: menuTopMargin }}>
         {actions.map(function (action, index) {
-          return <div className="navbar-dropdown-item" onClick={action.action} key={index}>{action.name}</div>
+          return <a href={action.link}><div className="navbar-dropdown-item" onClick={action.action} key={index}>{action.name}</div></a>
         })}
       </div>
     </div>
