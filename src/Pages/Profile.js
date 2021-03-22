@@ -3,9 +3,8 @@ import Navbar from '../Components/Navbar/Navbar'
 import { useSelector } from 'react-redux';
 import { selectUser } from '../userRedux'
 import Profile from '../Components/Profile/profile'
-// import Profile from '../Components/Profile/profileClass'
 
-function ProfilePage(props) {
+function ProfilePage() {
     const user = useSelector(selectUser);
 
     return (
@@ -14,7 +13,7 @@ function ProfilePage(props) {
                 profilePage={true}
                 user={user}
             />
-            <Profile {...props}/>
+            <Profile/>
         </div>
     )
 }

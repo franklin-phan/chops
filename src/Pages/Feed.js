@@ -7,6 +7,8 @@ import { selectUser } from '../userRedux'
 import Navbar from '../Components/Navbar/Navbar'
 import MakePost from '../Components/Post/MakePost'
 
+import Player from '../Components/customPlayer/player'
+
 function Feed() {
     const user = useSelector(selectUser);
     const [posts, setPosts] = useState([]);
@@ -41,6 +43,7 @@ function Feed() {
           </div>
         </section>
       </div>
+      {/* <Player /> */}
     </div>
   );
 };
