@@ -41,15 +41,15 @@ function Profile() {
                     }
                 )))
         });
-        const followersObject = doc.data().followers
-        const followersKeys = Object.keys(followersObject)
-        const promises = followersKeys.map((key) => {
-          return db.collection("users").doc(key).get()
-      })
-      Promise.all(promises).then((values) => {
-          const followersNames = values.map((value) => value.data().displayName)
-          setFollowers(followersNames)
-      })   
+      //   const followersObject = doc.data().followers
+      //   const followersKeys = Object.keys(followersObject)
+      //   const promises = followersKeys.map((key) => {
+      //     return db.collection("users").doc(key).get()
+      // })
+      // Promise.all(promises).then((values) => {
+      //     const followersNames = values.map((value) => value.data().displayName)
+      //     setFollowers(followersNames)
+      // })   
     }, [])
     
   function handleSubmit(e) {
