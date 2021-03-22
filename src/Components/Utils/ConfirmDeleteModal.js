@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-import DropDownMenu from '../Utils/DropDownMenu'
+import DropDownMenu from './DropDownMenu'
 
 const customStyles = {
   overlay: {
@@ -19,8 +19,9 @@ const customStyles = {
   }
 };
 
-export default function SignInModal(props) {
+export default function ConfirmDeleteModal(props) {
   const deleteItem = props.deleteItem
+  const itemName = props.itemName
 
   var subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -41,7 +42,7 @@ export default function SignInModal(props) {
 
   return (
     <div className="delete-post-container">
-      <DropDownMenu menuColor="#000" actions={[{
+      <DropDownMenu menuColor="#333" actions={[{
         name: "Delete",
         action: openModal
       }]} />
@@ -53,8 +54,8 @@ export default function SignInModal(props) {
         style={customStyles}
         contentLabel="Confirm Delete Modal"
       >
-        <p>Are you sure you want to delete this post forever?</p>
-        <button className="delete-post-button" onClick={() => deleteItem()}>Delete Post</button>
+        <p>Are you sure you want to delete this {props.itemName} forever?</p>
+        <button className="delete-post-button" onClick={() => deleteItem()}>Delete {props.itemName}</button>
         <button className="" onClick={() => closeModal()}>Cancel</button>
         <div ref={_subtitle => (subtitle = _subtitle)}></div>
       </Modal>
