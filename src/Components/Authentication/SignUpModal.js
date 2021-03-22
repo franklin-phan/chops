@@ -36,7 +36,6 @@ export default function SignUpModal() {
   }
   function openModal() {
     setIsOpen(true);
-
   }
 
   function afterOpenModal() {

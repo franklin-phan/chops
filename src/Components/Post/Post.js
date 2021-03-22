@@ -15,13 +15,13 @@ import DeletePostModal from './DeletePostModal'
 import Time from '../../Time'
 function Post(data) {
   const user = useSelector(selectUser);
-  console.log(user)
+  // console.log(user)
   const [comments, setComments] = useState([])
   const [showComments, setShowComments] = useState(false)
   const itemID = data.data.id
   const { postedBy, snaps, songLink, timestamp, title } = data.data.data
   const { email, displayName, uid, photoUrl } = postedBy
-  console.log(timestamp)
+  // console.log(timestamp)
   useEffect(async () => {
     const postCommentsRef = db.collection("posts").doc(itemID).collection("comments")
     const res = await postCommentsRef.orderBy('timestamp', 'desc').onSnapshot(async snapshot => (
@@ -69,7 +69,7 @@ function Post(data) {
           <img src={photoUrl} />
         </div>
         <div className="centered-flex-column">
-          <p className="post-author">{displayName}</p>
+          <p className="post-author"><a href={`/profile/${uid}`}>{displayName}</a></p>
           <time>{convertTimestamp(timestamp)}</time>
         </div>
         {userIsOwner(user, uid) ?
