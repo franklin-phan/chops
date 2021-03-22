@@ -685,6 +685,7 @@ li {
   border: 5px solid rgb(226, 226, 226);
   width: 150px;
   margin-top: 50px;
+  margin-left: 15px;
 }
 
 .profile-info {
@@ -697,11 +698,11 @@ li {
 
 .profile-name {
   font-size: 28px;
-  margin: 0;
+  margin: 0 15px;
 }
 
 .profile-pronouns {
-  margin: 2px;
+  margin: 2px 15px;
   font-size: 14px;
   color: #555;
 }
@@ -709,6 +710,7 @@ li {
 .profile-bio {
   width: 70%;
   line-height: 1.5;
+  margin-left: 15px;
 }
 
 .edit-profile-button {
