@@ -80,27 +80,43 @@ function Profile() {
           /> :
             <div>
               {profileData ?
-                <div className="profile-container">
-                  <div className="profile-banner">
-                    <img className="profile-image" src={profileData.pfpUrl} />
-                    <div className="edit-profile-button">
-                      {userIsOwner(user, uid) ? <div onClick={() => setEditProfile(true)}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="#333"><path d="M8.424 12.282l4.402 4.399-5.826 1.319 1.424-5.718zm15.576-6.748l-9.689 9.804-4.536-4.536 9.689-9.802 4.536 4.534zm-6 8.916v6.55h-16v-12h6.743l1.978-2h-10.721v16h20v-10.573l-2 2.023z" /></svg>
-                      </div> : null}
+                <div>
+                  <div className="profile-container">
+                    <div className="profile-banner">
+                      <img className="profile-image" src={profileData.pfpUrl} />
+                      <div className="edit-profile-button">
+                        {userIsOwner(user, uid) ? <div onClick={() => setEditProfile(true)}>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="#333"><path d="M8.424 12.282l4.402 4.399-5.826 1.319 1.424-5.718zm15.576-6.748l-9.689 9.804-4.536-4.536 9.689-9.802 4.536 4.534zm-6 8.916v6.55h-16v-12h6.743l1.978-2h-10.721v16h20v-10.573l-2 2.023z" /></svg>
+                        </div> : null}
+                      </div>
+                    </div>
+                    <div className="profile-info">
+                      <div className="flex-row">
+                        <p className="profile-name">{profileData.displayName}</p>
+                        <p className="profile-pronouns">({profileData.pronouns})</p>
+                      </div>
+                      <p className="profile-bio">{profileData.bio}</p>
                     </div>
                   </div>
-                  <div className="profile-info">
-                    <p className="profile-name">{profileData.displayName}</p>
-                    <p className="profile-pronouns">{profileData.pronouns}</p>
-                    <p className="profile-bio">{profileData.bio}</p>
-                  </div>
+
+                  <p className="profile-feed-title">{profileData.displayName}'s Posts:</p>
                 </div>
                 : null}
-              {posts.map((data) => {
-                return (
-                  <Post data={data} />
-                )
-              })}
+              <div className='profile-feed-container'>
+                <section className='profile-display-item'>
+                  <div className="wrapper">
+                    <ul>
+                      {posts.map((data, index) => {
+                        return (
+                          <Post data={data} key={index} />
+                        )
+                      })}
+                    </ul>
+                  </div>
+                </section>
+              </div>
+
+
             </div>
           }
         </div>
