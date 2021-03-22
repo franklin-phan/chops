@@ -113,6 +113,10 @@ button {
     padding-right: 20px;
 }
 
+.dropdown-menu {
+  position: relative;
+}
+
 .navbar-menu {
     padding: 10px;
 }
@@ -120,7 +124,7 @@ button {
 .navbar-dropdown {
     position: absolute;
     z-index: 20;
-    top: 70px;
+    right:15px;
     width: 200px;
     background-color: #ffffff;
     user-select: none;
@@ -607,6 +611,10 @@ li {
   color: rgba(0,0,0,.9);
   margin-right: 10px;
   word-wrap:unset;
+}
+
+.delete-post-container {
+  margin-left: auto;
 }
 
 /* Comment 7.0 */

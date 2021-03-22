@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import DropDownMenu from '../Utils/DropDownMenu'
 
 const customStyles = {
   overlay: {
@@ -19,7 +20,7 @@ const customStyles = {
 };
 
 export default function SignInModal(props) {
-    const deleteItem = props.deleteItem
+  const deleteItem = props.deleteItem
 
   var subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -39,8 +40,19 @@ export default function SignInModal(props) {
   }
 
   return (
-    <div className="centered-flex-row">
-      <button onClick={openModal}>Delete Post</button>
+    <div className="delete-post-container">
+      <DropDownMenu menuColor="#000" actions={[{
+        name: "Delete Post",
+        action: openModal
+      }]} />
+
+      {/* <button className="delete-post-button" >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 18c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zm0-9c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zm0-9c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3z" /></svg>
+      </button>
+      <div className="navbar-dropdown">
+        <div className="navbar-dropdown-item" onClick={openModal}>Delete Post</div>
+      </div> */}
+
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
