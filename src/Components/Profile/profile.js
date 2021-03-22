@@ -90,8 +90,10 @@ function Profile() {
                     </div>
                   </div>
                   <div className="profile-info">
-                    <p className="profile-name">{profileData.displayName}</p>
-                    <p className="profile-pronouns">{profileData.pronouns}</p>
+                    <div className="flex-row">
+                      <p className="profile-name">{profileData.displayName}</p>
+                      <p className="profile-pronouns">({profileData.pronouns})</p>
+                    </div>
                     <p className="profile-bio">{profileData.bio}</p>
                   </div>
                 </div>
