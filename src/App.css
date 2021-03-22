@@ -659,7 +659,7 @@ li {
 /* Profile 8.0 */
 .profile {
   background-color: rgb(237, 237, 237);
-  padding-bottom: 20px;
+  padding: 40px;
 }
 
 .profile-container {
@@ -672,6 +672,7 @@ li {
 
 .profile-banner {
   background-color: rgb(175, 175, 175);
+  display: block;
   width: 80%;
   height: 150px;
   padding: 20px;
@@ -691,6 +692,8 @@ li {
   padding: 50px 20px 15px 20px;
   width: 80%;
   background-color: white;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
 .profile-name {
@@ -707,4 +710,10 @@ li {
 .profile-bio {
   width: 70%;
   line-height: 1.5;
+}
+
+.edit-profile-button {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -30px;
 }
