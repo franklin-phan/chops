@@ -98,11 +98,21 @@ function Profile() {
                   </div>
                 </div>
                 : null}
-              {posts.map((data) => {
-                return (
-                  <Post data={data} />
-                )
-              })}
+              <div className='profile-feed-container'>
+                <section className='profile-display-item'>
+                  <div className="wrapper">
+                    <ul>
+                      {posts.map((data, index) => {
+                        return (
+                          <Post data={data} key={index} />
+                        )
+                      })}
+                    </ul>
+                  </div>
+                </section>
+              </div>
+
+
             </div>
           }
         </div>
