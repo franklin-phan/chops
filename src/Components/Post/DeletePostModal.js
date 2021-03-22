@@ -42,25 +42,20 @@ export default function SignInModal(props) {
   return (
     <div className="delete-post-container">
       <DropDownMenu menuColor="#000" actions={[{
-        name: "Delete Post",
+        name: "Delete",
         action: openModal
       }]} />
-
-      {/* <button className="delete-post-button" >
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 18c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zm0-9c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zm0-9c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3z" /></svg>
-      </button>
-      <div className="navbar-dropdown">
-        <div className="navbar-dropdown-item" onClick={openModal}>Delete Post</div>
-      </div> */}
 
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
-        contentLabel="Login Modal"
+        contentLabel="Confirm Delete Modal"
       >
+        <p>Are you sure you want to delete this post forever?</p>
         <button className="delete-post-button" onClick={() => deleteItem()}>Delete Post</button>
+        <button className="" onClick={() => closeModal()}>Cancel</button>
         <div ref={_subtitle => (subtitle = _subtitle)}></div>
       </Modal>
     </div>

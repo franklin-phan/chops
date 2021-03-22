@@ -20,14 +20,17 @@ export default function Navbar(props) {
             <DropDownMenu menuColor="#fff" menuTopMargin="59px" actions={[
               {
                 name: "Feed",
-                link: '/feed'
+                link: '/feed',
+                action: () => { }
               },
               {
                 name: "Profile",
-                link: `/profile/${user.uid}`
+                link: `/profile/${user.uid}`,
+                action: () => { }
               },
               {
                 name: "Logout",
+                link: "/",
                 action: () => { dispatch(logout()) }
               }
             ]} />
