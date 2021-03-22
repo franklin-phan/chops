@@ -10,19 +10,19 @@ import MakePost from '../Components/Post/MakePost'
 import Player from '../Components/customPlayer/player'
 
 function Feed() {
-    const user = useSelector(selectUser);
-    const [posts, setPosts] = useState([]);
+  const user = useSelector(selectUser);
+  const [posts, setPosts] = useState([]);
 
-    useEffect(() => {
-      db.collection("posts").orderBy('timestamp', 'desc').onSnapshot(snapshot => (
-          setPosts(snapshot.docs.map(doc => (
-              {
-                  id: doc.id,
-                  data: doc.data(),
-              }
-          )))
-      ))
-    }, [])
+  useEffect(() => {
+    db.collection("posts").orderBy('timestamp', 'desc').onSnapshot(snapshot => (
+      setPosts(snapshot.docs.map(doc => (
+        {
+          id: doc.id,
+          data: doc.data(),
+        }
+      )))
+    ))
+  }, [])
 
   return (
     <div className='app'>
