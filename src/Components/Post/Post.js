@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux';
 import { selectUser } from '../../userRedux'
 import { userLoggedIn, userIsOwner } from '../Authentication/IsLoggedIn'
 import ReactPlayer from 'react-player'
+import DeletePostModal from './DeletePostModal'
 
 import Time from '../../Time'
 function Post(data) {
@@ -72,7 +73,8 @@ function Post(data) {
           <time>{convertTimestamp(timestamp)}</time>
         </div>
         {userIsOwner(user, uid) ?
-          <button className="delete-post-button" onClick={() => removeItem(itemID)}>Delete Post</button> : null}
+          <DeletePostModal deleteItem={() => removeItem(itemID)}/>
+          : null}
       </div>
 
       {/* <hr style={{ margin: "0 20px" }}></hr> */}
