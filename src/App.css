@@ -120,6 +120,7 @@ button {
 
 .navbar-dropdown {
     position: absolute;
+    z-index: 20;
     top: 70px;
     width: 200px;
     background-color: #19bbc4;
@@ -236,7 +237,6 @@ button {
     flex-direction: column;
     justify-content: center;
 }
-
 
 .centered-flex-row {
     display: flex;
@@ -654,4 +654,57 @@ li {
   color: rgb(73, 73, 73);
   font-size: 12px;
   margin: 0px;
+}
+
+/* Profile 8.0 */
+.profile {
+  background-color: rgb(237, 237, 237);
+  padding-bottom: 20px;
+}
+
+.profile-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-banner {
+  background-color: rgb(175, 175, 175);
+  width: 80%;
+  height: 150px;
+  padding: 20px;
+  z-index: 1;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.profile-image {
+  border-radius: 100px;
+  border: 5px solid rgb(226, 226, 226);
+  width: 150px;
+  margin-top: 50px;
+}
+
+.profile-info {
+  padding: 50px 20px 15px 20px;
+  width: 80%;
+  background-color: white;
+}
+
+.profile-name {
+  font-size: 28px;
+  margin: 0;
+}
+
+.profile-pronouns {
+  margin: 2px;
+  font-size: 14px;
+  color: #555;
+}
+
+.profile-bio {
+  width: 70%;
+  line-height: 1.5;
 }
