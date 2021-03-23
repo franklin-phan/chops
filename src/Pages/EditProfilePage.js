@@ -6,13 +6,12 @@ import EditProfile from '../Components/Profile/editProfile'
 
 function EditProfilePage() {
     const user = useSelector(selectUser);
-
     return (
         <div className='app'>
             <Navbar
                 user={user}
             />
-            <EditProfile/>
+            <EditProfile user={user}/>
         </div>
     )
 }
