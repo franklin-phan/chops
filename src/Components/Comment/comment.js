@@ -5,7 +5,7 @@ import { selectUser } from '../../userRedux'
 import { db } from '../../firebase'
 import Time from '../../Time'
 import ConfirmDeleteModal from '../Utils/ConfirmDeleteModal'
-import {userIsOwner} from '../Authentication/IsLoggedIn'
+import { userIsOwner } from '../Authentication/IsLoggedIn'
 function Comment({ data, itemID, isLoggedIn, user }) {
   // const user = useSelector(selectUser);
   const { id, comment } = data
@@ -27,7 +27,11 @@ function Comment({ data, itemID, isLoggedIn, user }) {
   }
 
   function displayDeleteButton() {
-    return <ConfirmDeleteModal deleteItem={() => removeItem(id)} itemName="comment" />
+
+    return userIsOwner(user, id) ?
+      <ConfirmDeleteModal deleteItem={() => removeItem(id)} itemName="comment" />
+      : null
+
   }
 
   function shouldDisplayDelete(user) {
@@ -35,7 +39,7 @@ function Comment({ data, itemID, isLoggedIn, user }) {
       return displayDeleteButton()
     }
     return null
-  } 
+  }
   return (
     <div className="comment">
       <div className="comment-content">

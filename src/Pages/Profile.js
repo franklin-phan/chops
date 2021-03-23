@@ -5,16 +5,16 @@ import { selectUser } from '../userRedux';
 import Profile from '../Components/Profile/profile'
 
 function ProfilePage() {
-    const user = useSelector(selectUser);
-    return ( 
-        <div className='app'>
-            <Navbar
-                profilePage={true}
-                user={user}
-            />
-            <Profile/>
-        </div>
-    )
+  const user = useSelector(selectUser);
+  return (
+    <div className='app'>
+      <Navbar
+        profilePage={true}
+        user={user}
+      />
+      <Profile />
+    </div>
+  )
 }
 
 export default ProfilePage
