@@ -5,32 +5,21 @@ import { selectUser } from '../../userRedux'
 import { db } from '../../firebase'
 import Time from '../../Time'
 import ConfirmDeleteModal from '../Utils/ConfirmDeleteModal'
-import { userLoggedIn, userIsOwner } from '../Authentication/IsLoggedIn'
-
-function Comment({ data, itemID, isLoggedIn }) {
-  const user = useSelector(selectUser);
-
+import { userIsOwner } from '../Authentication/IsLoggedIn'
+function Comment({ data, itemID, isLoggedIn, user }) {
+  // const user = useSelector(selectUser);
   const { id, comment } = data
-  const { body, postedBy, timestamp } = comment
-  // console.log(comment)
+  const { body, postedBy, timestamp, pfpUrl, uid } = comment
+
   function convertTimestamp(timestamp) {
     if (!timestamp) {
       return 'test'
     }
-    // console.log(timestamp)
-    // let date = timestamp.toDate();
-    // let mm = date.getMonth();
-    // let dd = date.getDate();
-    // let yyyy = date.getFullYear();
     let date = Time(timestamp.toDate())
-    // console.log(date)
-
-    // date = mm + '/' + dd + '/' + yyyy;
     return date;
   }
   function removeItem() {
     db.collection("posts").doc(itemID).collection("comments").doc(id).delete().then(() => {
-      console.log(id)
       console.log("Document successfully deleted!");
     }).catch((error) => {
       console.error("Error removing document: ", error);
@@ -45,14 +34,20 @@ function Comment({ data, itemID, isLoggedIn }) {
 
   }
 
+  function shouldDisplayDelete(user) {
+    if (userIsOwner(user, uid) == true) {
+      return displayDeleteButton()
+    }
+    return null
+  }
   return (
     <div className="comment">
       <div className="comment-content">
-        <img src={pfp} width="30px" height="30px" />
+        <img src={pfpUrl} width="30px" height="30px" />
         <p className="comment-text">
-          <strong>{postedBy}:</strong> {body}
+          <strong>{postedBy}</strong> {body}
         </p>
-        {displayDeleteButton()}
+        {isLoggedIn ? shouldDisplayDelete(user) : null}
       </div>
       <time className="comment-timestamp">{convertTimestamp(timestamp)}</time>
     </div >
