@@ -550,9 +550,6 @@ li {
   background-color: #ffffff;
   color: #000;
   margin-bottom: 30px;
-  -webkit-box-shadow: 0px 10px 13px -10px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 10px 13px -10px rgba(0,0,0,0.75);
-  box-shadow: 0px 10px 13px -10px rgba(0,0,0,0.75);
 }
 
 /* Post 6.0 */
@@ -563,6 +560,10 @@ li {
   background-color: #fcfcfc;
   max-width: 700px;
   width: 100%;
+
+  -webkit-box-shadow: 0px 10px 13px -10px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 10px 13px -10px rgba(0,0,0,0.75);
+  box-shadow: 0px 10px 13px -10px rgba(0,0,0,0.75);
 }
 
 .post-container > p {
@@ -752,6 +753,22 @@ legend {
   width: 70%;
   line-height: 1.5;
   margin-left: 15px;
+}
+
+.social-medias {
+  margin-left: 15px;
+  margin-top: 35px;
+  font-size: 18px;
+}
+
+.social-media-link {
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.social-media-icon {
+  margin-right: 10px;
 }
 
 .edit-profile-button {
