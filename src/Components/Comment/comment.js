@@ -28,9 +28,7 @@ function Comment({ data, itemID, isLoggedIn, user }) {
 
   function displayDeleteButton() {
 
-    return userIsOwner(user, id) ?
-      <ConfirmDeleteModal deleteItem={() => removeItem(id)} itemName="comment" />
-      : null
+    return <ConfirmDeleteModal deleteItem={() => removeItem(id)} itemName="comment" />
 
   }
 
@@ -43,9 +41,9 @@ function Comment({ data, itemID, isLoggedIn, user }) {
   return (
     <div className="comment">
       <div className="comment-content">
-        <img src={pfpUrl} width="30px" height="30px" />
+        <img src={pfpUrl} width="30px" height="30px" style={{ borderRadius: "15px" }} />
         <p className="comment-text">
-          <strong>{postedBy}</strong> {body}
+          <strong>{postedBy}:</strong> {body}
         </p>
         {isLoggedIn ? shouldDisplayDelete(user) : null}
       </div>
