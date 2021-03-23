@@ -49,6 +49,8 @@ function Profile() {
                     }
                 )))
         });
+
+        // followers and following
         const followersObject = doc.data().followers
         if (!followersObject) {
     
@@ -118,9 +120,7 @@ function Profile() {
             })
           }
         }
-        
-        
-        
+        // s re renders
     }, [s])
     
   function handleSubmit(e) {
@@ -195,24 +195,25 @@ function Profile() {
     console.log(profileData)
     if (!profileData.followers) {
       return <button onClick={() => {
-        followButtonFunctionality(uidCurrentUser, uidProfile)
+        followButtonFunctionality(uidCurrentUser.uid, uidProfile)
       }}>Follow</button>
     }
     if (profileData.followers[uidCurrentUser]) {
-      return <button onClick={() => unfollowButtonFunctionality(uidCurrentUser, uidProfile)}>Unfollow</button>
+      return <button onClick={() => unfollowButtonFunctionality(uidCurrentUser.uid, uidProfile)}>Unfollow</button>
     } else {
-      return <button onClick={() => followButtonFunctionality(uidCurrentUser, uidProfile)}>Follow</button>
+      return <button onClick={() => followButtonFunctionality(uidCurrentUser.uid, uidProfile)}>Follow</button>
     }
   }
   function displayFollow(user, uid) {
     if (userLoggedIn && !userIsOwner(user, uid)) {
-      return checkIfFollowed(user.uid, uid)
+      return checkIfFollowed(user, uid)
     } 
   }
   return (
     <div className="profile">
       {uidInvalid ? <h1>Profile page does not exist!</h1> :
         <div>
+          {console.log(headline)}
           {editProfile ? <EditProfile
             headline={headline}
             soundcloudLink={soundcloudLink}
@@ -258,7 +259,7 @@ function Profile() {
                       </ul>
                     </div>
                     {/* Follow buttons */}
-                    {displayFollow(user, uid)}
+                    {userLoggedIn() ? displayFollow(user, uid) : null}
 
                   </div>
                     {followers ? <ul>Followers: {followers.map((tuple) => {

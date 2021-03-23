@@ -37,8 +37,7 @@ export default function Navbar(props) {
           </div>
           :
           <div>
-            <SignUpModal />
-            <SignInModal />
+            <button onClick={()=>{window.location = '/'}}>Homepage</button>
           </div>
         }
       </div>

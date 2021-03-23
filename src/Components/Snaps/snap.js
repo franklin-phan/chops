@@ -25,7 +25,6 @@ export default function Snap({ snaps, itemID, user, isLoggedIn }) {
         } catch (error) {
             console.log("User not logged in yet: Snap")
         }  
-        db.collection("snaps").doc(user.uid)
       }, [])
 
     async function setSnapState(bool) {
