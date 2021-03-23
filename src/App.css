@@ -604,7 +604,7 @@ li {
 }
 
 .delete-post-button {
-  background-color: tomato;
+  background-color: #ff6347;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.9);
   margin-right: 10px;
@@ -644,6 +644,7 @@ li {
   display: flex;
   flex-direction: row;
   align-items: center;
+  border-top: 0.5px solid #d3d3d3;
 }
 
 .delete-comment-button {
@@ -651,6 +652,8 @@ li {
 }
 
 .commentInput {
+  border-radius: 10px;
+  border: 10px solid transparent;
   width: 90%;
   padding: 5px;
   font-size: 16px;
@@ -659,7 +662,9 @@ li {
 }
 
 .post-comment-button {
-  border: 1px solid #03aab3;
+  /* border: 1px solid #03aab3; */
+  background-color: transparent;
+  color: #046c72;
   border-radius: 0;
   margin: 0;
 }
