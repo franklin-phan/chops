@@ -100,7 +100,7 @@ button {
   color: #eee;
   font-size: 14px;
   /* box-shadow: 0 2px 5px 0 rgba(0,0,0,.26); */
-  padding: 6px 6px;
+  padding: 6px 10px;
   outline: none;
 }
 
@@ -113,6 +113,10 @@ button {
     padding-right: 20px;
 }
 
+.dropdown-menu {
+  position: relative;
+}
+
 .navbar-menu {
     padding: 10px;
 }
@@ -120,7 +124,7 @@ button {
 .navbar-dropdown {
     position: absolute;
     z-index: 20;
-    top: 70px;
+    right:15px;
     width: 200px;
     background-color: #ffffff;
     user-select: none;
@@ -537,11 +541,9 @@ a {
 }
 
 ul {
-  display: grid;
   margin: 0;
   padding: 0;
-  list-style-type: none;
-  
+  list-style-type: none; 
 }
 
 li {
@@ -602,11 +604,15 @@ li {
 }
 
 .delete-post-button {
-  background-color: white;
+  background-color: tomato;
   font-size: 14px;
-  color: rgba(0,0,0,.9);
+  color: rgba(255, 255, 255, 0.9);
   margin-right: 10px;
   word-wrap:unset;
+}
+
+.delete-post-container {
+  margin-left: auto;
 }
 
 /* Comment 7.0 */
@@ -717,6 +723,11 @@ li {
   color: #555;
 }
 
+.profile-headline {
+  margin-left: 15px;
+  font-size: 20px;
+}
+
 .profile-bio {
   width: 70%;
   line-height: 1.5;
@@ -740,6 +751,11 @@ li {
 
 .profile-display-item {
   grid-area: 1 / 2 / 6 / 4;
+}
+
+.profile-feed-title {
+  font-size: 30px;
+  text-align: center;
 }
 
 .--feed-title {
