@@ -14,7 +14,7 @@ export default function Navbar(props) {
 
 
   function getDropDownItems() {
-    const dropDownLinkOne = profilePage ?
+    const FeedOrProfileLink = profilePage ?
       {
         name: "Feed",
         link: '/feed',
@@ -27,13 +27,13 @@ export default function Navbar(props) {
         action: () => { }
       }
 
-    const dropDownLinkTwo = {
+    const logoutLink = {
       name: "Logout",
       link: "/",
       action: () => { dispatch(logout()) }
     }
 
-    return [dropDownLinkOne, dropDownLinkTwo]
+    return [FeedOrProfileLink, logoutLink]
 
   }
 

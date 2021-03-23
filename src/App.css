@@ -565,6 +565,10 @@ li {
   width: 100%;
 }
 
+.post-container > p {
+  word-wrap: break-word;
+}
+
 .post-header {
   display: flex;
   flex-direction: row;
@@ -638,6 +642,7 @@ li {
   padding: 0;
   margin: 10px 0 10px 10px;
   max-width: 70%;
+  word-wrap: break-word;
 }
 
 .commentInputContainer {
