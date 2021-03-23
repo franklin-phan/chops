@@ -245,7 +245,7 @@ function Profile() {
                       </div>
                     </div>
                     <div className="profile-info">
-                      <div className="flex-row">
+                      <div className="profile-names-container">
                         <p className="profile-name">{profileData.displayName}</p>
                         <p className="profile-pronouns">({profileData.pronouns})</p>
                       </div>
