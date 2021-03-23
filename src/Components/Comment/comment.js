@@ -13,25 +13,21 @@ function Comment({ data, itemID, isLoggedIn, user }) {
 
   function convertTimestamp(timestamp) {
     if (!timestamp) {
-      return 'test'
+      return null
     }
     let date = Time(timestamp.toDate())
     return date;
   }
   function removeItem() {
     db.collection("posts").doc(itemID).collection("comments").doc(id).delete().then(() => {
-      console.log("Document successfully deleted!");
+      // console.log("Document successfully deleted!");
     }).catch((error) => {
       console.error("Error removing document: ", error);
     });
   }
 
   function displayDeleteButton() {
-
-    return userIsOwner(user, id) ?
-      <ConfirmDeleteModal deleteItem={() => removeItem(id)} itemName="comment" />
-      : null
-
+    return <ConfirmDeleteModal deleteItem={() => removeItem(id)} itemName="comment" />
   }
 
   function shouldDisplayDelete(user) {

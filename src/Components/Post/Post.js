@@ -19,8 +19,8 @@ function Post(data) {
   const [comments, setComments] = useState([])
   const [showComments, setShowComments] = useState(false)
   const itemID = data.data.id
-  const { postedBy, snaps, songLink, timestamp, title } = data.data.data
-  const { email, displayName, uid, photoUrl } = postedBy
+  const { displayName, snaps, songLink, timestamp, title, pfpUrl, uid } = data.data.data
+  // const { email, displayName, uid, photoUrl } = postedBy
   // console.log(timestamp)
   useEffect(async () => {
     const postCommentsRef = db.collection("posts").doc(itemID).collection("comments")
@@ -66,7 +66,7 @@ function Post(data) {
       <div className="post-header">
         <a href={`/profile/${uid}`}>
           <div className='user-profile'>
-            <img src={photoUrl} />
+            <img src={pfpUrl} />
           </div>
         </a>
         <div className="centered-flex-column">

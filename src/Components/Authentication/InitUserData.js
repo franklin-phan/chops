@@ -16,7 +16,7 @@ export default async function CreateUserData(user) {
             accountCreated: firebase.firestore.FieldValue.serverTimestamp()
         });
     } else {
-        console.log('Account data already initilzed:', doc.data());
+        // console.log('Account data already initilzed:', doc.data());
     }
 }
 export async function CreateUserDataUsingForm(user) {
@@ -35,6 +35,6 @@ export async function CreateUserDataUsingForm(user) {
             accountCreated: firebase.firestore.FieldValue.serverTimestamp()
         });
     } else {
-        console.log('Account data already initilzed:', doc.data());
+        // console.log('Account data already initilzed:', doc.data());
     }
 }

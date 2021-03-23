@@ -23,7 +23,7 @@ function App() {
     let isMounted = true; // note this flag denote mount status
 
     auth.onAuthStateChanged(async userAuth => {
-      console.log("AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
+      // console.log("AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
       if (userAuth) {
         // user is logged in
         dispatch(login({
