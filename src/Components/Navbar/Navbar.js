@@ -11,29 +11,39 @@ export default function Navbar(props) {
   const { user, profilePage } = props;
   const dispatch = useDispatch();
   const [menuHidden, setMenuHidden] = useState("hidden")
+
+
+  function getDropDownItems() {
+    const dropDownLinkOne = profilePage ?
+      {
+        name: "Feed",
+        link: '/feed',
+        action: () => { }
+      }
+      :
+      {
+        name: "Profile",
+        link: `/profile/${user.uid}`,
+        action: () => { }
+      }
+
+    const dropDownLinkTwo = {
+      name: "Logout",
+      link: "/",
+      action: () => { dispatch(logout()) }
+    }
+
+    return [dropDownLinkOne, dropDownLinkTwo]
+
+  }
+
   return (
     <header>
       <div className="wrapper">
         <a href={"/feed"}><h1>Jam Session</h1></a>
         {user ?
           <div className="navbar-content">
-            <DropDownMenu menuColor="#fff" menuTopMargin="59px" actions={[
-              {
-                name: "Feed",
-                link: '/feed',
-                action: () => { }
-              },
-              {
-                name: "Profile",
-                link: `/profile/${user.uid}`,
-                action: () => { }
-              },
-              {
-                name: "Logout",
-                link: "/",
-                action: () => { dispatch(logout()) }
-              }
-            ]} />
+            <DropDownMenu menuColor="#fff" menuTopMargin="59px" actions={getDropDownItems()} />
           </div>
           :
           <div>
