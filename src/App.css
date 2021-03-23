@@ -620,6 +620,15 @@ li {
   margin-left: auto;
 }
 
+.createPostForm > input {
+  width: 90%;
+}
+
+legend {
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+
 /* Comment 7.0 */
 
 .comment {
@@ -779,14 +788,4 @@ li {
   box-shadow: 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);
   margin-bottom: 34px; 
   width:25%;
-}
-
-.add-item {
-  grid-area: 1 / 2 / 1 / 5;
-  background-color: white;
-  border-radius: 8px;
-  border-top: 2px solid #482880;
-  padding: 60px 18px;
-  box-shadow: 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);
-  margin-bottom: 34px; 
 }
