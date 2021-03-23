@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { selectUser } from '../../userRedux'
 import EditProfile from './editProfile'
 import { KeyboardArrowUpSharp } from "@material-ui/icons";
-
+import UpdateFieldModal from "../Utils/EditModal"
 function Profile() {
   // const { user } = props;
   const user = useSelector(selectUser);
@@ -115,12 +115,26 @@ function Profile() {
                   return [value.data().displayName, keys[index], value.data().pfpUrl]
                 }
               })              
-              console.log(followingNames)
+              // console.log(followingNames)
               setFollowing(followingNames)
             })
           }
         }
         // s re renders
+        if (!profileData) {
+          setS(!s)
+        } else{
+          // console.log(profileData)
+          setBio(profileData.bio)
+          setHeadline(profileData.headline)
+          setYoutubeLink(profileData.youtubeLink);
+          setSpotifyLink(profileData.spotifyLink);
+          setSoundcloudLink(profileData.soundcloudLink);
+          setPronouns(profileData.pronouns)
+          setDisplayName(profileData.displayName)
+        }
+        
+
     }, [s])
     
   function handleSubmit(e) {
@@ -213,7 +227,6 @@ function Profile() {
     <div className="profile">
       {uidInvalid ? <h1>Profile page does not exist!</h1> :
         <div>
-          {console.log(headline)}
           {editProfile ? <EditProfile
             headline={headline}
             soundcloudLink={soundcloudLink}
@@ -229,8 +242,10 @@ function Profile() {
             changeBio={changeBio}
             changePronouns={changePronouns}
             changeDisplayName={changeDisplayName}
-            handleSubmit={handleSubmit}
             cancelEdit={cancelEdit}
+            uid={uid}
+            s={s}
+            setS={setS}
           /> :
             <div>
               {profileData ?
@@ -291,8 +306,6 @@ function Profile() {
                   </div>
                 </section>
               </div>
-
-
             </div>
           }
         </div>
