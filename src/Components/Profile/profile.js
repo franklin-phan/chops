@@ -198,7 +198,7 @@ function Profile() {
         followButtonFunctionality(uidCurrentUser.uid, uidProfile)
       }}>Follow</button>
     }
-    if (profileData.followers[uidCurrentUser]) {
+    if (profileData.followers[uidCurrentUser.uid]) {
       return <button onClick={() => unfollowButtonFunctionality(uidCurrentUser.uid, uidProfile)}>Unfollow</button>
     } else {
       return <button onClick={() => followButtonFunctionality(uidCurrentUser.uid, uidProfile)}>Follow</button>
@@ -207,7 +207,7 @@ function Profile() {
   function displayFollow(user, uid) {
     if (userLoggedIn && !userIsOwner(user, uid)) {
       return checkIfFollowed(user, uid)
-    } 
+    }
   }
   return (
     <div className="profile">
@@ -259,14 +259,13 @@ function Profile() {
                       </ul>
                     </div>
                     {/* Follow buttons */}
-                    {userLoggedIn() ? displayFollow(user, uid) : null}
+                    {userLoggedIn(user) ? displayFollow(user, uid) : <h1>Issue</h1>}
 
                   </div>
                     {followers ? <ul>Followers: {followers.map((tuple) => {
                       return (
                         <li>
                           <a href={`/profile/${tuple[1]}`}><img src={tuple[2]}/>{tuple[0]}</a>
-            
                         </li>
                       )
                     })}</ul>: <p>No Followers exist</p>}
