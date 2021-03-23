@@ -12,31 +12,6 @@ export default function Navbar(props) {
   const dispatch = useDispatch();
   const [menuHidden, setMenuHidden] = useState("hidden")
 
-
-  function getDropDownItems() {
-    const FeedOrProfileLink = profilePage ?
-      {
-        name: "Feed",
-        link: '/feed',
-        action: () => { }
-      }
-      :
-      {
-        name: "Profile",
-        link: `/profile/${user.uid}`,
-        action: () => { }
-      }
-
-    const logoutLink = {
-      name: "Logout",
-      link: "/",
-      action: () => { dispatch(logout()) }
-    }
-
-    return [FeedOrProfileLink, logoutLink]
-
-  }
-
   return (
     <header>
       <div className="wrapper">
@@ -46,7 +21,23 @@ export default function Navbar(props) {
             <div className='user-profile'>
               <img src={user.photoUrl} />
             </div>
-            <DropDownMenu menuColor="#fff" menuTopMargin="59px" actions={getDropDownItems()} />
+            <DropDownMenu menuColor="#fff" menuTopMargin="59px" actions={
+              [{
+                name: "Feed",
+                link: '/feed',
+                action: () => { }
+              },
+              {
+                name: "Profile",
+                link: `/profile/${user.uid}`,
+                action: () => { }
+              },
+              {
+                name: "Logout",
+                link: "/",
+                action: () => { dispatch(logout()) }
+              }]
+            } />
           </div>
           :
           <div>
