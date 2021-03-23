@@ -11,14 +11,18 @@ export default function Navbar(props) {
   const { user, profilePage } = props;
   const dispatch = useDispatch();
   const [menuHidden, setMenuHidden] = useState("hidden")
+
   return (
     <header>
       <div className="wrapper">
         <a href={"/feed"}><h1>Jam Session</h1></a>
         {user ?
           <div className="navbar-content">
-            <DropDownMenu menuColor="#fff" menuTopMargin="59px" actions={[
-              {
+            <div className='user-profile'>
+              <img src={user.photoUrl} />
+            </div>
+            <DropDownMenu menuColor="#fff" menuTopMargin="59px" actions={
+              [{
                 name: "Feed",
                 link: '/feed',
                 action: () => { }
@@ -32,8 +36,8 @@ export default function Navbar(props) {
                 name: "Logout",
                 link: "/",
                 action: () => { dispatch(logout()) }
-              }
-            ]} />
+              }]
+            } />
           </div>
           :
           <div>
