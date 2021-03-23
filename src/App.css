@@ -556,6 +556,7 @@ li {
 }
 
 /* Post 6.0 */
+
 .post-container {
   padding-top: 15px;
   border-radius: 10px;
@@ -775,7 +776,7 @@ li {
   width:25%;
 }
 
-/* .add-item {
+.add-item {
   grid-area: 1 / 2 / 1 / 5;
   background-color: white;
   border-radius: 8px;
@@ -783,4 +784,4 @@ li {
   padding: 60px 18px;
   box-shadow: 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);
   margin-bottom: 34px; 
-} */
+}
