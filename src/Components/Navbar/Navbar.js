@@ -43,6 +43,9 @@ export default function Navbar(props) {
         <a href={"/feed"}><h1>Jam Session</h1></a>
         {user ?
           <div className="navbar-content">
+            <div className='user-profile'>
+              <img src={user.photoUrl} />
+            </div>
             <DropDownMenu menuColor="#fff" menuTopMargin="59px" actions={getDropDownItems()} />
           </div>
           :
