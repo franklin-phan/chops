@@ -1,13 +1,12 @@
 import React from 'react';
 import Navbar from '../Components/Navbar/Navbar'
 import { useSelector } from 'react-redux';
-import { selectUser } from '../userRedux'
+import { selectUser } from '../userRedux';
 import Profile from '../Components/Profile/profile'
 
 function ProfilePage() {
     const user = useSelector(selectUser);
-
-    return (
+    return ( 
         <div className='app'>
             <Navbar
                 profilePage={true}

@@ -63,11 +63,12 @@ function Post(data) {
 
   return (
     <li key={itemID} className="post-container">
-
       <div className="post-header">
-        <div className="user-profile">
-          <img src={photoUrl} />
-        </div>
+        <a href={`/profile/${uid}`}>
+          <div className='user-profile'>
+            <img src={photoUrl} />
+          </div>
+        </a>
         <div className="centered-flex-column">
           <p className="post-author"><a href={`/profile/${uid}`}>{displayName}</a></p>
           <time>{convertTimestamp(timestamp)}</time>
