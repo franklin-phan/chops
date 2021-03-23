@@ -8,16 +8,18 @@ function CommentInput({ itemID, user, isLoggedIn }) {
     e.preventDefault();
     try {
       const commentsRef = db.collection('posts').doc(itemID).collection("comments");
-      const {displayName} = user
+      const {displayName, photoUrl, uid} = user
       const res = await commentsRef.add({
           body: body,
           postedBy: displayName,
+          pfpUrl: photoUrl,
+          uid: uid,
           snaps: 0,
           timestamp: firebase.firestore.FieldValue.serverTimestamp()
       }, { merge: true });
       setBody(''); 
     } catch (error) {
-      
+      console.log(error)
     }
   }
 

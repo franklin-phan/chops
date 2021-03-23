@@ -100,7 +100,7 @@ function Post(data) {
       {/* Comments if not undefined */}
       {comments.map((comment, index) => {
         return showComments ? (
-          <Comment data={comment} itemID={itemID} key={index + itemID} isLoggedIn={userLoggedIn(user)} />
+          <Comment data={comment} user={user} itemID={itemID} key={index + itemID} isLoggedIn={userLoggedIn(user)} />
         ) : null
       })}
 
