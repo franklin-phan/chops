@@ -261,7 +261,6 @@ function Profile() {
                     {displayFollow(user, uid)}
 
                   </div>
-<<<<<<< HEAD
                     {followers ? <ul>Followers: {followers.map((tuple) => {
                       return (
                         <li>
@@ -276,11 +275,6 @@ function Profile() {
                           <a href={`/profile/${tuple[1]}`}><img src={tuple[2]}/>  {tuple[0]}</a>
                         </li>                      )
                     })}</ul>: <p>You dont follow anyone</p>}
-=======
-                  {/* {followers ? <div>Followers: {followers.map((name) => {
-                      return <p>{name}</p>
-                    })}</div>: <p>No Followers exist</p>} */}
->>>>>>> 1bf38e9a47b1f1e1cafee07e9b43eb1b0d2a4385
                   <p className="profile-feed-title">{profileData.displayName}'s Posts:</p>
                 </div>
                 : null}
