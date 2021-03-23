@@ -104,6 +104,15 @@ button {
   outline: none;
 }
 
+.JamSessionLogo {
+  background-image: url('./JamSessionLogo.png');
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 370px;
+  height: 110px;
+  top: -40px;
+  left: -5px;
+}
 .navbar-content {
     display: flex;
     width: 200px;
@@ -263,6 +272,10 @@ button {
 a {
   text-decoration: none;
   color: black;
+}
+
+header {
+  height: 50px;
 }
 
 .header-text {

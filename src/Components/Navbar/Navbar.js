@@ -15,7 +15,7 @@ export default function Navbar(props) {
   return (
     <header>
       <div className="wrapper">
-        <a href={"/feed"}><h1>Jam Session</h1></a>
+        <a href={"/feed"}><div className="JamSessionLogo"></div></a>
         {user ?
           <div className="navbar-content">
             <div className='user-profile'>
@@ -41,7 +41,7 @@ export default function Navbar(props) {
           </div>
           :
           <div>
-            <button onClick={()=>{window.location = '/'}}>Homepage</button>
+            <button style={{marginTop: 10}} onClick={()=>{window.location = '/'}}>Homepage</button>
           </div>
         }
       </div>

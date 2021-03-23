@@ -282,7 +282,7 @@ function Profile() {
                       </ul>
                     </div>
                     {/* Follow buttons */}
-                    {userLoggedIn(user) ? displayFollow(user, uid) : <h1>Issue</h1>}
+                    {userLoggedIn(user) ? displayFollow(user, uid) : null}
 
                   </div>
                   {followers ? <ul>Followers: {followers.map((tuple) => {
