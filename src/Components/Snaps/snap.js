@@ -68,9 +68,12 @@ export default function Snap({ snaps, itemID, user, isLoggedIn }) {
                         {curSnaps > 0 ? <p>{curSnaps}</p>:<p></p>}
                     </div>}
             </div> 
-        : <div><img src={snapFalse} alt='Snap False'/><p>{curSnaps}</p></div>
+        : <div className="post-info-container">
+        <img src={snapFalse} width="30" height="30" alt='Snap False'/>
+        {curSnaps > 0 ? <p>{curSnaps}</p>:<p></p>}
+    </div>
     }
-  
+    
     return (
         <div>
             {displaySnap()}
