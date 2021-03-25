@@ -19,7 +19,9 @@ export default function Navbar(props) {
         {user ?
           <div className="navbar-content">
             <div className='user-profile'>
-              <img src={user.photoUrl} />
+              <a href={`/profile/${user.uid}`}>
+                <img src={user.photoUrl} />
+              </a>
             </div>
             <DropDownMenu menuColor="#fff" menuTopMargin="59px" actions={
               [{
