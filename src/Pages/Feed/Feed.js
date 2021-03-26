@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { selectUser } from '../../userRedux'
 import Navbar from '../../Components/Navbar/Navbar'
 import MakePost from '../../Components/MakePost/MakePost'
+import ProfileSnippet from '../../Components/Profile/ProfileSnippet'
 import Player from '../../Components/customPlayer/player'
 import './Feed.css'
 
@@ -30,6 +31,7 @@ function Feed() {
       />
       <div className='feed-container'>
         <MakePost user={user} />
+        <ProfileSnippet user={user} />
         <section className='display-item'>
           <div className="wrapper">
             <ul>
