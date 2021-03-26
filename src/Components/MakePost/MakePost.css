@@ -14,7 +14,13 @@
 }
 
 @media only screen and (max-width: 800px){
-    .add-item {
-        grid-area: 1 / 2 / 4 / 12;
-    }
+  .add-item {
+      grid-area: 1 / 2 / 4 / 12;
+  }
+}
+
+@media only screen and (max-width: 800px){
+  .add-item {
+      grid-area: 1 / 2 / 4 / 12;
+  }
 }

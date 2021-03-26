@@ -1,10 +1,9 @@
+/* Element Defaults */
+
 body {
   font-family: 'Open Sans', sans-serif;
   background-color: #fff;
 }
-
-
-/* Element Defaults */
 
 button {
   border-radius: 15px;
@@ -54,10 +53,6 @@ input {
   border: 1px solid lightgray;
 }
 
-textarea {
-  border: 1px solid lightgray;
-}
-
 .inputError {
     background-color: rgb(255, 224, 224);
     border: 1px solid rgb(255, 111, 111);
@@ -68,10 +63,6 @@ h2 {
   padding: 0;
   margin: 0;
   font-weight: 400;
-}
-
-li p {
-  padding: 10px;
 }
 
 ul {
@@ -86,12 +77,11 @@ li {
   margin-bottom: 30px;
 }
 
-/* Utility 2.0 */
-
-/* size */
-.w-49 {
-    width: 49%;
+li p {
+  padding: 10px;
 }
+
+/* Utility 2.0 */
 
 /* position */
 .centered-flex-column {
@@ -122,33 +112,6 @@ li {
 a {
   text-decoration: none;
   color: white;
-}
-
-header {
-  height: 50px;
-}
-
-.header-text {
-    font-size: 30px;
-    margin: 10px;
-    font-weight: 600;
-}
-
-.hero-brand {
-    font-size: 60px;
-    margin-top: 0;
-}
-
-.auth-header {
-    margin-top: 0;
-}
-
-.auth-header-small {
-    font-size: 24px;
-}
-
-.slogan-text {
-    font-size: 18px;
 }
 
 .text-light {

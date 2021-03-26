@@ -61,3 +61,8 @@
   font-size: 12px;
   margin: 0px;
 }
+
+textarea {
+  border: 1px solid lightgray;
+  outline: none;
+}

@@ -69,3 +69,18 @@
     text-align: center;
     grid-area: 17 / 1 / 18 / 11;
 }
+
+header {
+  height: 50px;
+}
+
+.header-text {
+    font-size: 30px;
+    margin: 10px;
+    font-weight: 600;
+}
+
+.hero-brand {
+    font-size: 60px;
+    margin-top: 0;
+}

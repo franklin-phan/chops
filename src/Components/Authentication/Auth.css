@@ -39,3 +39,15 @@
     font-family: Roboto;
     user-select: none
 }
+
+.auth-header {
+    margin-top: 0;
+}
+
+.auth-header-small {
+    font-size: 24px;
+}
+
+.slogan-text {
+    font-size: 18px;
+}
