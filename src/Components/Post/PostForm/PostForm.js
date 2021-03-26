@@ -1,4 +1,5 @@
 import React from 'react'
+import './PostForm.css'
 
 export default function PostForm(props) {
   const title = props.title
@@ -9,7 +10,13 @@ export default function PostForm(props) {
   return (
     <section>
       <form onSubmit={handleSubmit} className="createPostForm">
-        <legend>Create a new post</legend>
+        <div className="flex-row flex-align-center create-post-profile-wrapper">
+          <div className="user-profile">
+            {props.user ? <img src={props.user.photoUrl} alt='Profile Pic Loading' /> : null}
+          </div>
+          {props.user ? <a>{props.user.displayName}</a> : null}
+        </div>
+
         <input type="text" name="currentItem" placeholder="Describe your music" onChange={changeTitle} value={title} />
         <input type="text" name="linkValue" placeholder="SoundCloud, Spotify, or YouTube Link" onChange={changeSongLink} value={songLink} />
         <button>Post</button>

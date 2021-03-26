@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import PostForm from '../Post/PostForm';
+import PostForm from '../Post/PostForm/PostForm';
 // import firebase from '../../firebase.js';
 import { db } from '../../firebase';
 import firebase from 'firebase';
@@ -52,8 +52,6 @@ function MakePost(user) {
 
   return (
     <div className='add-item'>
-      {user.user ? <img src={user.user.photoUrl} alt='Profile Pic Loading' /> : null}
-      {user.user ? <a>{user.user.displayName}</a> : null}
 
       {console.log(user.user)}
       <PostForm
@@ -62,6 +60,7 @@ function MakePost(user) {
         handleSubmit={handleSubmit}
         title={title}
         songLink={songLink}
+        user={user.user}
       />
     </div>
   );

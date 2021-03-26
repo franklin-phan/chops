@@ -107,6 +107,10 @@ li p {
     justify-content: space-between;
 }
 
+.flex-align-center {
+  align-items: center;
+}
+
 /* text */
 
 a {
