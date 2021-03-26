@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-
+import "./Navbar.css"
 import { logout } from '../../userRedux';
 import { useDispatch } from 'react-redux';
 
 import SignUpModal from '../Authentication/SignUpModal'
 import SignInModal from '../Authentication/SignInModal'
-import DropDownMenu from '../Utils/DropDownMenu';
+import DropDownMenu from '../Utils/DropDownMenu/DropDownMenu';
 
 export default function Navbar(props) {
   const { user, profilePage } = props;
@@ -15,7 +15,7 @@ export default function Navbar(props) {
   return (
     <header>
       <div className="wrapper">
-        <a href={"/feed"}><div className="JamSessionLogo"></div></a>
+        <a href={"/feed"}><div className="JamSessionLogo" style={{ backgroundImage: "url(" + process.env.PUBLIC_URL + "/JamSessionLogo.png" }}></div></a>
         {user ?
           <div className="navbar-content">
             <div className='user-profile'>
@@ -43,7 +43,7 @@ export default function Navbar(props) {
           </div>
           :
           <div>
-            <button style={{marginTop: 10}} onClick={()=>{window.location = '/'}}>Homepage</button>
+            <button style={{ marginTop: 10 }} onClick={() => { window.location = '/' }}>Homepage</button>
           </div>
         }
       </div>

@@ -8,6 +8,8 @@ import { selectUser } from '../../userRedux'
 import EditProfile from './editProfile'
 import { KeyboardArrowUpSharp } from "@material-ui/icons";
 import UpdateFieldModal from "../Utils/EditModal"
+import './Profile.css'
+
 function Profile() {
   // const { user } = props;
   const user = useSelector(selectUser);
@@ -100,43 +102,43 @@ function Profile() {
           return db.collection("users").doc(key).get()
         }
       })
-          if (promises[0]) {
-            // console.log(promises) 
-            Promise.all(promises).then((values) => {
-              const followingNames = values.filter((value) => {
-                if (!value) {
-                  return false; // skip
-                }
-                return true;
-              }).map((value, index) => {
-                // console.log(value)
-                if (value) {
-                  // console.log("YES")
-                  return [value.data().displayName, keys[index], value.data().pfpUrl]
-                }
-              })              
-              // console.log(followingNames)
-              setFollowing(followingNames)
-            })
-          }
-        }
-        // s re renders
-        if (!profileData) {
-          setS(!s)
-        } else{
-          // console.log(profileData)
-          setBio(profileData.bio)
-          setHeadline(profileData.headline)
-          setYoutubeLink(profileData.youtubeLink);
-          setSpotifyLink(profileData.spotifyLink);
-          setSoundcloudLink(profileData.soundcloudLink);
-          setPronouns(profileData.pronouns)
-          setDisplayName(profileData.displayName)
-        }
-        
+      if (promises[0]) {
+        // console.log(promises) 
+        Promise.all(promises).then((values) => {
+          const followingNames = values.filter((value) => {
+            if (!value) {
+              return false; // skip
+            }
+            return true;
+          }).map((value, index) => {
+            // console.log(value)
+            if (value) {
+              // console.log("YES")
+              return [value.data().displayName, keys[index], value.data().pfpUrl]
+            }
+          })
+          // console.log(followingNames)
+          setFollowing(followingNames)
+        })
+      }
+    }
+    // s re renders
+    if (!profileData) {
+      setS(!s)
+    } else {
+      // console.log(profileData)
+      setBio(profileData.bio)
+      setHeadline(profileData.headline)
+      setYoutubeLink(profileData.youtubeLink);
+      setSpotifyLink(profileData.spotifyLink);
+      setSoundcloudLink(profileData.soundcloudLink);
+      setPronouns(profileData.pronouns)
+      setDisplayName(profileData.displayName)
+    }
 
-    }, [s])
-    
+
+  }, [s])
+
   function handleSubmit(e) {
     e.preventDefault();
     db.collection("users").doc(uid).update({

@@ -1,0 +1,20 @@
+.add-item {
+  grid-area: 1 / 2 / 1 / 5;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  border-top: 2px solid #482880;
+  padding: 60px 18px;
+  box-shadow: 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);
+  margin-bottom: 34px; 
+}
+
+.add-item form {
+  width: 100%;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 800px){
+    .add-item {
+        grid-area: 1 / 2 / 4 / 12;
+    }
+}

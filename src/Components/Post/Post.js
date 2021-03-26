@@ -11,8 +11,9 @@ import { selectUser } from '../../userRedux'
 import { userLoggedIn, userIsOwner } from '../Authentication/IsLoggedIn'
 import ReactPlayer from 'react-player'
 import ConfirmDeleteModal from '../Utils/ConfirmDeleteModal'
-
+import './Post.css'
 import Time from '../../Time'
+
 function Post(data) {
   const user = useSelector(selectUser);
   // console.log(user)

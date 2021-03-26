@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-import DropDownMenu from './DropDownMenu'
+import DropDownMenu from './DropDownMenu/DropDownMenu'
 
 const customStyles = {
   overlay: {

@@ -6,6 +6,8 @@ import { db } from '../../firebase'
 import Time from '../../Time'
 import ConfirmDeleteModal from '../Utils/ConfirmDeleteModal'
 import { userIsOwner } from '../Authentication/IsLoggedIn'
+import './Comment.css'
+
 function Comment({ data, itemID, isLoggedIn, user }) {
   // const user = useSelector(selectUser);
   const { id, comment } = data

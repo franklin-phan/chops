@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import '.././App.css';
-import Post from '../Components/Post/Post'
-import { db } from '../firebase';
+import Post from '../../Components/Post/Post'
+import { db } from '../../firebase';
 import { useSelector } from 'react-redux';
-import { selectUser } from '../userRedux'
-import Navbar from '../Components/Navbar/Navbar'
-import MakePost from '../Components/Post/MakePost'
-
-import Player from '../Components/customPlayer/player'
+import { selectUser } from '../../userRedux'
+import Navbar from '../../Components/Navbar/Navbar'
+import MakePost from '../../Components/MakePost/MakePost'
+import Player from '../../Components/customPlayer/player'
+import './Feed.css'
 
 function Feed() {
   const user = useSelector(selectUser);

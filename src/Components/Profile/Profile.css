@@ -1,0 +1,124 @@
+/* Profile 8.0 */
+.profile {
+  background-color: rgb(237, 237, 237);
+  padding: 40px;
+}
+
+.profile-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.profile-banner {
+  background-color: rgb(175, 175, 175);
+  display: block;
+  width: 80%;
+  height: 150px;
+  padding: 20px;
+  z-index: 1;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.profile-image {
+  border-radius: 100px;
+  border: 5px solid rgb(226, 226, 226);
+  width: 150px;
+  margin-top: 50px;
+  margin-left: 15px;
+}
+
+.profile-info {
+  padding: 50px 20px 15px 20px;
+  width: 80%;
+  background-color: white;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  margin-bottom: 24px;
+}
+
+.profile-name {
+  font-size: 28px;
+  margin: 0 0 0 15px;
+}
+
+.profile-pronouns {
+  margin: 6px 10px 2px 12px;
+  color: #555;
+}
+
+.profile-names-container {
+  display: flex;
+  align-items: center;
+}
+
+.profile-headline {
+  margin-left: 15px;
+  font-size: 20px;
+}
+
+.profile-bio {
+  width: 70%;
+  line-height: 1.5;
+  margin-left: 15px;
+}
+
+.social-medias {
+  margin-left: 15px;
+  margin-top: 35px;
+  font-size: 18px;
+}
+
+.social-media-link {
+  display: flex;
+  align-items: center;
+}
+
+.social-media-icon {
+  margin-right: 10px;
+}
+
+.edit-profile-button {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -30px;
+}
+
+.profile-feed-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: none;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    background-color: rgb(237, 237, 237);
+}
+
+.profile-display-item {
+  grid-area: 1 / 2 / 6 / 4;
+}
+
+.profile-feed-title {
+  font-size: 30px;
+  text-align: center;
+}
+
+.--feed-title {
+  font-size: 30px;
+  text-align: center;
+}
+.player-wrapper {
+  display:none;
+}
+
+.customPlayer{
+  background-color: white;
+  border-radius: 8px;
+  padding: 60px 18px;
+  box-shadow: 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);
+  margin-bottom: 34px; 
+  width:25%;
+}

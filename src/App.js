@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import { login, logout, selectUser } from './userRedux';
-import Feed from './Pages/Feed'
-import Homepage from './Pages/Homepage'
+import Feed from './Pages/Feed/Feed'
+import Homepage from './Pages/Homepage/Homepage'
 import ProfilePage from './Pages/Profile'
 import EditProfilePage from './Pages/EditProfilePage'
 
@@ -23,7 +23,6 @@ function App() {
     let isMounted = true; // note this flag denote mount status
 
     auth.onAuthStateChanged(async userAuth => {
-      // console.log("AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
       if (userAuth) {
         // user is logged in
         dispatch(login({
@@ -39,23 +38,23 @@ function App() {
       }
       return () => { isMounted = false }; // use effect cleanup to set flag false, if unmounted
     })
-    
+
   }, [dispatch]);
 
   return (
     <Router>
       <Switch>
-      <div className="app">
-        <Route path="/profile/:uid" render={ () => <ProfilePage/>} />
-        <Route path="/profile/:uid/edit" render={ () => <EditProfilePage/>} />
-        <Route exact path="/" exact render={ () => <Homepage/>}>
-          {redirectLogin ? <Redirect to="/feed" /> : <Homepage/>}
-        </Route>
-        <Route exact path="/feed" > 
-          {redirectLogout ? console.log("attempting to redirect") : <Feed/>}
-          {!user ? <Redirect to="/" /> : null}
-        </Route>
-      </div>
+        <div className="app">
+          <Route path="/profile/:uid" render={() => <ProfilePage />} />
+          <Route path="/profile/:uid/edit" render={() => <EditProfilePage />} />
+          <Route exact path="/" exact render={() => <Homepage />}>
+            {redirectLogin ? <Redirect to="/feed" /> : <Homepage />}
+          </Route>
+          <Route exact path="/feed" >
+            {redirectLogout ? console.log("attempting to redirect") : <Feed />}
+            {!user ? <Redirect to="/" /> : null}
+          </Route>
+        </div>
       </Switch>
     </Router>
 
