@@ -3,7 +3,7 @@
   background: rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   border-top: 2px solid #482880;
-  padding: 20px 18px 30px 25px;
+  padding: 15px 15px;
   box-shadow: 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12), 0 1px 8px 0 rgba(0,0,0,.2);
   margin-bottom: 34px; 
 }
@@ -13,15 +13,8 @@
   overflow: hidden;
 }
 
-.make-post-title {
-  font-size: 20px;
-  margin-left: 10px;
-  font-family: 'Syne', sans-serif;
-}
-
-.create-post-profile-wrapper {
-  padding-bottom: 15px;
-  border-radius: 5px;
+.add-item input, .add-item button, .add-item .user-profile {
+  margin: 0 5px;
 }
 
 @media only screen and (max-width: 800px){
