@@ -50,6 +50,10 @@ function MakePost(user) {
 
     return (
         <div className='add-item'>
+          {user.user ? <img src={user.user.photoUrl} alt='Profile Pic Loading'/>:null}
+          {user.user ? <a>{user.user.displayName}</a>:null}
+
+            {console.log(user.user)}
             <PostForm
                 changeTitle={changeTitle}
                 changeSongLink={changeSongLink}

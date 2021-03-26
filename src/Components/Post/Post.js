@@ -71,7 +71,9 @@ function Post(data) {
         </a>
         <div className="centered-flex-column">
           <p className="post-author"><a href={`/profile/${uid}`}>{displayName}</a></p>
-          <time>{convertTimestamp(timestamp)}</time>
+          <a className="post-timestamp">
+            <time>{convertTimestamp(timestamp)}</time>
+          </a>
         </div>
         {userIsOwner(user, uid) ?
           <ConfirmDeleteModal deleteItem={() => removeItem(itemID)} itemName="post" />
@@ -109,7 +111,6 @@ function Post(data) {
         <CommentInput itemID={itemID} user={user} hidden={false} isLoggedIn={userLoggedIn(user)} />
         : null}
       </div>
-
     </li>
   );
 }
