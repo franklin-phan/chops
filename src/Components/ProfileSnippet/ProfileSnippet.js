@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { db } from '../../firebase';
-
+import './ProfileSnippet.css'
 
 function ProfileSnippet(user) {
   const [displayName, setDisplayName] = useState()
@@ -23,13 +23,13 @@ function ProfileSnippet(user) {
   }, [displayName, pfpUrl])
 
   return (
-    <div>
-        <h1>Profile Snippet</h1>
-        {user.user ? <img src={user.user.photoUrl} alt='Profile Pic Loading' /> : null}
-        {user.user ? <a>{user.user.displayName}</a> : null}
-        <h1>Placeholder Headline</h1>
-        {console.log(user.user)}
-     </div>
+    <div className="profile-snippet-container">
+      <h1>Profile Snippet</h1>
+      {user.user ? <img src={user.user.photoUrl} alt='Profile Pic Loading' /> : null}
+      {user.user ? <a>{user.user.displayName}</a> : null}
+      <h1>Placeholder Headline</h1>
+      {console.log(user.user)}
+    </div>
   );
 }
 
