@@ -81,7 +81,6 @@ function Post(data) {
           : null}
       </div>
 
-      {/* <hr style={{ margin: "0 20px" }}></hr> */}
       <p>{title}</p>
 
       {/* Media Display */}

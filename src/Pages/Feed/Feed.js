@@ -30,8 +30,8 @@ function Feed() {
         user={user}
       />
       <div className='feed-container'>
+        {/* <ProfileSnippet user={user} /> */}
         <MakePost user={user} />
-        <ProfileSnippet user={user} />
         <section className='display-item'>
           <div className="wrapper">
             <ul>

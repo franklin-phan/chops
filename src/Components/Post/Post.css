@@ -20,6 +20,7 @@
   transition: 0.5s;
   transition-timing-function: ease-in-out;
 } */
+
 .post-container > p {
   word-wrap: break-word;
   margin-top: 0;

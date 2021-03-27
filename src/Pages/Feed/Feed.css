@@ -10,13 +10,12 @@
 }
 
 .display-item {
-  grid-area: 1 / 5 / 6 / 11;
-  margin-left: 30px;
+  grid-area: 4 / 5 / 6 / 11;
 }
 
 @media only screen and (max-width: 1300px){
     .display-item {
-        grid-area: 1 / 5 / 6 / 12;
+        grid-area: 4 / 5 / 6 / 12;
     }
 }
 
