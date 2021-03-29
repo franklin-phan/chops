@@ -26,7 +26,7 @@ function ProfileSnippet(user) {
     <div className="profile-snippet-container">
       <div className="profile-snippet-header">
         <div className="profile-snippet-image-wrapper">
-          {user.user ? <img src={user.user.photoUrl} className="snippet-image" alt='Profile Pic Loading' /> : null}
+          {user.user ? <a href={"/profile/" + user.user.uid}><img src={user.user.photoUrl} className="snippet-image" alt='Profile Pic Loading' /></a> : null}
         </div>
       </div>
 

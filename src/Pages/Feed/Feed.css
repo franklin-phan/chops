@@ -7,6 +7,7 @@
     grid-row-gap: 0px;
     padding-top: 20px;
     background: #161623;
+    min-height: 100%;
 }
 
 .display-item {

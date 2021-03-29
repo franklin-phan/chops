@@ -6,7 +6,8 @@ import { selectUser } from '../../userRedux'
 import Navbar from '../../Components/Navbar/Navbar'
 import MakePost from '../../Components/MakePost/MakePost'
 import ProfileSnippet from '../../Components/ProfileSnippet/ProfileSnippet'
-import Player from '../../Components/customPlayer/player'
+import Player from '../../Components/test-player/Player'
+// import Player from '../../Components/customPlayer/player'
 import './Feed.css'
 
 function Feed() {
@@ -43,8 +44,8 @@ function Feed() {
             </ul>
           </div>
         </section>
+        <Player/>
       </div>
-      {/* <Player /> */}
     </div>
   );
 };

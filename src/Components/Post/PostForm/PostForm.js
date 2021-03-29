@@ -13,7 +13,7 @@ export default function PostForm(props) {
 
         <div className="flex-row flex-align-center create-post-describe-wrapper">
           <div className="user-profile">
-            {props.user ? <img src={props.user.photoUrl} alt='Profile Pic Loading' /> : null}
+            {props.user ? <a href={"/profile/" + props.user.uid}><img src={props.user.photoUrl} alt='Profile Pic Loading' /></a> : null}
           </div>
           <input type="text" name="currentItem" placeholder="Describe your music" onChange={changeTitle} value={title} />
         </div>
