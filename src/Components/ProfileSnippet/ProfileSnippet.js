@@ -24,11 +24,18 @@ function ProfileSnippet(user) {
 
   return (
     <div className="profile-snippet-container">
-      <h1>Profile Snippet</h1>
-      {user.user ? <img src={user.user.photoUrl} alt='Profile Pic Loading' /> : null}
-      {user.user ? <a>{user.user.displayName}</a> : null}
-      <h1>Placeholder Headline</h1>
-      {console.log(user.user)}
+      <div className="profile-snippet-header">
+        <div className="profile-snippet-image-wrapper">
+          {user.user ? <img src={user.user.photoUrl} className="snippet-image" alt='Profile Pic Loading' /> : null}
+        </div>
+      </div>
+
+      <div className="profile-snippet-body">
+        <div>
+          {user.user ? <a href={"/profile/" + user.user.uid} className="snippet-name">{user.user.displayName}</a> : null}
+          <p className="snippet-headline">Placeholder Headline</p>
+        </div>
+      </div>
     </div>
   );
 }

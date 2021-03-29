@@ -1,7 +1,58 @@
 .profile-snippet-container {
-  grid-area: 1 / 3 / 8 / 5;
-  padding-right: 20px;
+  grid-area: 1 / 2 / 8 / 5;
+  padding-right: 40px;
+  margin-top: 10px;
 }
+
+.profile-snippet-header {
+  background-color: rgba(99, 74, 133, 0.397);
+  height: 65px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.snippet-image {
+  border-radius: 100px;
+  border: 2px solid rgb(179, 179, 179);
+  width: 85px;
+  margin-top: -45px;
+}
+
+.profile-snippet-body {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.137);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 70px;
+  padding-bottom: 10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.profile-snippet-body > div {
+  padding: 0 30px;
+  text-align: center;
+}
+
+.profile-snippet-image-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 65px;
+}
+
+.snippet-name {
+  font-size: 20px;
+  color: white;
+}
+
+.snippet-headline {
+  font-size: 14px;
+  color: rgb(185, 185, 185);
+}
+  
 
 @media only screen and (max-width: 800px){
     .profile-snippet-container {
@@ -9,8 +60,9 @@
     }
 }
 
-@media only screen and (max-width: 1300px){
+@media only screen and (max-width: 1500px){
     .profile-snippet-container {
-        grid-area: 1 / 2 / 8 / 5;
+        grid-area: 1 / 1 / 8 / 5;
+        padding-left: 30px;
     }
 }
