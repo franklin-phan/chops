@@ -121,6 +121,10 @@ li p {
   align-items: center;
 }
 
+.m-0 {
+  margin: 0;
+}
+
 /* text */
 
 a {

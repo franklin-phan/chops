@@ -11,3 +11,8 @@
 .openFollowModalButton:hover {
   text-decoration: underline;
 }
+
+.user-follow-snippet {
+  display: flex;
+  align-items: center;
+}

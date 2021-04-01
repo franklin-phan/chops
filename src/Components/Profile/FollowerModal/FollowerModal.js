@@ -48,8 +48,13 @@ export default function FollowerModal(props) {
           <div className="followerListContainer">
             {props.users ? <ul> {props.users.map((tuple) => {
               return (
-                <li>
-                  <a className="text-dark" href={`/profile/${tuple[1]}`}><img src={tuple[2]} />{tuple[0]}</a>
+                <li className="m-0">
+                  <a className="text-dark user-follow-snippet" href={`/profile/${tuple[1]}`}>
+                    <div className="user-profile">
+                      <img src={tuple[2]} />
+                    </div>
+                    <p>{tuple[0]}</p>
+                  </a>
                 </li>
               )
             })}</ul> : <p>{props.empty}</p>}
