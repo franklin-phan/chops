@@ -42,7 +42,7 @@ export default function ConfirmDeleteModal(props) {
 
   return (
     <div className="delete-post-container">
-      <DropDownMenu menuColor="#333" actions={[{
+      <DropDownMenu menuColor="#ddd" actions={[{
         name: "Delete",
         action: openModal
       }]} />
