@@ -258,13 +258,14 @@ function Profile() {
                       <div className="edit-profile-button">
                         {userIsOwner(user, uid) ? <div onClick={() => setEditProfile(true)}>
                           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="#ddd"><path d="M8.424 12.282l4.402 4.399-5.826 1.319 1.424-5.718zm15.576-6.748l-9.689 9.804-4.536-4.536 9.689-9.802 4.536 4.534zm-6 8.916v6.55h-16v-12h6.743l1.978-2h-10.721v16h20v-10.573l-2 2.023z" /></svg>
-                        </div> : null}
+                        </div> : <a>{userLoggedIn(user) ? displayFollow(user, uid) : null}</a>}
                       </div>
                     </div>
                     <div className="profile-info">
                       <div className="profile-names-container">
                         <p className="profile-name">{profileData.displayName}</p>
-                        <p className="profile-pronouns">({profileData.pronouns})</p>
+                        {profileData.pronouns !=="" ? <p className="profile-pronouns">({profileData.pronouns})</p>:null}
+          
                       </div>
                       <p className="profile-headline">{profileData.headline}</p>
                       <p className="profile-bio">{profileData.bio}</p>
@@ -287,11 +288,8 @@ function Profile() {
                         </a></li> : null}
                       </ul>
                     </div>
-                    {/* Follow buttons */}
-                    {userLoggedIn(user) ? displayFollow(user, uid) : null}
 
                   </div>
-                  {console.log('posts',posts)}
                   {posts.length !== 0 ? <p className="profile-feed-title">{profileData.displayName}'s Posts:</p>
                   :<p className="profile-feed-title">No Posts Yet</p>}
                 </div>
