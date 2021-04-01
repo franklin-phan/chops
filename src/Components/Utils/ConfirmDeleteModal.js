@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-import DropDownMenu from './DropDownMenu'
+import DropDownMenu from './DropDownMenu/DropDownMenu'
 
 const customStyles = {
   overlay: {
@@ -42,7 +42,7 @@ export default function ConfirmDeleteModal(props) {
 
   return (
     <div className="delete-post-container">
-      <DropDownMenu menuColor="#333" actions={[{
+      <DropDownMenu menuColor="#ddd" actions={[{
         name: "Delete",
         action: openModal
       }]} />

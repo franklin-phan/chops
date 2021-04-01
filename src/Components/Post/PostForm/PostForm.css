@@ -1,0 +1,39 @@
+.createPostForm input {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  outline: none;
+  caret-color: white;
+  color: white;
+}
+
+.createPostForm input::placeholder { 
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(211, 211, 211);
+  opacity: 1; /* Firefox */
+}
+
+.make-post-title {
+  font-size: 20px;
+  margin-left: 10px;
+  font-family: 'Syne', sans-serif;
+}
+
+.create-post-describe-wrapper input {
+  padding: 0 5px 7px 0;
+}
+
+.create-post-link-wrapper {
+  margin-left: 12px;
+}
+
+.create-post-link {
+  width: 80%;  
+}
+
+.create-post-link input {
+  font-size: 12px;
+}
+
+.create-post-button {
+  width: 20%;
+}

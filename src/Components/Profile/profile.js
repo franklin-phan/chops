@@ -8,6 +8,9 @@ import { selectUser } from '../../userRedux'
 import EditProfile from './editProfile'
 import { KeyboardArrowUpSharp } from "@material-ui/icons";
 import UpdateFieldModal from "../Utils/EditModal"
+import FollowerModal from "./FollowerModal/FollowerModal"
+import './Profile.css'
+
 function Profile() {
   // const { user } = props;
   const user = useSelector(selectUser);
@@ -58,13 +61,13 @@ function Profile() {
       const followersKeys = Object.keys(followersObject)
       const keys = []
       const promises = followersKeys.map((key) => {
-        console.log(followersObject[key])
+        // console.log(followersObject[key])
         if (followersObject[key] === true) {
           keys.push(key)
           return db.collection("users").doc(key).get()
         }
       })
-      console.log(promises)
+      // console.log(promises)
 
       if (promises[0]) {
         // console.log(promises) 
@@ -75,19 +78,18 @@ function Profile() {
             }
             return true;
           }).map((value, index) => {
-            console.log(value)
+            // console.log(value)
             if (value) {
-              // console.log("YES")
               return [value.data().displayName, keys[index], value.data().pfpUrl]
             }
           })
-          console.log(followersNames)
+          // console.log(followersNames)
           setFollowers(followersNames)
         })
       }
     }
     const followingObject = doc.data().following
-    console.log(followingObject)
+    // console.log(followingObject)
     if (!followingObject) {
 
     } else {
@@ -100,43 +102,43 @@ function Profile() {
           return db.collection("users").doc(key).get()
         }
       })
-          if (promises[0]) {
-            // console.log(promises) 
-            Promise.all(promises).then((values) => {
-              const followingNames = values.filter((value) => {
-                if (!value) {
-                  return false; // skip
-                }
-                return true;
-              }).map((value, index) => {
-                // console.log(value)
-                if (value) {
-                  // console.log("YES")
-                  return [value.data().displayName, keys[index], value.data().pfpUrl]
-                }
-              })              
-              // console.log(followingNames)
-              setFollowing(followingNames)
-            })
-          }
-        }
-        // s re renders
-        if (!profileData) {
-          setS(!s)
-        } else{
-          // console.log(profileData)
-          setBio(profileData.bio)
-          setHeadline(profileData.headline)
-          setYoutubeLink(profileData.youtubeLink);
-          setSpotifyLink(profileData.spotifyLink);
-          setSoundcloudLink(profileData.soundcloudLink);
-          setPronouns(profileData.pronouns)
-          setDisplayName(profileData.displayName)
-        }
-        
+      if (promises[0]) {
+        // console.log(promises) 
+        Promise.all(promises).then((values) => {
+          const followingNames = values.filter((value) => {
+            if (!value) {
+              return false; // skip
+            }
+            return true;
+          }).map((value, index) => {
+            // console.log(value)
+            if (value) {
+              // console.log("YES")
+              return [value.data().displayName, keys[index], value.data().pfpUrl]
+            }
+          })
+          // console.log(followingNames)
+          setFollowing(followingNames)
+        })
+      }
+    }
+    // s re renders
+    if (!profileData) {
+      setS(!s)
+    } else {
+      // console.log(profileData)
+      setBio(profileData.bio)
+      setHeadline(profileData.headline)
+      setYoutubeLink(profileData.youtubeLink);
+      setSpotifyLink(profileData.spotifyLink);
+      setSoundcloudLink(profileData.soundcloudLink);
+      setPronouns(profileData.pronouns)
+      setDisplayName(profileData.displayName)
+    }
 
-    }, [s])
-    
+
+  }, [s])
+
   function handleSubmit(e) {
     e.preventDefault();
     db.collection("users").doc(uid).update({
@@ -255,7 +257,7 @@ function Profile() {
                       <img className="profile-image" src={profileData.pfpUrl} />
                       <div className="edit-profile-button">
                         {userIsOwner(user, uid) ? <div onClick={() => setEditProfile(true)}>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="#333"><path d="M8.424 12.282l4.402 4.399-5.826 1.319 1.424-5.718zm15.576-6.748l-9.689 9.804-4.536-4.536 9.689-9.802 4.536 4.534zm-6 8.916v6.55h-16v-12h6.743l1.978-2h-10.721v16h20v-10.573l-2 2.023z" /></svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="#ddd"><path d="M8.424 12.282l4.402 4.399-5.826 1.319 1.424-5.718zm15.576-6.748l-9.689 9.804-4.536-4.536 9.689-9.802 4.536 4.534zm-6 8.916v6.55h-16v-12h6.743l1.978-2h-10.721v16h20v-10.573l-2 2.023z" /></svg>
                         </div> : null}
                       </div>
                     </div>
@@ -266,6 +268,10 @@ function Profile() {
                       </div>
                       <p className="profile-headline">{profileData.headline}</p>
                       <p className="profile-bio">{profileData.bio}</p>
+                      <div className="followsCountContainer">
+                        <FollowerModal modalName="Followers" users={followers} empty={`Nobody is following ${profileData.displayName} yet.`} />
+                        <FollowerModal modalName="Following" users={following} empty={`${profileData.displayName} isn't following anyone yet.`} />
+                      </div>
                       <ul className="social-medias" >
                         {profileData.spotifyLink ? <li ><a href={profileData.spotifyLink} className="social-media-link">
                           <svg className="social-media-icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" fill="#1ed760"><path d="M19.098 10.638c-3.868-2.297-10.248-2.508-13.941-1.387-.593.18-1.22-.155-1.399-.748-.18-.593.154-1.22.748-1.4 4.239-1.287 11.285-1.038 15.738 1.605.533.317.708 1.005.392 1.538-.316.533-1.005.709-1.538.392zm-.126 3.403c-.272.44-.847.578-1.287.308-3.225-1.982-8.142-2.557-11.958-1.399-.494.15-1.017-.129-1.167-.623-.149-.495.13-1.016.624-1.167 4.358-1.322 9.776-.682 13.48 1.595.44.27.578.847.308 1.286zm-1.469 3.267c-.215.354-.676.465-1.028.249-2.818-1.722-6.365-2.111-10.542-1.157-.402.092-.803-.16-.895-.562-.092-.403.159-.804.562-.896 4.571-1.045 8.492-.595 11.655 1.338.353.215.464.676.248 1.028zm-5.503-17.308c-6.627 0-12 5.373-12 12 0 6.628 5.373 12 12 12 6.628 0 12-5.372 12-12 0-6.627-5.372-12-12-12z" /></svg>
@@ -285,19 +291,6 @@ function Profile() {
                     {userLoggedIn(user) ? displayFollow(user, uid) : null}
 
                   </div>
-                  {followers ? <ul>Followers: {followers.map((tuple) => {
-                    return (
-                      <li>
-                        <a href={`/profile/${tuple[1]}`}><img src={tuple[2]} />{tuple[0]}</a>
-                      </li>
-                    )
-                  })}</ul> : <p>No Followers exist</p>}
-                  {following ? <ul>Following: {following.map((tuple) => {
-                    return (
-                      <li>
-                        <a href={`/profile/${tuple[1]}`}><img src={tuple[2]} />  {tuple[0]}</a>
-                      </li>)
-                  })}</ul> : <p>You dont follow anyone</p>}
                   <p className="profile-feed-title">{profileData.displayName}'s Posts:</p>
                 </div>
                 : null}
@@ -318,7 +311,7 @@ function Profile() {
           }
         </div>
       }
-    </div>
+    </div >
   );
 }
 

@@ -11,8 +11,9 @@ import { selectUser } from '../../userRedux'
 import { userLoggedIn, userIsOwner } from '../Authentication/IsLoggedIn'
 import ReactPlayer from 'react-player'
 import ConfirmDeleteModal from '../Utils/ConfirmDeleteModal'
-
+import './Post.css'
 import Time from '../../Time'
+
 function Post(data) {
   const user = useSelector(selectUser);
   // console.log(user)
@@ -71,14 +72,15 @@ function Post(data) {
         </a>
         <div className="centered-flex-column">
           <p className="post-author"><a href={`/profile/${uid}`}>{displayName}</a></p>
-          <time>{convertTimestamp(timestamp)}</time>
+          <a className="post-timestamp">
+            <time>{convertTimestamp(timestamp)}</time>
+          </a>
         </div>
         {userIsOwner(user, uid) ?
           <ConfirmDeleteModal deleteItem={() => removeItem(itemID)} itemName="post" />
           : null}
       </div>
 
-      {/* <hr style={{ margin: "0 20px" }}></hr> */}
       <p>{title}</p>
 
       {/* Media Display */}
@@ -109,7 +111,6 @@ function Post(data) {
         <CommentInput itemID={itemID} user={user} hidden={false} isLoggedIn={userLoggedIn(user)} />
         : null}
       </div>
-
     </li>
   );
 }

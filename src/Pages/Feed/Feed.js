@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import '.././App.css';
-import Post from '../Components/Post/Post'
-import { db } from '../firebase';
+import Post from '../../Components/Post/Post'
+import { db } from '../../firebase';
 import { useSelector } from 'react-redux';
-import { selectUser } from '../userRedux'
-import Navbar from '../Components/Navbar/Navbar'
-import MakePost from '../Components/Post/MakePost'
-
-import Player from '../Components/customPlayer/player'
+import { selectUser } from '../../userRedux'
+import Navbar from '../../Components/Navbar/Navbar'
+import MakePost from '../../Components/MakePost/MakePost'
+import ProfileSnippet from '../../Components/ProfileSnippet/ProfileSnippet'
+import Player from '../../Components/test-player/Player'
+// import Player from '../../Components/customPlayer/player'
+import './Feed.css'
 
 function Feed() {
   const user = useSelector(selectUser);
@@ -30,6 +31,7 @@ function Feed() {
         user={user}
       />
       <div className='feed-container'>
+        <ProfileSnippet user={user} />
         <MakePost user={user} />
         <section className='display-item'>
           <div className="wrapper">
@@ -42,8 +44,8 @@ function Feed() {
             </ul>
           </div>
         </section>
+        <Player/>
       </div>
-      {/* <Player /> */}
     </div>
   );
 };

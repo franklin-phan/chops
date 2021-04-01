@@ -1,0 +1,34 @@
+/* Feed 5.0 */
+.feed-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: none;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    padding-top: 20px;
+    background: #161623;
+    min-height: 100%;
+}
+
+.display-item {
+  grid-area: 4 / 5 / 6 / 11;
+}
+
+@media only screen and (max-width: 1300px){
+    .display-item {
+        grid-area: 4 / 5 / 6 / 12;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .display-item {
+        grid-area: 4 / 2 / 9 / 12;
+        margin: 0;
+    }
+}
+
+.display-item button {
+  margin-top: 0px;
+  margin-left: auto;
+  display: block;
+}

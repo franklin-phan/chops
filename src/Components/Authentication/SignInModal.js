@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import './Auth.css'
 
 import { auth, provider } from '../../google-signin'
 

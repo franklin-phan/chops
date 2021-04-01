@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import { auth, provider } from '../../google-signin'
 import SignUp from './SignUp'
+import './Auth.css'
 
 const customStyles = {
   overlay: {
