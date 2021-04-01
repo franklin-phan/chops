@@ -8,6 +8,7 @@ import { selectUser } from '../../userRedux'
 import EditProfile from './editProfile'
 import { KeyboardArrowUpSharp } from "@material-ui/icons";
 import UpdateFieldModal from "../Utils/EditModal"
+import FollowerModal from "./FollowerModal/FollowerModal"
 import './Profile.css'
 
 function Profile() {
@@ -60,13 +61,13 @@ function Profile() {
       const followersKeys = Object.keys(followersObject)
       const keys = []
       const promises = followersKeys.map((key) => {
-        console.log(followersObject[key])
+        // console.log(followersObject[key])
         if (followersObject[key] === true) {
           keys.push(key)
           return db.collection("users").doc(key).get()
         }
       })
-      console.log(promises)
+      // console.log(promises)
 
       if (promises[0]) {
         // console.log(promises) 
@@ -77,19 +78,18 @@ function Profile() {
             }
             return true;
           }).map((value, index) => {
-            console.log(value)
+            // console.log(value)
             if (value) {
-              // console.log("YES")
               return [value.data().displayName, keys[index], value.data().pfpUrl]
             }
           })
-          console.log(followersNames)
+          // console.log(followersNames)
           setFollowers(followersNames)
         })
       }
     }
     const followingObject = doc.data().following
-    console.log(followingObject)
+    // console.log(followingObject)
     if (!followingObject) {
 
     } else {
@@ -282,24 +282,15 @@ function Profile() {
                           Soundcloud
                         </a></li> : null}
                       </ul>
+                      <div className="followsCountContainer">
+                        <FollowerModal modalName="Followers" users={followers} empty={`Nobody is following ${profileData.displayName} yet.`} />
+                        <FollowerModal modalName="Following" users={following} empty={`${profileData.displayName} isn't following anyone yet.`} />
+                      </div>
                     </div>
                     {/* Follow buttons */}
                     {userLoggedIn(user) ? displayFollow(user, uid) : null}
 
                   </div>
-                  {followers ? <ul>Followers: {followers.map((tuple) => {
-                    return (
-                      <li>
-                        <a href={`/profile/${tuple[1]}`}><img src={tuple[2]} />{tuple[0]}</a>
-                      </li>
-                    )
-                  })}</ul> : <p>No Followers exist</p>}
-                  {following ? <ul>Following: {following.map((tuple) => {
-                    return (
-                      <li>
-                        <a href={`/profile/${tuple[1]}`}><img src={tuple[2]} />  {tuple[0]}</a>
-                      </li>)
-                  })}</ul> : <p>You dont follow anyone</p>}
                   <p className="profile-feed-title">{profileData.displayName}'s Posts:</p>
                 </div>
                 : null}
@@ -320,7 +311,7 @@ function Profile() {
           }
         </div>
       }
-    </div>
+    </div >
   );
 }
 

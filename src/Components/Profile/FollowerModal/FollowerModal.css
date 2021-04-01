@@ -1,0 +1,13 @@
+.followerListContainer {
+  max-height: 50vh;
+  overflow-y: scroll;
+}
+
+.openFollowModalButton {
+  cursor: pointer;
+  padding: 0 15px 10px 15px;
+}
+
+.openFollowModalButton:hover {
+  text-decoration: underline;
+}
