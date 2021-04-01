@@ -24,12 +24,13 @@ function Feed() {
       )))
     ))
   }, [])
-
+//https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3
   return (
     <div className='app'>
       <Navbar
         user={user}
       />
+      
       <div className='feed-container'>
         <ProfileSnippet user={user} />
         <MakePost user={user} />
@@ -44,7 +45,8 @@ function Feed() {
             </ul>
           </div>
         </section>
-        <Player/>
+       
+        <Player />
       </div>
     </div>
   );

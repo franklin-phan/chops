@@ -291,7 +291,9 @@ function Profile() {
                     {userLoggedIn(user) ? displayFollow(user, uid) : null}
 
                   </div>
-                  <p className="profile-feed-title">{profileData.displayName}'s Posts:</p>
+                  {console.log('posts',posts)}
+                  {posts.length !== 0 ? <p className="profile-feed-title">{profileData.displayName}'s Posts:</p>
+                  :<p className="profile-feed-title">No Posts Yet</p>}
                 </div>
                 : null}
               <div className='profile-feed-container'>
