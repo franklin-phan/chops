@@ -16,3 +16,7 @@
   display: flex;
   align-items: center;
 }
+
+.followerModalTitle {
+  color: rgb(184, 184, 184); 
+}

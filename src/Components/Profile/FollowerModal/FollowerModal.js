@@ -33,7 +33,7 @@ export default function FollowerModal(props) {
 
   return (
     <div className="centered-flex-row">
-      <div className="openFollowModalButton" onClick={openModal}>{props.modalName}: {props.users.length}</div>
+      <div className="openFollowModalButton" onClick={openModal}><span className="followerModalTitle">{props.modalName}:</span> {props.users.length}</div>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
