@@ -46,7 +46,7 @@ export default function FollowerModal(props) {
             <button type="button" className="close-modal" onClick={closeModal}>X</button>
           </div>
           <div className="followerListContainer">
-            {props.users ? <ul> {props.users.map((tuple) => {
+            {props.users.length > 0 ? <ul> {props.users.map((tuple) => {
               return (
                 <li className="m-0">
                   <a className="text-dark user-follow-snippet" href={`/profile/${tuple[1]}`}>
